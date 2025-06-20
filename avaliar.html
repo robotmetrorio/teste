@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação</title>
+  <style>
+    body {
+      background-color: transparent !important;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+    .estrela {
+      font-size: 50px;
+      cursor: pointer;
+      color: white;
+      transition: color 0.2s;
+    }
+    .amarela {
+      color: gold;
+    }
+    #mensagem {
+      margin-top: 30px;
+      font-size: 24px;
+      display: none;
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      
+  "apiKey": "AIzaSyDhXpOwgxHhM-wBya29WFI0409Z7SCtKVE",
+ 
+  "authDomain": "avaliacoes-siterobot.firebaseapp.com",
+ 
+  "databaseURL": "https://avaliacoes-siterobot-default-rtdb.firebaseio.com",
+ 
+  "projectId": "avaliacoes-siterobot",
+ 
+  "storageBucket": "avaliacoes-siterobot.firebasestorage.app",
+ 
+  "messagingSenderId": "719756570719",
+ 
+  "appId": "1:719756570719:web:082f51de46b7f891deebea"
+
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+</head>
+<body>
+  <h2>Como você avalia esta informação?</h2>
+  <div id="estrelas">
+    <span class="estrela" data-valor="1">★</span>
+    <span class="estrela" data-valor="2">★</span>
+    <span class="estrela" data-valor="3">★</span>
+    <span class="estrela" data-valor="4">★</span>
+    <span class="estrela" data-valor="5">★</span>
+  </div>
+  <div id="mensagem">Obrigado por avaliar.</div>
+  <script>
+    const nome = localStorage.getItem("nome") || "Desconhecido";
+    const matricula = localStorage.getItem("matricula") || "N/A";
+    const titulo = localStorage.getItem("tituloPagina") || "Página Avaliada";
+    const estrelas = document.querySelectorAll(".estrela");
+    const mensagem = document.getElementById("mensagem");
+    localStorage.setItem("tituloPagina", document.referrer ? document.referrer.split("/").pop().replace(".html", "") : "Página Avaliada");
+    estrelas.forEach((estrela, index) => {
+      estrela.addEventListener("click", () => {
+        const valor = parseInt(estrela.dataset.valor);
+        estrelas.forEach((e, i) => {
+          e.classList.toggle("amarela", i < valor);
+        });
+        const agora = new Date();
+        const dataFormatada = agora.toLocaleDateString('pt-BR') + " " + agora.toLocaleTimeString('pt-BR');
+        const id = Date.now();
+        db.ref("avaliacoes/" + id).set({
+          matricula: matricula,
+          nome: nome,
+          titulo: titulo,
+          valor: valor,
+          data: dataFormatada
+        });
+        mensagem.style.display = "block";
+        setTimeout(() => {
+          window.location.href = "menu.html";
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

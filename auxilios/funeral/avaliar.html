@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação</title>
+  <style>
+    body { background-color: transparent !important; color: white; font-family: Arial, sans-serif; text-align: center; padding-top: 80px; }
+    #estrelas { font-size: 50px; cursor: pointer; color: gold; }
+    #mensagem { margin-top: 30px; font-size: 24px; display: none; }
+  </style>
+</head>
+<body>
+  <h2>Como você avalia esta informação?</h2>
+  <div id="estrelas">★★★★★</div>
+  <div id="mensagem">Obrigado por avaliar.</div>
+
+  <script>
+    const nome = localStorage.getItem("nome") || "Desconhecido";
+    const matricula = localStorage.getItem("matricula") || "N/A";
+    const pagina = document.referrer ? new URL(document.referrer).title || "Página desconhecida" : "Página desconhecida";
+    const titulo = localStorage.getItem("tituloPagina") || "Página Avaliada";
+    const estrelasEl = document.getElementById("estrelas");
+    const mensagem = document.getElementById("mensagem");
+
+    estrelasEl.addEventListener("click", function (event) {
+      const estrelaClicada = Math.ceil((event.offsetX / estrelasEl.offsetWidth) * 5);
+      const agora = new Date();
+      const dataFormatada = agora.toLocaleDateString('pt-BR') + " " + agora.toLocaleTimeString('pt-BR');
+      const registro = `Matrícula: ${matricula} / Nome: ${nome} / Página: ${titulo} / Avaliação: ${estrelaClicada} estrelas / Data: ${dataFormatada}`;
+      let avaliacoes = JSON.parse(localStorage.getItem("avaliacoes") || "[]");
+      avaliacoes = avaliacoes.filter(item => {
+        const dataStr = item.split(" / ").find(part => part.startsWith("Data:"))?.split("Data: ")[1];
+        if (!dataStr) return false;
+        const [dia, mes, anoHora] = dataStr.split("/");
+        const ano = anoHora.split(" ")[0];
+        const dataItem = new Date(`${ano}-${mes}-${dia}`);
+        const diffDias = (agora - dataItem) / (1000 * 60 * 60 * 24);
+        return diffDias <= 30;
+      });
+      avaliacoes.push(registro);
+      localStorage.setItem("avaliacoes", JSON.stringify(avaliacoes));
+      mensagem.style.display = "block";
+      setTimeout(() => { window.location.href = "../../menu.html"; }, 2000);
+    });
+
+    // Guarda título da página anterior para contexto
+    localStorage.setItem("tituloPagina", document.referrer ? document.referrer.split("/").pop().replace(".html", "") : "Página Avaliada");
+  </script>
+</body>
+</html>

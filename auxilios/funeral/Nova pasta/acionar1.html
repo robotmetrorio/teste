@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Auxílios/Funeral/Como acionar?</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+      background-color: transparent !important;
+    }
+
+    .tela {
+      width: 100%;
+      height: 100vh;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent !important;
+    }
+
+    #tela-principal {
+      display: block;
+    }
+
+    .conteudo {
+      margin: 30px auto;
+      line-height: 1.5;
+      width: 520px;
+      text-align: justify;
+      color: white;
+    }
+
+    .link-contato {
+      color: #00BFFF;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    #tela-qrcode {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: transparent !important;
+      color: white;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #00BFFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 8px #00BFFF;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #009acd;
+    }
+
+    canvas {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div id="tela-principal">
+    <!-- Imagem do Menu com texto sobreposto -->
+    <div style="margin-top:-5px; margin-right:11px;">
+      <div style="position:relative; display:inline-block;">
+        <img src="../../icon/icone.titulo.png" alt="Menu" style="width:330px; height:120px;">
+        <span style="position:absolute; top:50%; right:-11%; transform:translate(-50%, -50%);
+                     font-size:23px; font-weight:bold; color:white;">COMO ACIONAR?</span>
+      </div>
+    </div>
+
+    <!-- Textos centralizados, com menos espaço -->
+     <div style="margin: 30px auto; line-height:1.5; width:520px; text-align:justify;">
+        <p style="font-family:Arial, sans-serif; font-size:20px; color:white; margin:5px 2; margin-bottom:10px;">O auxílio funeral 
+        está disponível para auxiliar em momentos difíceis, como o falecimento dos pais dos nossos colaboradores. Em casos de 
+        falecimento do próprio colaborador, do cônjuge ou dos filhos, sugerimos verificar os detalhes no item 'SEGURO DE VIDA' para 
+        obter mais informações e suporte.</p>
+    </div>
+
+      <span class="link-contato" onclick="mostrarQRCode()">Não resolveu sua dúvida? Clique aqui para entrar em contato</span>
+    </div>
+
+    <!-- Ícones de navegação -->
+    <div style="position:fixed; bottom:2px; width:100%; padding:0 20px; display:flex; justify-content:space-between; align-items:flex-start;">
+      <!-- Menu Principal -->
+      <div style="text-align:left;">
+        <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2;">
+          <span style="display:block; margin-left:12px;">MENU</span>
+          <span style="display:block; margin-left:-3px;">PRINCIPAL</span>
+        </div>
+        <a href="../../menu.html">
+          <img src="../../icon/casinha.png" alt="Home" style="width:68px; height:68px; margin-top:4px; margin-left:-1px;">
+        </a>
+      </div>
+
+      <!-- Menu Anterior -->
+      <div style="text-align:right;">
+        <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2;">
+          <span style="display:block; margin-right:55px;">MENU</span>
+          <span style="display:block; margin-right:38px;">ANTERIOR</span>
+        </div>
+        <a href="../funeral.html">
+          <img src="../../icon/voltar.png" alt="Voltar" style="width:68px; height:68px; margin-top:4px; margin-right:40px;">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA QR CODE -->
+  <div id="tela-qrcode" class="tela">
+    <h2 style="color:white;">Escaneie o QR Code</h2>
+    <canvas id="qr"></canvas>
+    <button onclick="window.location.href='../../menu.html'">Voltar</button>
+  </div>
+
+  <script>
+    const nome = localStorage.getItem("nome") || "Desconhecido";
+    const matricula = localStorage.getItem("matricula") || "N/A";
+    const email = "servicosrh@metrorio.com.br";
+    const subject = document.title;
+
+    const canvas = document.getElementById("qr");
+
+    const qr = new QRious({
+      element: canvas,
+      value: "",
+      size: 250
+    });
+
+    function atualizarQRCode() {
+      const body = `Matrícula: ${matricula}%0AColaborador: ${nome}`;
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      qr.value = mailtoLink;
+    }
+
+    function mostrarQRCode() {
+      document.getElementById("tela-principal").style.display = "none";
+      document.getElementById("tela-qrcode").style.display = "flex";
+      atualizarQRCode();
+    }
+
+    function voltar() {
+      document.getElementById("tela-qrcode").style.display = "none";
+      document.getElementById("tela-principal").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

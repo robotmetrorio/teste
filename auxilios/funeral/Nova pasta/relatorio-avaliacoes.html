@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Avaliações</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; text-align: center; }
+    .linha-avaliacao {
+      margin-bottom: 12px;
+      padding: 10px;
+      background: #fff;
+      border-left: 5px solid #00BFFF;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    #relatorio { display: none; text-align: left; margin-top: 30px; }
+    #senha-container { margin-top: 50px; }
+    input[type="password"] {
+      font-size: 24px; padding: 10px; width: 200px; text-align: center;
+    }
+    .teclado button {
+      font-size: 20px; margin: 5px; padding: 10px 20px;
+    }
+    .botao-topo {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #00BFFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relatório de Avaliações</h1>
+
+  <!-- Botão de voltar para o index -->
+  <a href="index.html" class="botao-topo">Voltar para o Início</a>
+
+  <div id="senha-container">
+    <p>Digite a senha para acessar:</p>
+    <input type="password" id="senha" readonly>
+    <div class="teclado">
+      <div>
+        <button onclick="digitar('1')">1</button>
+        <button onclick="digitar('2')">2</button>
+        <button onclick="digitar('3')">3</button>
+      </div>
+      <div>
+        <button onclick="digitar('4')">4</button>
+        <button onclick="digitar('5')">5</button>
+        <button onclick="digitar('6')">6</button>
+      </div>
+      <div>
+        <button onclick="digitar('7')">7</button>
+        <button onclick="digitar('8')">8</button>
+        <button onclick="digitar('9')">9</button>
+      </div>
+      <div>
+        <button onclick="limpar()">Limpar</button>
+        <button onclick="digitar('0')">0</button>
+        <button onclick="verificarSenha()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="relatorio"></div>
+
+  <script>
+    function digitar(num) {
+      const campo = document.getElementById('senha');
+      if (campo.value.length < 6) {
+        campo.value += num;
+      }
+    }
+
+    function limpar() {
+      document.getElementById('senha').value = '';
+    }
+
+    function verificarSenha() {
+      const senha = document.getElementById('senha').value;
+      if (senha === '123456') {
+        document.getElementById('senha-container').style.display = 'none';
+        document.getElementById('relatorio').style.display = 'block';
+        mostrarRelatorio();
+      } else {
+        alert('Senha incorreta.');
+        limpar();
+      }
+    }
+
+    function mostrarRelatorio() {
+      const container = document.getElementById("relatorio");
+      const agora = new Date();
+      let avaliacoes = JSON.parse(localStorage.getItem("avaliacoes") || "[]");
+
+      avaliacoes = avaliacoes.filter(item => {
+        const dataStr = item.split(" / ").find(part => part.startsWith("Data:"))?.split("Data: ")[1];
+        if (!dataStr) return false;
+        const [dia, mes, anoHora] = dataStr.split("/");
+        const ano = anoHora.split(" ")[0];
+        const dataItem = new Date(`${ano}-${mes}-${dia}`);
+        const diffDias = (agora - dataItem) / (1000 * 60 * 60 * 24);
+        return diffDias <= 30;
+      });
+
+      avaliacoes.forEach(linha => {
+        const div = document.createElement("div");
+        div.className = "linha-avaliacao";
+        div.textContent = linha;
+        container.appendChild(div);
+      });
+
+      // Botão no final para voltar ao início
+      const voltarBtn = document.createElement("button");
+      voltarBtn.textContent = "Voltar para o início";
+      voltarBtn.style.marginTop = "30px";
+      voltarBtn.style.padding = "10px 20px";
+      voltarBtn.style.fontSize = "16px";
+      voltarBtn.style.backgroundColor = "#ccc";
+      voltarBtn.style.border = "none";
+      voltarBtn.style.borderRadius = "6px";
+      voltarBtn.onclick = function() {
+        document.getElementById('relatorio').style.display = 'none';
+        document.getElementById('senha-container').style.display = 'block';
+        limpar();
+      };
+      container.appendChild(voltarBtn);
+    }
+  </script>
+</body>
+</html>

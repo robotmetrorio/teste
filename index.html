@@ -245,43 +245,28 @@
 
 /* Mobile: vídeos somem e imagens aparecem */
 @media (max-width: 768px) {
-  /* Esconde vídeos e fundo normal no mobile */
+  /* Esconde TODOS os vídeos e o fundo padrão no mobile */
   #video1, #video2, #video3 {
     display: none !important;
   }
-  body {
+  html, body {
+    background-image: none !important;
     background: none !important;
   }
 
-  /* Mostra apenas as imagens mobile */
+  /* Mostra SOMENTE as imagens mobile */
   #imgMobile1, #imgMobile2 {
     display: block !important;
   }
 
-  /* Centraliza teclado */
+  /* Centraliza teclado no mobile */
   #inputArea {
-    margin: 0 auto;
-    margin-top: 100px;
-    text-align: center;
+    margin: 0 auto !important;
+    margin-top: 100px !important;
+    text-align: center !important;
   }
-
   .keyboard {
-    justify-content: center;
-  }
-}
-
-  #imgMobile1, #imgMobile2 {
-    display: block !important;
-  }
-
-  #inputArea {
-    margin: 0 auto;
-    margin-top: 100px;
-    text-align: center;
-  }
-
-  .keyboard {
-    justify-content: center;
+    justify-content: center !important;
   }
 }
   #imgMobile1 {
@@ -307,6 +292,29 @@
   object-fit: cover;
   z-index: 0;
 }
+  
+/* Fallback para dispositivos touch (garantir mobile) */
+@media (hover: none) and (pointer: coarse) {
+  #video1, #video2, #video3 {
+    display: none !important;
+  }
+  html, body {
+    background-image: none !important;
+    background: none !important;
+  }
+  #imgMobile1, #imgMobile2 {
+    display: block !important;
+  }
+  #inputArea {
+    margin: 0 auto !important;
+    margin-top: 100px !important;
+    text-align: center !important;
+  }
+  .keyboard {
+    justify-content: center !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -320,7 +328,7 @@
     <source src="midias/segundovideo.mp4" type="video/mp4">
   </video>
   <!-- Imagem substituta para mobile -->
-  <img id="imgMobile1" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile">
+  <img id="imgMobile1" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
 
   <div id="inputArea">
     <h2>Digite sua Matrícula</h2>
@@ -349,11 +357,11 @@
 <!-- ======== Segunda Tela ======== -->
 <div id="segundaTela">
   <div class="video-overlay">
-    <video id="video3" autoplay muted loop playsinline style="z-index:1;">
+    <video id="video3" autoplay muted loop playsinline>
       <source src="midias/terceirovideo.mp4" type="video/mp4">
     </video>
     <!-- Imagem substituta para mobile -->
-    <img id="imgMobile2" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile" style="z-index:0;">
+    <img id="imgMobile2" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
   </div>
 
   <div class="container">

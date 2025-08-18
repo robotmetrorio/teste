@@ -245,9 +245,30 @@
 
 /* Mobile: vídeos somem e imagens aparecem */
 @media (max-width: 768px) {
+  /* Esconde vídeos e fundo normal no mobile */
   #video1, #video2, #video3 {
     display: none !important;
   }
+  body {
+    background: none !important;
+  }
+
+  /* Mostra apenas as imagens mobile */
+  #imgMobile1, #imgMobile2 {
+    display: block !important;
+  }
+
+  /* Centraliza teclado */
+  #inputArea {
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .keyboard {
+    justify-content: center;
+  }
+}
 
   #imgMobile1, #imgMobile2 {
     display: block !important;
@@ -328,11 +349,11 @@
 <!-- ======== Segunda Tela ======== -->
 <div id="segundaTela">
   <div class="video-overlay">
-    <video id="video3" autoplay muted loop playsinline>
+    <video id="video3" autoplay muted loop playsinline style="z-index:1;">
       <source src="midias/terceirovideo.mp4" type="video/mp4">
     </video>
     <!-- Imagem substituta para mobile -->
-    <img id="imgMobile2" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile">
+    <img id="imgMobile2" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile" style="z-index:0;">
   </div>
 
   <div class="container">

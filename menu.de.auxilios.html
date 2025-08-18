@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Auxílios</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
+
+    <!-- Imagem do Menu com texto sobreposto -->
+    <div style="margin-top:-5px; margin-right:17px;">
+        <div style="position:relative; display:inline-block;">
+            <img src="icones/icone.titulo.png" alt="Título" style="width:180px; height:120px;">
+            <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); 
+                         font-size:23px; font-weight:bold; color:white;">AUXÍLIOS</span>
+        </div>
+    </div>
+
+    <!-- Itens com imagens e áreas clicáveis reduzidas -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
+
+        <!-- FUNERAL -->
+        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="funeral" style="width:410px; height:130px;">
+            <a href="auxilios/menu.do.auxilio.funeral.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">FUNERAL</span>
+            </a>
+        </div>
+
+        <!-- FILHO COM DEFICIÊNCIA -->
+        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="filho com deficiência" style="width:410px; height:130px;">
+            <a href="auxilios/menu.do.auxilio.para.filho.com.deficiencia.html"
+               style="position:absolute; top:51%; right:-36%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">FILHO COM DEFICIÊNCIA</span>
+            </a>
+        </div>
+
+        <!-- CRECHE -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="creche" style="width:410px; height:130px;">
+            <a href="auxilios/menu.do.auxilio.creche.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">CRECHE</span>
+            </a>
+        </div>
+
+        <!-- MATERIAL ESCOLAR -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="material escolar" style="width:410px; height:130px;">
+            <a href="auxilios/menu.do.auxilio.material.escolar.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">MATERIAL ESCOLAR</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Ícones de navegação -->
+    <div style="position:fixed; bottom:2px; width:100%; padding:0 20px;">
+        <div style="margin-right:690px; text-align:left;">
+          <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2; margin-top:-8px; margin-bottom:-6px;">
+            <span style="display:block; margin-left:12px;">MENU</span>
+            <span style="display:block; margin-left:-3px;">PRINCIPAL</span>
+          </div>
+          <a href="menu.principal.html">
+              <img src="icones/casinha.png" alt="Home" style="width:68px; height:68px; margin-top:4px; margin-left:-1px;">
+          </a>
+        </div>
+    </div>
+
+    <!-- Script de atividade -->
+    <script>
+      const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
+      eventos.forEach(evento => {
+        document.addEventListener(evento, () => {
+          parent.postMessage("atividade", "*");
+        });
+      });
+
+      const divComScroll = document.querySelector('div[style*="overflow:auto"]');
+      if (divComScroll) {
+        divComScroll.addEventListener('scroll', () => {
+          parent.postMessage("atividade", "*");
+        });
+      }
+    </script>
+
+</body>
+</html>

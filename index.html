@@ -245,9 +245,24 @@
 
 /* Mobile: vídeos somem e imagens aparecem */
 @media (max-width: 768px) {
-  #video1, #video2 {
+  #video1, #video2, #video3 {
     display: none !important;
   }
+
+  #imgMobile1, #imgMobile2 {
+    display: block !important;
+  }
+
+  #inputArea {
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .keyboard {
+    justify-content: center;
+  }
+}
   #imgMobile1 {
     display: block;
   }
@@ -284,7 +299,7 @@
     <source src="midias/segundovideo.mp4" type="video/mp4">
   </video>
   <!-- Imagem substituta para mobile -->
-  <img id="imgMobile" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
+  <img id="imgMobile1" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile">
 
   <div id="inputArea">
     <h2>Digite sua Matrícula</h2>
@@ -317,7 +332,7 @@
       <source src="midias/terceirovideo.mp4" type="video/mp4">
     </video>
     <!-- Imagem substituta para mobile -->
-    <img id="imgMobile" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
+    <img id="imgMobile2" src="imagens/Fundo-Mobile.jpg" alt="Fundo Mobile">
   </div>
 
   <div class="container">

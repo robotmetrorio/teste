@@ -422,8 +422,7 @@
       localStorage.setItem("gerencia", database[matricula].gerencia || "");
       document.getElementById('nomeUsuario').textContent = database[matricula].nome;
       messageDiv.innerHTML = `OLÁ, ${database[matricula].nome},<br>você será direcionado para a próxima página em 2 segundos.`;
-      messageDiv.style.color = 'white';
-      
+      messageDiv.style.color = 'white';     
       setTimeout(() => {
         document.getElementById('primeiraTela').style.display = 'none';
         document.getElementById('segundaTela').style.display = 'block';
@@ -493,5 +492,6 @@
 </script>
 </body>
 </html>
+
 
 

@@ -210,125 +210,6 @@
       cursor: pointer;
       text-indent: -9999px;
     }
-
-/* Responsividade para tablets e telas menores (teclado, input e iframe) */
-@media (max-width: 1024px) {
-  .keyboard {
-    grid-template-columns: repeat(3, 100px); /* teclas mais largas */
-    gap: 20px; /* mais espaço */
-  }
-
-  .key {
-    padding: 25px;       /* maior área de clique */
-    font-size: 28px;     /* fonte maior */
-  }
-
-  #inputArea {
-    margin-left: 10px;
-    margin-top: 20px;
-  }
-
-  .container {
-    top: 120px;
-    left: 50%;
-    transform: translateX(-49%);
-    width: 95vw;
-    height: 55vh;
-    margin-left: 0;
-  }
-
-  .content-frame {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-/* Mobile: vídeos somem e imagens aparecem */
-@media (max-width: 768px) {
-  /* Esconde TODOS os vídeos e o fundo padrão no mobile */
-  #video1, #video2, #video3 {
-    display: none !important;
-  }
-  html, body {
-    background-image: none !important;
-    background: none !important;
-  }
-
-  /* Mostra SOMENTE as imagens mobile */
-  #imgMobile1, #imgMobile2 {
-    display: block !important;
-  }
-
-  /* Centraliza teclado no mobile */
-  #inputArea {
-    margin-left: 90px !important;
-    margin-top: 200px !important;
-    text-align: left !important;
-  }
-  .keyboard {
-    justify-content: center !important;
-  }
-}
-  #imgMobile1 {
-    display: block;
-  }
-    
-  #imgMobile2 {
-    display: block;
-  }
-}
-
-/* Imagens de fundo para mobile (inicialmente escondidas) */
-#imgMobile1, #imgMobile2 {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 0;
-}
-  
-#imgMobile1, #imgMobile2 {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 0;
-}
-
-#inputArea {
-  position: relative;
-  z-index: 10;
-}
-
-  
-/* Fallback para dispositivos touch (garantir mobile) */
-@media (hover: none) and (pointer: coarse) {
-  #video1, #video2, #video3 {
-    display: none !important;
-  }
-  html, body {
-    background-image: none !important;
-    background: none !important;
-  }
-  #imgMobile1, #imgMobile2 {
-    display: block !important;
-  }
-  #inputArea {
-    margin: 0 auto !important;
-    margin-top: 100px !important;
-    text-align: center !important;
-  }
-  .keyboard {
-    justify-content: center !important;
-  }
-}
-
   </style>
 </head>
 <body>
@@ -341,8 +222,6 @@
   <video id="video2" autoplay muted loop playsinline>
     <source src="midias/segundovideo.mp4" type="video/mp4">
   </video>
-  <!-- Imagem substituta para mobile -->
-  <img id="imgMobile1" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
 
   <div id="inputArea">
     <h2>Digite sua Matrícula</h2>
@@ -371,11 +250,9 @@
 <!-- ======== Segunda Tela ======== -->
 <div id="segundaTela">
   <div class="video-overlay">
-    <video id="video3" autoplay muted loop playsinline style="position:relative; z-index:2;">
-     <source src="midias/terceirovideo.mp4" type="video/mp4">
+    <video id="video3" autoplay muted loop playsinline>
+      <source src="midias/terceirovideo.mp4" type="video/mp4">
     </video>
-    <!-- Imagem substituta para mobile -->
-    <img id="imgMobile2" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile" style="z-index:0;">
   </div>
 
   <div class="container">
@@ -397,6 +274,24 @@
 <a href="relatorio-avaliacoes.html" id="linkR" title="Relatório">R</a>
 
 <script src="database.js"></script>
+
+<!-- 🔹 Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDhXpOwgxHhM-wBya29WFI0409Z7SCtKVE",
+    authDomain: "avaliacoes-siterobot.firebaseapp.com",
+    databaseURL: "https://avaliacoes-siterobot-default-rtdb.firebaseio.com",
+    projectId: "avaliacoes-siterobot",
+    storageBucket: "avaliacoes-siterobot.firebasestorage.app",
+    messagingSenderId: "719756570719",
+    appId: "1:719756570719:web:082f51de46b7f891deebea"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
 <script>
   const inputBox = document.getElementById('inputBox');
   const keys = document.querySelectorAll('.key');
@@ -415,30 +310,38 @@
   document.getElementById('submitBtn').onclick = function () {
     const matricula = inputBox.value.trim();
     if (matricula && database[matricula]) {
-      localStorage.setItem("nome", database[matricula].nome);
+      let nomeUsuario = database[matricula].nome;
+
+      // 🔹 Se matrícula for 00, mostra ADM e não grava no Firebase
+      if (matricula === "00") {
+        nomeUsuario = "ADM";
+      }
+
+      localStorage.setItem("nome", nomeUsuario);
       localStorage.setItem("matricula", matricula);
       localStorage.setItem("cargo", database[matricula].cargo || "");
       localStorage.setItem("coordenacao", database[matricula].coordenacao || "");
       localStorage.setItem("gerencia", database[matricula].gerencia || "");
-      document.getElementById('nomeUsuario').textContent = database[matricula].nome;
-      messageDiv.innerHTML = `OLÁ, ${database[matricula].nome},<br>você será direcionado para a próxima página em 2 segundos.`;
+      document.getElementById('nomeUsuario').textContent = nomeUsuario;
+
+      messageDiv.innerHTML = `OLÁ, ${nomeUsuario},<br>você será direcionado para a próxima página em 2 segundos.`;
       messageDiv.style.color = 'white';
 
-       // 🔹 Só registra no Firebase se não for ADM (matrícula 00)
-       if (matricula !== "00") {
-         const agora = new Date();
-         const dataFormatada = agora.toLocaleDateString('pt-BR');
-         const horaFormatada = agora.toLocaleTimeString('pt-BR');
-         const id = Date.now();
+      // 🔹 Registrar no Firebase apenas se não for ADM
+      if (matricula !== "00") {
+        const agora = new Date();
+        const dataFormatada = agora.toLocaleDateString('pt-BR');
+        const horaFormatada = agora.toLocaleTimeString('pt-BR');
+        const id = Date.now();
 
-         db.ref("acessos/" + id).set({
-           matricula: matricula,
-           nome: nomeUsuario,
-           data: dataFormatada,
-           hora: horaFormatada
-         });
+        db.ref("acessos/" + id).set({
+          matricula: matricula,
+          nome: nomeUsuario,
+          data: dataFormatada,
+          hora: horaFormatada
+        });
       }
-      
+
       setTimeout(() => {
         document.getElementById('primeiraTela').style.display = 'none';
         document.getElementById('segundaTela').style.display = 'block';
@@ -496,35 +399,12 @@
     document.addEventListener(evt, () => tempoRestante = TEMPO_INATIVIDADE);
   });
 
-
-  // Recarregar automaticamente a cada 30 minutos, mas só se estiver na primeira tela
   setTimeout(() => {
     const primeiraTelaVisivel = document.getElementById('primeiraTela').style.display !== 'none';
     if (primeiraTelaVisivel) {
       location.reload(true);
     }
   }, 900000); // 15 minutos
-
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -261,9 +261,9 @@
 
   /* Centraliza teclado no mobile */
   #inputArea {
-    margin: 0 auto !important;
-    margin-top: 250px !important;
-    text-align: center !important;
+    margin-left: 90px !important;
+    margin-top: 200px !important;
+    text-align: left !important;
   }
   .keyboard {
     justify-content: center !important;
@@ -329,7 +329,17 @@
   }
 }
 
-  </style>
+  
+/* Sobrescrita final para mobile */
+@media (max-width: 768px) {
+  body #inputArea {
+    margin-left: 40px !important;  /* mais para a esquerda */
+    margin-top: 250px !important;  /* mais para baixo */
+    text-align: left !important;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -492,7 +502,3 @@
 </script>
 </body>
 </html>
-
-
-
-

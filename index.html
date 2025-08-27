@@ -423,21 +423,6 @@
       document.getElementById('nomeUsuario').textContent = database[matricula].nome;
       messageDiv.innerHTML = `OLÁ, ${database[matricula].nome},<br>você será direcionado para a próxima página em 2 segundos.`;
       messageDiv.style.color = 'white';
-
-       // 🔹 Só registra no Firebase se não for ADM (matrícula 00)
-       if (matricula !== "00") {
-         const agora = new Date();
-         const dataFormatada = agora.toLocaleDateString('pt-BR');
-         const horaFormatada = agora.toLocaleTimeString('pt-BR');
-         const id = Date.now();
-
-         db.ref("acessos/" + id).set({
-           matricula: matricula,
-           nome: nomeUsuario,
-           data: dataFormatada,
-           hora: horaFormatada
-         });
-      }
       
       setTimeout(() => {
         document.getElementById('primeiraTela').style.display = 'none';
@@ -508,4 +493,5 @@
 </script>
 </body>
 </html>
+
 

@@ -1,5 +1,5 @@
 const database = {
-  "00": { nome: "ADM", cargo: "Administrador", coordenacao: "", gerencia: "" },
+  "00": { nome: "ADM", cargo: "Administrador", coordenacao: "", gerencia: "", uo: "" },
   "26": { nome: "ALEXANDRE DE JESUS COELHO", cargo: "SUPERVISOR MANUTENCAO", coordenacao: "COORDENAÇÃO AUTOMAÇÃO E TELECOMUNICAÇÕES", gerencia: "GERÊNCIA MANUTENÇÃO SISTEMAS", uo: "560" },
   "27": { nome: "WALLACE DA SILVA BITENCOURT", cargo: "TECNICO ESPECIALISTA", coordenacao: "COORDENAÇÃO AUTOMAÇÃO E TELECOMUNICAÇÕES", gerencia: "GERÊNCIA MANUTENÇÃO SISTEMAS", uo: "559" },
   "28": { nome: "GERSON SILVA DE SOUZA", cargo: "TECNICO MANUTENCAO II", coordenacao: "COORDENAÇÃO AUTOMAÇÃO E TELECOMUNICAÇÕES", gerencia: "GERÊNCIA MANUTENÇÃO SISTEMAS", uo: "561" },

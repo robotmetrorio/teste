@@ -191,68 +191,48 @@
   #inputArea {
     position: relative;
     max-width: 360px;
-    margin: 250px 0 0 20px !important; /* controla a posição manualmente */
-    text-align: left !important;       /* mantém título, input e botão alinhados à esquerda */
-    left: 0;                           /* remove deslocamento antigo */
-    transform: none;                   /* remove centralização forçada */
+    margin: 250px 0 0 20px !important; /* controla a posição do bloco */
+    text-align: left !important;       /* impede “pulo” para a direita */
+    left: 0 !important;
+    transform: none !important;
   }
 
-  #inputBox {
-    width: 320px !important;
-    height: 55px !important;
-    font-size: 28px;
-  }
+  #message { text-align: left; }
 
-  #message {
-    min-height: 40px;
-    text-align: left;  /* acompanha alinhamento do resto */
-    margin-top: 10px;
-  }
+  #keyboardContainer { position: relative; }
 
-  /* Teclado */
   .keyboard {
-    justify-content: flex-start !important;
-    margin-left: 50px; /* 👉 aqui você regula a posição do teclado */
+    /* torne o teclado “encaixado” ao próprio conteúdo para poder deslocar */
+    display: inline-grid;              /* em vez de grid “full width” */
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    transform: translateX(var(--kb-offset)); /* controle fino da posição */
+    /* remova qualquer justify-content:center !important conflitante */
   }
- }
-    #imgMobile1, #imgMobile2 {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-    }
-    #inputArea { position: relative; z-index: 10; }
-    @media (hover: none) and (pointer: coarse) {
-      #video1, #video2, #video3 { display: none !important; }
-      html, body { background-image: none !important; background: none !important; }
-      #imgMobile1, #imgMobile2 { display: block !important; }
-      #inputArea {
-        position: relative;
-        max-width: 360px;
-        margin: 250px 0 0 20px !important;
-        text-align: center !important;
-        left: 0;
-        transform: none;
-      }
-      #inputBox {
-        width: 320px !important;
-        height: 55px !important;
-        font-size: 28px;
-      }
-      #message {
-        min-height: 40px;
-        text-align: center;
-        margin-top: 10px;
-      }
-      .keyboard {
-        justify-content: flex-start !important;
-        margin-left: 0;
-      }
-    }
+}
+
+/* 2) MOBILE por dispositivo tátil (tem que repetir a mesma ideia aqui!) */
+@media (hover: none) and (pointer: coarse) {
+  #inputArea {
+    position: relative;
+    max-width: 360px;
+    margin: 250px 0 0 20px !important;
+    text-align: left !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  #message { text-align: left; }
+
+  #keyboardContainer { position: relative; }
+
+  .keyboard {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    transform: translateX(var(--kb-offset));
+  }
+}
   </style>
 </head>
 <body>
@@ -391,5 +371,6 @@
 </script>
 </body>
 </html>
+
 
 

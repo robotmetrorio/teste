@@ -7,8 +7,8 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   
-  <!-- Viewport para mobile (sem forçar zoom nem ampliar elementos) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Impede zoom por double-tap e pinch no mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
   <style>
     html, body {
@@ -422,30 +422,10 @@
       location.reload(true);
     }
   }, 900000);
-
-  /* Ignora double-tap sem atrapalhar os cliques normais */
-  let _lastTouchTime = 0;
-  let _suppressNextClick = false;
-
-  document.addEventListener('touchend', function (e) {
-    const now = Date.now();
-    if (now - _lastTouchTime < 300) {
-      _suppressNextClick = true;
-    }
-    _lastTouchTime = now;
-  }, { passive: true });
-
-  document.addEventListener('click', function (e) {
-    if (_suppressNextClick) {
-      _suppressNextClick = false;
-      e.stopImmediatePropagation();
-      e.preventDefault();
-      return;
-    }
-  }, true);  
 </script>
 </body>
 </html>
+
 
 
 

@@ -210,6 +210,24 @@
         height: 55px !important;
         font-size: 28px;
       }
+      
+      .keyboard {
+        grid-template-columns: repeat(3, 110px); /* aumenta largura das colunas */
+        gap: 18px;                               /* mais espaçamento */
+        justify-content: center;                 /* centraliza no mobile */
+      }
+      
+      .key {
+        padding: 30px;        /* aumenta tamanho do botão */
+        font-size: 32px;      /* aumenta número */
+        border-radius: 15px;  /* cantos mais arredondados */
+        
+      }
+      
+       #clear, #backspace {
+         font-size: 22px;      /* aumenta textos menores */
+         padding: 20px;
+      }
     }
     #imgMobile1, #imgMobile2 {
       display: none;
@@ -392,5 +410,6 @@
 </script>
 </body>
 </html>
+
 
 

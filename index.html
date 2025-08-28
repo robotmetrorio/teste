@@ -423,25 +423,20 @@
     }
   }, 900000);
 
-  /* Ajustes para bloquear zoom em qualquer dispositivo */
-  let lastTouchEnd = 0;
+  /* Ignora double-tap em qualquer dispositivo (sem zoom, sem ação duplicada) */
+  let lastTouchTime = 0;
   document.addEventListener('touchend', function (event) {
     const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault(); // evita zoom por double-tap
-    }
-    lastTouchEnd = now;
-  }, { passive: false });
-
-  // Bloqueia zoom por CTRL + scroll no desktop
-  document.addEventListener('wheel', function (event) {
-    if (event.ctrlKey) {
+    if (now - lastTouchTime < 300) {
       event.preventDefault();
+      return false; // simplesmente ignora o segundo toque
     }
+    lastTouchTime = now;
   }, { passive: false });  
 </script>
 </body>
 </html>
+
 
 
 

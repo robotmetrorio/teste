@@ -6,6 +6,10 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
+  
+  <!-- Evita zoom em mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
   <style>
     html, body {
       margin: 0;
@@ -244,7 +248,7 @@
 
       /* para movimentar: ajuste estes valores */
          margin-top: 40px !important;   /* desce o botão */
-         margin-left: -30px !important;  /* empurra p/ direita */
+         margin-left: -40px !important;  /* empurra p/ direita */
       /* margin-right também funciona */
        }
       
@@ -418,9 +422,27 @@
       location.reload(true);
     }
   }, 900000);
+
+  /* Ajustes para bloquear zoom em qualquer dispositivo */
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault(); // evita zoom por double-tap
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  // Bloqueia zoom por CTRL + scroll no desktop
+  document.addEventListener('wheel', function (event) {
+    if (event.ctrlKey) {
+      event.preventDefault();
+    }
+  }, { passive: false });  
 </script>
 </body>
 </html>
+
 
 
 

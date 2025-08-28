@@ -423,26 +423,9 @@
     }
   }, 900000);
 </script>
-  
-  <!-- 🔹 Script para bloquear apenas duplo toque -->
-<script>
-let lastTouchEnd = 0;
-document.addEventListener('touchend', function (event) {
-    const now = new Date().getTime();
-    if (now - lastTouchEnd <= 300) { 
-        // Bloqueia zoom de duplo toque
-        event.preventDefault(); 
-    }
-    lastTouchEnd = now;
-}, false);
-
-// Evita zoom via gesto de "double-tap" do iOS Safari
-document.addEventListener('gesturestart', function (event) {
-    event.preventDefault();
-});
-</script>
 </body>
 </html>
+
 
 
 

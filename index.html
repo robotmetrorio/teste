@@ -213,18 +213,20 @@
 
       /* 🔹 Ajustes para aumentar teclado no mobile */
       .keyboard {
-        grid-template-columns: repeat(3, 110px);
-        gap: 18px;
+        grid-template-columns: repeat(3, 120px);
+        gap: 20px;
         justify-content: center;
       }
       .key {
-        padding: 50px;
-        font-size: 52px;
-        border-radius: 15px;
+        width: 120px;        /* largura fixa */
+        height: 120px;       /* altura fixa */
+        font-size: 40px;     /* número maior */
+        border-radius: 18px; /* cantos mais arredondados */
       }
       #clear, #backspace {
-        font-size: 22px;
-        padding: 20px;
+        font-size: 28px;  /* aumenta o texto/símbolo */
+        width: 120px;     /* mesma largura dos numéricos */
+        height: 120px;    /* mesma altura dos numéricos */
       }
     }
     #imgMobile1, #imgMobile2 {
@@ -408,3 +410,4 @@
 </script>
 </body>
 </html>
+

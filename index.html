@@ -424,11 +424,12 @@
   }, 900000);
 </script>
   
-  <script>
+  <!-- 🔹 Script para bloquear apenas duplo toque -->
+<script>
 let lastTouch = 0;
 document.addEventListener('touchend', function (event) {
     const now = new Date().getTime();
-    if (now - lastTouch <= 300) { // intervalo de 300ms considera duplo toque
+    if (now - lastTouch <= 300) { 
         event.preventDefault(); // bloqueia apenas o zoom do duplo toque
     }
     lastTouch = now;
@@ -436,6 +437,7 @@ document.addEventListener('touchend', function (event) {
 </script>
 </body>
 </html>
+
 
 
 

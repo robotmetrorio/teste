@@ -97,12 +97,12 @@
     .key:active { transform: scale(0.95); }
     #clear { font-size: 16px; padding: 12px; }
     #message {
-      min-height: 60px;       /* mantém espaço fixo */
-      width: 320px;           /* mesma largura do input */
+      min-height: 60px;
+      width: 320px;
       font-size: 14px;
       font-weight: bold;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      text-align: center;     /* centraliza o texto */
+      text-align: center;
       margin-top: 10px;
       display: block;
     }
@@ -210,24 +210,6 @@
         height: 55px !important;
         font-size: 28px;
       }
-
-      /* 🔹 Ajustes para aumentar teclado no mobile */
-      .keyboard {
-        grid-template-columns: repeat(3, 120px);
-        gap: 20px;
-        justify-content: center;
-      }
-      .key {
-        width: 120px;        /* largura fixa */
-        height: 120px;       /* altura fixa */
-        font-size: 40px;     /* número maior */
-        border-radius: 18px; /* cantos mais arredondados */
-      }
-      #clear, #backspace {
-        font-size: 28px;  /* aumenta o texto/símbolo */
-        width: 120px;     /* mesma largura dos numéricos */
-        height: 120px;    /* mesma altura dos numéricos */
-      }
     }
     #imgMobile1, #imgMobile2 {
       display: none;
@@ -240,10 +222,13 @@
       z-index: 0;
     }
     #inputArea { position: relative; z-index: 10; }
+
+    /* 🔹 Ajuste REAL para mobile (touch devices) */
     @media (hover: none) and (pointer: coarse) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
       #imgMobile1, #imgMobile2 { display: block !important; }
+
       #inputArea {
         position: relative;
         max-width: 360px;
@@ -267,9 +252,24 @@
         text-align: center;
         margin-top: 10px;
       }
+
+      /* 🔹 Aumentando botões do teclado numérico */
       .keyboard {
-        justify-content: flex-start !important;
-        margin-left: 89px !important;
+        grid-template-columns: repeat(3, 120px) !important;
+        gap: 20px !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+      }
+      .key {
+        width: 120px !important;
+        height: 120px !important;
+        font-size: 40px !important;
+        border-radius: 18px !important;
+      }
+      #clear, #backspace {
+        font-size: 28px !important;
+        width: 120px !important;
+        height: 120px !important;
       }
     }
   </style>
@@ -410,4 +410,3 @@
 </script>
 </body>
 </html>
-

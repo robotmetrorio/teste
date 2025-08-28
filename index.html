@@ -183,32 +183,38 @@
       .content-frame { width: 100%; height: 100%; }
     }
     @media (max-width: 768px) {
-      #video1, #video2, #video3 { display: none !important; }
-      html, body { background-image: none !important; background: none !important; }
-      #imgMobile1, #imgMobile2 { display: block !important; }
-      #inputArea {
-        position: relative;
-        max-width: 360px;
-        margin: 250px 0 0 20px !important; /* deslocado da esquerda */
-        text-align: center !important;
-        left: 0; /* remove deslocamento antigo */
-        transform: none; /* remove centralização forçada */
-      }
-      #inputBox {
-        width: 320px !important;
-        height: 55px !important;
-        font-size: 28px;
-      }
-      #message {
-        min-height: 40px;
-        text-align: center;
-        margin-top: 10px;
-      }
-      .keyboard {
-        justify-content: flex-start !important; /* teclado alinhado à esquerda */
-        margin-left: 0; /* pode ajustar se quiser mais espaço */
-      }
-    }
+  #video1, #video2, #video3 { display: none !important; }
+  html, body { background-image: none !important; background: none !important; }
+  #imgMobile1, #imgMobile2 { display: block !important; }
+
+  /* Área do título, input e botão */
+  #inputArea {
+    position: relative;
+    max-width: 360px;
+    margin: 250px 0 0 20px !important; /* controla a posição manualmente */
+    text-align: left !important;       /* mantém título, input e botão alinhados à esquerda */
+    left: 0;                           /* remove deslocamento antigo */
+    transform: none;                   /* remove centralização forçada */
+  }
+
+  #inputBox {
+    width: 320px !important;
+    height: 55px !important;
+    font-size: 28px;
+  }
+
+  #message {
+    min-height: 40px;
+    text-align: left;  /* acompanha alinhamento do resto */
+    margin-top: 10px;
+  }
+
+  /* Teclado */
+  .keyboard {
+    justify-content: flex-start !important;
+    margin-left: 20px; /* 👉 aqui você regula a posição do teclado */
+  }
+ }
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -385,3 +391,4 @@
 </script>
 </body>
 </html>
+

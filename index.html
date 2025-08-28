@@ -256,9 +256,10 @@
       /* 🔹 Aumentando botões do teclado numérico */
       .keyboard {
         grid-template-columns: repeat(3, 120px) !important;      /* quadrados maiores */
-        gap: 75px !important;                                    /* espaçamento entre botões */
+        column-gap: 75px;                                        /* espaçamento lateral (entre botões lado a lado) */
+        row-gap: 35px;                                           /* espaçamento vertical (entre fileiras de cima/baixo) */
         justify-content: flex-start !important;
-        margin-left: 60px !important; /* você pode aumentar/diminuir esse valor para movimentar o teclado */
+        margin-left: 60px !important;             /* você pode aumentar/diminuir esse valor para movimentar o teclado */
       }
       /* todos os botões numéricos */
       .key {
@@ -412,6 +413,7 @@
 </script>
 </body>
 </html>
+
 
 
 

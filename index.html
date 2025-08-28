@@ -189,11 +189,10 @@
       #inputArea {
         position: relative;
         width: 100%;
-        max-width: 360px;
-        margin: 250px auto 0 auto !important;
-        text-align: center !important;
-        left: 40%;
-        transform: translateX(-50%);
+        margin: 250px 0 0 20px !important; /* 20px da esquerda */
+        text-align: center !important;     /* continua centralizado dentro da caixinha */
+        left: 0;                           /* remove o deslocamento antigo */
+        transform: none;                   /* remove a centralização forçada */
       }
       #inputBox {
         width: 320px !important;
@@ -206,7 +205,7 @@
         margin-top: 10px;
       }
       .keyboard {
-        justify-content: center !important;
+        justify-content: flex-start !important; /* teclado começa alinhado à esquerda */
       }
     }
     #imgMobile1, #imgMobile2 {
@@ -385,6 +384,7 @@
 </script>
 </body>
 </html>
+
 
 
 

@@ -188,11 +188,11 @@
       #imgMobile1, #imgMobile2 { display: block !important; }
       #inputArea {
         position: relative;
-        width: 100%;
-        margin: 250px 0 0 20px !important; /* 20px da esquerda */
-        text-align: center !important;     /* continua centralizado dentro da caixinha */
-        left: 0;                           /* remove o deslocamento antigo */
-        transform: none;                   /* remove a centralização forçada */
+        max-width: 360px;
+        margin: 250px 0 0 20px !important; /* deslocado da esquerda */
+        text-align: center !important;
+        left: 0; /* remove deslocamento antigo */
+        transform: none; /* remove centralização forçada */
       }
       #inputBox {
         width: 320px !important;
@@ -205,7 +205,8 @@
         margin-top: 10px;
       }
       .keyboard {
-        justify-content: flex-start !important; /* teclado começa alinhado à esquerda */
+        justify-content: flex-start !important; /* teclado alinhado à esquerda */
+        margin-left: 0; /* pode ajustar se quiser mais espaço */
       }
     }
     #imgMobile1, #imgMobile2 {
@@ -225,12 +226,11 @@
       #imgMobile1, #imgMobile2 { display: block !important; }
       #inputArea {
         position: relative;
-        width: 100%;
         max-width: 360px;
-        margin: 250px auto 0 auto !important;
+        margin: 250px 0 0 20px !important;
         text-align: center !important;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: none;
       }
       #inputBox {
         width: 320px !important;
@@ -243,7 +243,8 @@
         margin-top: 10px;
       }
       .keyboard {
-        justify-content: center !important;
+        justify-content: flex-start !important;
+        margin-left: 0;
       }
     }
   </style>
@@ -384,11 +385,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

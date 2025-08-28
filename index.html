@@ -8,7 +8,7 @@
   <meta http-equiv="Expires" content="0" />
   
   <!-- Impede zoom por double-tap e pinch no mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <style>
     html, body {
@@ -423,8 +423,21 @@
     }
   }, 900000);
 </script>
+  
+  <script>
+  // 🔹 Bloqueio apenas do duplo toque
+  let lastTouch = 0;
+  document.addEventListener('touchend', function (event) {
+      const now = new Date().getTime();
+      if (now - lastTouch <= 300) { // intervalo de 300ms considera duplo toque
+          event.preventDefault(); // bloqueia zoom por duplo toque
+      }
+      lastTouch = now;
+  }, { passive: false });
+</script>
 </body>
 </html>
+
 
 
 

@@ -297,21 +297,17 @@
 
       #message {
         position: relative;
-        font-size: 22px;      /* pode ajustar para caber melhor no mobile */
+        font-size: 22px;       /* pode reduzir se ainda quebrar */
         font-weight: bold;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
         color: white;
         text-align: center;
-
-      /* Removendo as limitações que causavam a quebra em 3 linhas */
-         width: auto;          /* deixa o navegador ajustar sozinho */
-         min-height: unset;    /* tira a altura mínima */
-         white-space: normal;  /* deixa quebrar só quando necessário */
-         word-break: keep-all; /* não quebra palavras à toa */
-
-      /* Ajuste fino de posição no mobile */
-         top: 20px;
-         left: 0px;
+        width: auto;           
+        min-height: auto;      
+        white-space: nowrap;   /* força tudo até <br> na mesma linha */
+        word-break: keep-all;  
+        top: 20px;
+        left: 0px;
       }
 
       /*  Aumentando botões do teclado numérico */
@@ -495,6 +491,7 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
+
 
 
 

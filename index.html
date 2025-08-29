@@ -271,8 +271,9 @@
          height: 120px !important; /* altura do input */
          font-size: 45px !important; /* tamanho do texto digitado */
          border-radius: 18px !important; /* cantos arredondados */
-         margin-left: -38px !important; /* movimenta horizontal */
-         margin-top: 45px !important; /* movimenta vertical */
+         position: relative;  
+         top: 45px;   /* movimenta vertical sem empurrar o teclado */
+         left: -38px; /* movimenta horizontal sem empurrar o teclado */
         }
 
 
@@ -469,6 +470,7 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
+
 
 
 

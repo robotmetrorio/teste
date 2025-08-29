@@ -6,9 +6,6 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-
-  <!-- Bloqueio de dois toques na tela -->
-  <meta name="viewport" content="width=768, initial-scale=1.0">
   
   <style>
     html, body {
@@ -393,7 +390,7 @@
   const video2 = document.getElementById('video2');
   
   keys.forEach(key => {
-    key.addEventListener('pointerdown', () => {
+    key.addEventListener('click', () => {
       if (key.id === 'clear') inputBox.value = '';
       else if (key.id === 'backspace') inputBox.value = inputBox.value.slice(0, -1);
       else inputBox.value += key.textContent;
@@ -465,27 +462,12 @@
     if (primeiraTelaVisivel) {
       location.reload(true);
     }
-  }, 900000);
+  }, 900000); // 15 minutos
+  
 </script>
-
-  <script>
-// Bloqueia zoom por double-tap no iOS/Android
-let lastTouchEnd = 0;
-document.addEventListener('touchend', function (event) {
-  const now = (new Date()).getTime();
-  if (now - lastTouchEnd <= 300) {
-    event.preventDefault();  // cancela o zoom
-  }
-  lastTouchEnd = now;
-}, false);
-
-// Opcional: bloqueia zoom por gesto de pinça
-document.addEventListener('gesturestart', function (event) {
-  event.preventDefault();
-});
-</script> 
 </body>
 </html>
+
 
 
 

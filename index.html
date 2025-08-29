@@ -101,15 +101,18 @@
     .key:active { transform: scale(0.95); }
     #clear { font-size: 16px; padding: 12px; }
     #message {
-      min-height: 60px;
-      width: 320px;
+      position: relative;     /* permite mover em X/Y */
+      margin-top: -8px;
       font-size: 14px;
       font-weight: bold;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      text-align: center;
-      margin-top: 10px;
-      display: block;
-    }
+      color: white;
+  
+      /* Ajuste de posição (desktop) */
+      top: 0px;    /* pode mudar valor positivo ou negativo */
+      left: 0px;   /* pode mudar valor positivo ou negativo */
+     }
+    
     #segundaTela {
       display: none;
       position: relative;
@@ -282,13 +285,15 @@
         top: 68px;    /* desce só o h2 */
         left: -60px;  /* mexe na horizontal */
      }
-      
+
       #message {
-        min-height: 60px;
-        width: 320px;
+        font-size: 22px;     /* maior para mobile */
         text-align: center;
-        margin-top: 10px;
-      }
+
+      /* Ajuste de posição (mobile) */
+         top: 20px;     /* aumenta/diminui para mover vertical */
+         left: 0px;     /* aumenta/diminui para mover horizontal */
+       }
 
       /*  Aumentando botões do teclado numérico */
       .keyboard {
@@ -471,6 +476,7 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
+
 
 
 

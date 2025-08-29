@@ -8,7 +8,8 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Bloqueio de dois toques na tela -->
-  <meta name="viewport" content="width=1280, initial-scale=1.0">
+  <!-- Antes: width=1280, agora responsivo -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
     html, body {
@@ -183,7 +184,9 @@
       cursor: pointer;
       text-indent: -9999px;
     }
-    @media (max-width: 1024px) {
+
+    /* AGORA: o que era mobile virou desktop */
+    @media (min-width: 1025px) {
       .keyboard { grid-template-columns: repeat(3, 100px); gap: 20px; }
       .key { padding: 25px; font-size: 28px; }
       #inputArea { margin-left: 10px; margin-top: 20px; }
@@ -193,7 +196,8 @@
       }
       .content-frame { width: 100%; height: 100%; }
     }
-    @media (max-width: 768px) {
+
+    @media (min-width: 769px) and (max-width: 1024px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
       #imgMobile1, #imgMobile2 { display: block !important; }
@@ -218,20 +222,9 @@
         font-size: 28px;
       }
     }
-    #imgMobile1, #imgMobile2 {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-    }
-    #inputArea { position: relative; z-index: 10; }
 
-    /* Ajuste REAL para mobile (touch devices) */
-    @media (hover: none) and (pointer: coarse) {
+    /* O que era mobile REAL agora é desktop real */
+    @media (hover: none) and (pointer: coarse) and (min-width: 769px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
       #imgMobile1, #imgMobile2 { display: block !important; }
@@ -486,12 +479,3 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

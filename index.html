@@ -279,11 +279,11 @@
 
       /* Texto "Digite sua Matrícula" */
       h2 {
-        font-size: 45px !important; /* tamanho do texto */
-        margin-bottom: 25px !important; /* espaço abaixo do texto */
-        margin-left: -40px !important; /* movimenta horizontal */
-        margin-top: -40px !important; /* movimenta vertical */
-        }
+        font-size: 45px !important;
+        position: relative;
+        top: 40px;    /* desce só o h2 */
+        left: -40px;  /* mexe na horizontal */
+     }
       
       #message {
         min-height: 60px;
@@ -470,6 +470,7 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
+
 
 
 

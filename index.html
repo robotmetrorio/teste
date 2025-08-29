@@ -249,7 +249,7 @@
 
       /* para movimentar: ajuste estes valores */
          margin-top: 40px !important;   /* desce o botão */
-         margin-left: -142px !important;  /* empurra p/ direita */
+         margin-left: -144px !important;  /* empurra p/ direita */
       /* margin-right também funciona */
        }
       
@@ -424,8 +424,26 @@
     }
   }, 900000);
 </script>
+
+  <script>
+// Bloqueia zoom por double-tap no iOS/Android
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  const now = (new Date()).getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();  // cancela o zoom
+  }
+  lastTouchEnd = now;
+}, false);
+
+// Opcional: bloqueia zoom por gesto de pinça
+document.addEventListener('gesturestart', function (event) {
+  event.preventDefault();
+});
+</script> 
 </body>
 </html>
+
 
 
 

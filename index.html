@@ -8,39 +8,7 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Bloqueio de dois toques na tela -->
-  <!-- Viewport padrão (mobile). Será ajustado via JS para forçar desktop quando desejado -->
-  <meta id="meta-viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-  <!--
-    =============================================
-    FORÇAR DESKTOP EM DISPOSITIVOS TOUCH (OPCIONAL)
-    - Por padrão, em aparelhos touch, vamos forçar o layout desktop
-      (equivalente ao "site para computador"), sem apagar a versão mobile.
-    - Para exibir a versão mobile original, acesse com ?mode=mobile
-      Ex.: index.html?mode=mobile
-    - Para forçar explicitamente desktop: ?mode=desktop
-    =============================================
-  -->
-  <script>
-    (function () {
-      try {
-        var params = new URLSearchParams(location.search);
-        var mode = params.get('mode'); // 'desktop' | 'mobile' | null
-        var isTouch = window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches;
-        var forceDesktop = (mode === 'desktop') || (mode !== 'mobile' && isTouch);
-
-        var vp = document.querySelector('meta[name="viewport"]');
-        if (forceDesktop) {
-          // Simula viewport larga para aplicar regras de desktop
-          vp.setAttribute('content', 'width=1280, initial-scale=1.0');
-          document.documentElement.classList.add('force-desktop');
-        } else {
-          vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-          document.documentElement.classList.remove('force-desktop');
-        }
-      } catch (e) { /* silencioso */ }
-    })();
-  </script>
+  <meta name="viewport" content="width=1280, initial-scale=1.0">
   
   <style>
     html, body {
@@ -215,10 +183,6 @@
       cursor: pointer;
       text-indent: -9999px;
     }
-
-    /* =========================
-       TABLET (até 1024px)
-       ========================= */
     @media (max-width: 1024px) {
       .keyboard { grid-template-columns: repeat(3, 100px); gap: 20px; }
       .key { padding: 25px; font-size: 28px; }
@@ -229,10 +193,6 @@
       }
       .content-frame { width: 100%; height: 100%; }
     }
-
-    /* =========================
-       MOBILE (até 768px)
-       ========================= */
     @media (max-width: 768px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
@@ -255,58 +215,68 @@
       #inputBox {
         width: 320px !important;
         height: 55px !important;
-        font-size: 28px !important;
+        font-size: 28px;
       }
     }
+    #imgMobile1, #imgMobile2 {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #inputArea { position: relative; z-index: 10; }
 
-    /* =====================================
-       AJUSTE REAL para mobile (touch)
-       ===================================== */
+    /* Ajuste REAL para mobile (touch devices) */
     @media (hover: none) and (pointer: coarse) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
       #imgMobile1, #imgMobile2 { display: block !important; }
 
-      #inputArea {
-        position: relative;
-        max-width: 600px;        /* permite mais espaço lado a lado */
-        margin: 250px 0 0 55px !important;
-        text-align: center !important;
-        left: 0;
-        transform: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+     #inputArea {
+       position: relative;
+       max-width: 600px;        /* permite mais espaço lado a lado */
+       margin: 250px 0 0 55px !important;
+       text-align: center !important;
+       left: 0;
+       transform: none;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
       }
 
-      /* Agrupa texto e input lado a lado */
+     /* Agrupa texto e input lado a lado */
       .inputLine {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px; /* espaço entre texto e input */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; /* espaço entre texto e input */
       }
       
       #submitBtn {
         width: 330px !important;    /* largura do botão */
-        height: 120px !important;   /* altura do botão */
+        height: 120px !important;    /* altura do botão */
         font-size: 45px !important; /* tamanho do texto "Confirmar" */
         border-radius: 18px !important;   /* cantos mais arredondados */
         position: relative; 
         top: 108px;        /* desce o botão */
-        left: -199px;      /* empurra p/ direita */
-      }
+        left: -199px;     /* empurra p/ direita */
+       }
       
       /* Retângulo (campo de matrícula) */
-      #inputBox {
-        width: 606px !important; /* largura do input */
-        height: 120px !important; /* altura do input */
-        font-size: 45px !important; /* tamanho do texto digitado */
-        border-radius: 18px !important; /* cantos arredondados */
-        position: relative;  
-        top: 75px;   /* movimenta vertical sem empurrar o teclado */
-        left: -56px; /* movimenta horizontal sem empurrar o teclado */
-      }
+         #inputBox {
+         width: 606px !important; /* largura do input */
+         height: 120px !important; /* altura do input */
+         font-size: 45px !important; /* tamanho do texto digitado */
+         border-radius: 18px !important; /* cantos arredondados */
+         position: relative;  
+         top: 75px;   /* movimenta vertical sem empurrar o teclado */
+         left: -56px; /* movimenta horizontal sem empurrar o teclado */
+        }
+
 
       /* Texto "Digite sua Matrícula" */
       h2 {
@@ -314,9 +284,11 @@
         position: relative;
         top: 68px;    /* desce só o h2 */
         left: -60px;  /* mexe na horizontal */
-      }
+     }
 
-      #inputArea { position: relative; }
+      #inputArea {
+        position: relative;
+     }
 
       #message {
         position: absolute;
@@ -336,11 +308,11 @@
       /*  Aumentando botões do teclado numérico */
       .keyboard {
         grid-template-columns: repeat(3, 120px) !important;      /* quadrados maiores */
-        column-gap: 95px;                                        /* espaçamento lateral */
-        row-gap: 35px;                                           /* espaçamento vertical */
+        column-gap: 95px;                                        /* espaçamento lateral (entre botões lado a lado) */
+        row-gap: 35px;                                           /* espaçamento vertical (entre fileiras de cima/baixo) */
         justify-content: flex-start !important;
         position: relative;
-        left: -87px;       /* movimenta o teclado */
+        left: -87px;       /* você pode aumentar/diminuir esse valor para movimentar o teclado */
         top: 90px;         /*  desce o teclado */
       }
       /* todos os botões numéricos */
@@ -355,65 +327,6 @@
         font-size: 48px !important;     /* aumenta o texto/símbolo */
         width: 180px !important;        /* mesma largura dos numéricos */
         height: 170px !important;       /* mesma altura dos numéricos */
-      }
-    }
-
-    /* ==========================================================
-       OVERRIDE: Força visual de DESKTOP em dispositivos touch
-       quando <html> tiver a classe .force-desktop
-       (preserva a versão mobile quando .force-desktop NÃO existe)
-       ========================================================== */
-    @media (hover: none) and (pointer: coarse) {
-      :root.force-desktop #video1,
-      :root.force-desktop #video2,
-      :root.force-desktop #video3 { display: block !important; }
-
-      :root.force-desktop html,
-      :root.force-desktop body { background-image: url('imagens/fundo.jpg') !important; background: none !important; }
-
-      :root.force-desktop #imgMobile1,
-      :root.force-desktop #imgMobile2 { display: none !important; }
-
-      :root.force-desktop #inputArea {
-        position: static !important;
-        max-width: none !important;
-        margin-left: 100px !important;
-        margin-top: -60px !important;
-        text-align: left !important;
-        left: auto !important;
-        transform: none !important;
-        display: block !important;
-        flex-direction: initial !important;
-        align-items: initial !important;
-      }
-
-      :root.force-desktop h2 {
-        font-size: 1.5rem !important; /* volta ao padrão visual do desktop */
-        position: static !important; top: auto !important; left: auto !important;
-      }
-
-      :root.force-desktop #inputBox {
-        width: 264px !important; height: 50px !important; font-size: 28px !important;
-        border-radius: 10px !important; position: static !important; top: auto !important; left: auto !important;
-      }
-
-      :root.force-desktop #submitBtn {
-        width: auto !important; height: auto !important; font-size: 20px !important;
-        border-radius: 10px !important; position: static !important; top: auto !important; left: auto !important;
-      }
-
-      :root.force-desktop .keyboard {
-        grid-template-columns: repeat(3, 80px) !important; column-gap: 15px !important; row-gap: 15px !important;
-        justify-content: flex-start !important; position: static !important; left: auto !important; top: auto !important;
-      }
-
-      :root.force-desktop .key {
-        width: auto !important; height: auto !important; font-size: 24px !important; border-radius: 10px !important;
-      }
-
-      :root.force-desktop #message {
-        position: relative !important; font-size: 14px !important; top: 0 !important; left: 0 !important;
-        white-space: normal !important; word-break: normal !important;
       }
     }
   </style>
@@ -555,7 +468,7 @@
   }, 900000);
 </script>
 
-<script>
+  <script>
 // Bloqueia zoom por double-tap no iOS/Android
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function (event) {
@@ -573,3 +486,12 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
+
+
+
+
+
+
+
+
+

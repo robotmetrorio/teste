@@ -22,26 +22,6 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-
-    /* =================================== */
-    /* AJUSTE: Forçar layout mobile em touch devices,
-       mesmo se o usuário ativar "Versão para computador" */
-    /* =================================== */
-    body.isMobile #video1,
-    body.isMobile #video2,
-    body.isMobile #video3 {
-      display: none !important;
-    }
-    body.isMobile {
-      background-image: none !important;
-      background: none !important;
-    }
-    body.isMobile #imgMobile1,
-    body.isMobile #imgMobile2 {
-      display: block !important;
-    }
-    /* =================================== */
-
     #primeiraTela {
       display: flex;
       flex-direction: column;
@@ -121,14 +101,16 @@
     .key:active { transform: scale(0.95); }
     #clear { font-size: 16px; padding: 12px; }
     #message {
-      position: relative;
+      position: relative;     /* permite mover em X/Y */
       margin-top: -8px;
       font-size: 14px;
       font-weight: bold;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
       color: white;
-      top: 0px;
-      left: 0px;
+  
+      /* Ajuste de posição (desktop) */
+      top: 0px;    /* pode mudar valor positivo ou negativo */
+      left: 0px;   /* pode mudar valor positivo ou negativo */
      }
     
     #segundaTela {
@@ -256,7 +238,7 @@
 
      #inputArea {
        position: relative;
-       max-width: 600px;
+       max-width: 600px;        /* permite mais espaço lado a lado */
        margin: 250px 0 0 55px !important;
        text-align: center !important;
        left: 0;
@@ -266,74 +248,85 @@
        align-items: center;
       }
 
+     /* Agrupa texto e input lado a lado */
       .inputLine {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; /* espaço entre texto e input */
       }
       
       #submitBtn {
-        width: 330px !important;
-        height: 120px !important;
-        font-size: 45px !important;
-        border-radius: 18px !important;
+        width: 330px !important;    /* largura do botão */
+        height: 120px !important;    /* altura do botão */
+        font-size: 45px !important; /* tamanho do texto "Confirmar" */
+        border-radius: 18px !important;   /* cantos mais arredondados */
         position: relative; 
-        top: 108px;
-        left: -199px;
+        top: 108px;        /* desce o botão */
+        left: -199px;     /* empurra p/ direita */
        }
       
-      #inputBox {
-         width: 606px !important;
-         height: 120px !important;
-         font-size: 45px !important;
-         border-radius: 18px !important;
+      /* Retângulo (campo de matrícula) */
+         #inputBox {
+         width: 606px !important; /* largura do input */
+         height: 120px !important; /* altura do input */
+         font-size: 45px !important; /* tamanho do texto digitado */
+         border-radius: 18px !important; /* cantos arredondados */
          position: relative;  
-         top: 75px;
-         left: -56px;
+         top: 75px;   /* movimenta vertical sem empurrar o teclado */
+         left: -56px; /* movimenta horizontal sem empurrar o teclado */
         }
 
+
+      /* Texto "Digite sua Matrícula" */
       h2 {
         font-size: 50px !important;
         position: relative;
-        top: 68px;
-        left: -60px;
+        top: 68px;    /* desce só o h2 */
+        left: -60px;  /* mexe na horizontal */
+     }
+
+      #inputArea {
+        position: relative;
      }
 
       #message {
         position: absolute;
-        font-size: 26px;
+        font-size: 26px;       /* pode reduzir se ainda quebrar */
         font-weight: bold;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
         color: white;
         text-align: left;
         width: auto;           
         min-height: auto;      
-        white-space: nowrap;   
+        white-space: nowrap;   /* força tudo até <br> na mesma linha */
         word-break: keep-all;  
         top: 1320px;
         left: -60px;
       }
 
+      /*  Aumentando botões do teclado numérico */
       .keyboard {
-        grid-template-columns: repeat(3, 120px) !important;
-        column-gap: 95px;
-        row-gap: 35px;
+        grid-template-columns: repeat(3, 120px) !important;      /* quadrados maiores */
+        column-gap: 95px;                                        /* espaçamento lateral (entre botões lado a lado) */
+        row-gap: 35px;                                           /* espaçamento vertical (entre fileiras de cima/baixo) */
         justify-content: flex-start !important;
         position: relative;
-        left: -87px;
-        top: 90px;
+        left: -87px;       /* você pode aumentar/diminuir esse valor para movimentar o teclado */
+        top: 90px;         /*  desce o teclado */
       }
+      /* todos os botões numéricos */
       .key {
-        width: 180px !important;
-        height: 170px !important;
-        font-size: 60px !important;
-        border-radius: 18px !important;
+        width: 180px !important;      /* largura fixa */
+        height: 170px !important;     /* altura fixa */
+        font-size: 60px !important;   /* número maior */
+        border-radius: 18px !important;   /* cantos mais arredondados */
       }
+      /*  só o "Limpar" e a setinha "←" */
       #clear, #backspace {
-        font-size: 48px !important;
-        width: 180px !important;
-        height: 170px !important;
+        font-size: 48px !important;     /* aumenta o texto/símbolo */
+        width: 180px !important;        /* mesma largura dos numéricos */
+        height: 170px !important;       /* mesma altura dos numéricos */
       }
     }
   </style>
@@ -475,28 +468,30 @@
   }, 900000);
 </script>
 
-<script>
+  <script>
 // Bloqueia zoom por double-tap no iOS/Android
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function (event) {
   const now = (new Date()).getTime();
   if (now - lastTouchEnd <= 300) {
-    event.preventDefault();
+    event.preventDefault();  // cancela o zoom
   }
   lastTouchEnd = now;
 }, false);
 
-// Bloqueia zoom por gesto de pinça
+// Opcional: bloqueia zoom por gesto de pinça
 document.addEventListener('gesturestart', function (event) {
   event.preventDefault();
 });
-
-// ===================================
-// AJUSTE: Detectar se é dispositivo touch e aplicar classe "isMobile"
-// ===================================
-if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-  document.body.classList.add('isMobile');
-}
 </script> 
 </body>
 </html>
+
+
+
+
+
+
+
+
+

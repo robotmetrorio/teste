@@ -204,29 +204,17 @@
         transform: none;
       }
 
-      /* TEXTO "Digite sua Matrícula" */
-      h2 {
-        font-size: 40px !important;      /* AUMENTE AQUI O TAMANHO DO TEXTO */
-        margin-bottom: 25px !important;  /* AJUSTE ESPAÇO ABAIXO */
-        text-align: center;              /* centraliza no mobile */
-      }
-
-      /* CAMPO: ONDE APARECE A MATRÍCULA (AJUSTE APENAS VISUAL, MAS NÃO É O QUE CELULAR REAL USA)
-      #inputBox {
-        width: 680px !important;         /* AUMENTE AQUI A LARGURA */
-        height: 120px !important;         /* AUMENTE AQUI A ALTURA */
-        font-size: 36px !important;      /* AUMENTE AQUI O TAMANHO DA FONTE */
-        margin-top: 30px !important;     /* MOVA PARA BAIXO */
-        margin-left: 25px !important;     /* MOVA PARA A DIREITA */
-      }
-
       #submitBtn {
         height: 70px;
         font-size: 24px;
       }
+      
+      #inputBox {
+        width: 320px !important;
+        height: 55px !important;
+        font-size: 28px;
+      }
     }
-    /* ========================================================================== */
-    
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -239,7 +227,7 @@
     }
     #inputArea { position: relative; z-index: 10; }
 
-    /* ================= AJUSTE REAL PARA CELULARES/TABLETS ================= */
+    /* Ajuste REAL para mobile (touch devices) */
     @media (hover: none) and (pointer: coarse) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
@@ -253,25 +241,23 @@
         left: 0;
         transform: none;
       }
-      /* BOTÃO CONFIRMAR */
       #submitBtn {
         width: 330px !important;    /* largura do botão */
         height: 120px !important;    /* altura do botão */
         font-size: 45px !important; /* tamanho do texto "Confirmar" */
         border-radius: 18px !important;   /* cantos mais arredondados */
-        margin-top: 40px !important;     /* desce o botão */
-        margin-left: -144px !important;  /* move para direita */
+
+      /* para movimentar: ajuste estes valores */
+         margin-top: 40px !important;   /* desce o botão */
+         margin-left: -144px !important;  /* empurra p/ direita */
+      /* margin-right também funciona */
        }
       
-      /* CAMPO MATRÍCULA - ESTE É O QUE O CELULAR USA DE VERDADE */
       #inputBox {
-        width: 680px !important;       /* largura do campo */
-        height: 120px !important;      /* altura do campo */
-        font-size: 40px !important;    /* tamanho da fonte */
-        margin-top: 30px !important;   /* desce o campo */
-        margin-left: 25px !important;  /* move para direita */
+        width: 320px !important;
+        height: 55px !important;
+        font-size: 28px;
       }
-      
       #message {
         min-height: 60px;
         width: 320px;
@@ -457,27 +443,6 @@ document.addEventListener('gesturestart', function (event) {
 </script> 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

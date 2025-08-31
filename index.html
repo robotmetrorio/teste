@@ -214,7 +214,42 @@
         height: 55px !important;
         font-size: 28px;
       }
-    }
+    
+      /* ---------- AJUSTE DO MOBILE PARA MOVIMENTAR O USUÁRIO E O BOTÃO SAIR ---------- */
+      #usuario {
+        position: absolute;
+        top: 30px;   /* ajusta verticalmente */
+        left: 20px;  /* ajusta horizontalmente */
+        font-size: 22px;
+        z-index: 10;
+      }
+      #botao-sair {
+        position: absolute;
+        top: 30px;   /* ajusta verticalmente */
+        right: 20px; /* ajusta horizontalmente */
+        z-index: 10;
+      }
+
+      /* ---------- AJUSTE DO MOBILE PARA MOSTRAR O LINK R SOMENTE NA PRIMEIRA TELA ---------- */
+      #primeiraTela #linkR {
+        position: absolute;
+        bottom: 40px;   /* ajusta verticalmente */
+        left: 50%;      /* ajusta horizontalmente */
+        transform: translateX(-50%);
+        width: auto;
+        height: auto;
+        font-size: 36px;
+        font-weight: bold;
+        color: white;
+        background: none;
+        text-indent: 0;  /* deixa o R visível */
+        z-index: 10;
+        display: block !important;
+      }
+      #segundaTela #linkR {
+        display: none !important; /* esconde na segunda tela */
+      }
+    }   
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -467,3 +502,4 @@
 </script>
 </body>
 </html>
+

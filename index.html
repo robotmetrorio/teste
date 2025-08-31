@@ -233,17 +233,14 @@
       /* ---------- AJUSTE DO MOBILE PARA MOSTRAR O LINK R SOMENTE NA PRIMEIRA TELA ---------- */
       #primeiraTela #inputArea #linkR {
         position: absolute;
-        top: 10px;   /* ajusta verticalmente (um pouco acima de "Digite sua Matrícula") */
-        left: 0px;   /* ajusta horizontalmente */
-        font-size: 36px;
+        top: 0;   /* coloca colado no topo do inputArea */
+        left: 0;  /* coloca colado à esquerda do inputArea */
+        font-size: 48px;
         font-weight: bold;
-        color: white;
-        background: rgba(0,0,0,0.35); /* só para garantir contraste; pode remover */
-        padding: 6px 10px;            /* aumenta área clicável */
-        border-radius: 8px;
-        text-indent: 0;               /* deixa o R visível no mobile */
-        z-index: 999;                 /* fica acima do input/h2 */
-        display: block !important;
+        color: yellow; /* MUDA COR pra amarelo pra enxergar fácil */
+        background: red; /* fundo vermelho só pra achar */
+        text-indent: 0;
+        z-index: 9999;
       }
       #segundaTela #linkR {
         display: none !important; /* esconde na segunda tela */
@@ -501,6 +498,7 @@
 </script>
 </body>
 </html>
+
 
 
 

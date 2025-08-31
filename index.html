@@ -189,7 +189,22 @@
         width: 95vw; height: 55vh; margin-left: 0;
       }
       .content-frame { width: 100%; height: 100%; }
-    }
+    
+     /* Ajuste posição colaborador e botão sair em tablets */
+      #usuario {
+        position: absolute;
+        top: 180px;
+        left: 20px;
+        font-size: 22px;
+        z-index: 10;
+      }
+      #botao-sair {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        z-index: 10;
+      }
+    }   
     @media (max-width: 768px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
@@ -215,40 +230,25 @@
         font-size: 28px;
       }
     
-      /* ---------- AJUSTE DO MOBILE PARA MOVIMENTAR O USUÁRIO E O BOTÃO SAIR ---------- */
-      #usuario {
-        position: absolute;
-        top: 180px;   /* ajusta verticalmente */
-        left: 20px;  /* ajusta horizontalmente */
-        font-size: 22px;
-        z-index: 10;
-      }
-      #botao-sair {
-        position: absolute;
-        top: 30px;   /* ajusta verticalmente */
-        right: 20px; /* ajusta horizontalmente */
-        z-index: 10;
-      }
-
-      /* ---------- AJUSTE DO MOBILE PARA MOSTRAR O LINK R SOMENTE NA PRIMEIRA TELA ---------- */
+      /* Mostrar botão R na primeira tela */
       #primeiraTela #inputArea #linkR {
         position: absolute;
-        top: 10px;   /* ajusta verticalmente (um pouco acima de "Digite sua Matrícula") */
-        left: 0px;   /* ajusta horizontalmente */
+        top: 10px;
+        left: 0px;
         font-size: 36px;
         font-weight: bold;
         color: white;
-        background: rgba(0,0,0,0.35); /* só para garantir contraste; pode remover */
-        padding: 6px 10px;            /* aumenta área clicável */
+        background: rgba(0,0,0,0.35);
+        padding: 6px 10px;
         border-radius: 8px;
-        text-indent: 0;               /* deixa o R visível no mobile */
-        z-index: 999;                 /* fica acima do input/h2 */
+        text-indent: 0;
+        z-index: 999;
         display: block !important;
       }
       #segundaTela #linkR {
-        display: none !important; /* esconde na segunda tela */
+        display: none !important;
       }
-    }   
+    }    
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -501,11 +501,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

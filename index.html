@@ -230,25 +230,22 @@
         font-size: 28px;
       }
     
-      /* Mostrar botão R na primeira tela */
-      #primeiraTela #inputArea #linkR {
+      /* ================= BOTÃO D MOBILE PRIMEIRA TELA ================= */
+      #botaoD {
+        display: block;
         position: absolute;
-        top: 80px;
-        left: 60px;
+        top: -50px; /* acima do "Digite sua Matrícula" */
+        left: 0;
         font-size: 36px;
         font-weight: bold;
         color: white;
         background: rgba(0,0,0,0.35);
         padding: 6px 10px;
         border-radius: 8px;
-        text-indent: 0;
-        z-index: 999;
-        display: block !important;
+        cursor: grab;
+        z-index: 1000;
       }
-      #segundaTela #linkR {
-        display: none !important;
-      }
-    }    
+    }
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -501,6 +498,7 @@
 </script>
 </body>
 </html>
+
 
 
 

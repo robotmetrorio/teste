@@ -182,6 +182,32 @@
       text-indent: -9999px;
     }
 
+    @media (max-width: 1024px) {
+      .keyboard { grid-template-columns: repeat(3, 100px); gap: 20px; }
+      .key { padding: 25px; font-size: 28px; }
+      #inputArea { margin-left: 10px; margin-top: 20px; }
+      .container {
+        top: 120px; left: 50%; transform: translateX(-49%);
+        width: 95vw; height: 55vh; margin-left: 0;
+      }
+      .content-frame { width: 100%; height: 100%; }
+    
+     /* Ajuste posição Colaborador(a) e botão SAIR em dispositivos mobile */
+      #usuario {
+        position: absolute;
+        top: 1600px;
+        left: 220px;
+        font-size: 29px;
+        z-index: 10;
+      }
+      #botao-sair {
+        position: absolute;
+        top: 1700px;
+        right: 450px;
+        z-index: 10;
+      }
+    }   
+
     @media (max-width: 768px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
@@ -202,8 +228,8 @@
       /* Força o R a aparecer no MOBILE */
       #primeiraTela #linkR {
         position: absolute;
-        top: 20px;     /* ajuste vertical */
-        left: 20px;    /* ajuste horizontal */
+        top: 40px;     /* ajuste vertical */
+        left: 40px;    /* ajuste horizontal */
         font-size: 42px;
         font-weight: bold;
         color: white;
@@ -211,9 +237,9 @@
         padding: 8px 14px;
         border-radius: 10px;
         text-decoration: none;
-        text-indent: 0 !important;   /* garante que o R apareça */
-        z-index: 99999 !important;   /* garante que fique na frente */
-        display: block !important;   /* força exibição */
+        text-indent: 0 !important;
+        z-index: 99999 !important;
+        display: block !important;
       }
 
       #segundaTela #linkR { display: none !important; }

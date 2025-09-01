@@ -104,7 +104,7 @@
       font-weight: bold;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
       color: white;
-
+  
       /* Ajuste de posição (desktop) */
       top: 0px;    /* pode mudar valor positivo ou negativo */
       left: 0px;   /* pode mudar valor positivo ou negativo */
@@ -168,7 +168,6 @@
       cursor: pointer;
       z-index: 5;
     }
-    /* Botão R (desktop invisível) */
     #linkR {
       position: fixed;
       top: 8%;
@@ -181,7 +180,6 @@
       cursor: pointer;
       text-indent: -9999px;
     }
-
     @media (max-width: 1024px) {
       .keyboard { grid-template-columns: repeat(3, 100px); gap: 20px; }
       .key { padding: 25px; font-size: 28px; }
@@ -207,7 +205,6 @@
         z-index: 10;
       }
     }   
-
     @media (max-width: 768px) {
       #video1, #video2, #video3 { display: none !important; }
       html, body { background-image: none !important; background: none !important; }
@@ -222,27 +219,146 @@
         transform: none;
       }
 
-      #submitBtn { height: 70px; font-size: 24px; }
-      #inputBox { width: 320px !important; height: 55px !important; font-size: 28px; }
-
-      /* Força o R a aparecer no MOBILE */
-      #primeiraTela #linkR {
+      #submitBtn {
+        height: 70px;
+        font-size: 24px;
+      }
+      
+      #inputBox {
+        width: 320px !important;
+        height: 55px !important;
+        font-size: 28px;
+      }
+    
+      /* Mostrar botão R na primeira tela */
+      #primeiraTela #inputArea #linkR {
         position: absolute;
-        top: 40px;     /* ajuste vertical */
-        left: 40px;    /* ajuste horizontal */
-        font-size: 42px;
+        top: 80px;
+        left: 60px;
+        font-size: 36px;
         font-weight: bold;
         color: white;
-        background: rgba(0,0,0,0.7);
-        padding: 8px 14px;
-        border-radius: 10px;
-        text-decoration: none;
-        text-indent: 0 !important;
-        z-index: 99999 !important;
+        background: rgba(0,0,0,0.35);
+        padding: 6px 10px;
+        border-radius: 8px;
+        text-indent: 0;
+        z-index: 999;
         display: block !important;
       }
+      #segundaTela #linkR {
+        display: none !important;
+      }
+    }    
+    #imgMobile1, #imgMobile2 {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #inputArea { position: relative; z-index: 10; }
 
-      #segundaTela #linkR { display: none !important; }
+    /* Ajuste REAL para mobile (touch devices) */
+    @media (hover: none) and (pointer: coarse) {
+      #video1, #video2, #video3 { display: none !important; }
+      html, body { background-image: none !important; background: none !important; }
+      #imgMobile1, #imgMobile2 { display: block !important; }
+
+     #inputArea {
+       position: relative;
+       max-width: 600px;        /* permite mais espaço lado a lado */
+       margin: 250px 0 0 55px !important;
+       text-align: center !important;
+       left: 0;
+       transform: none;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+      }
+
+     /* Agrupa texto e input lado a lado */
+      .inputLine {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; /* espaço entre texto e input */
+      }
+      
+      #submitBtn {
+        width: 330px !important;    /* largura do botão */
+        height: 120px !important;    /* altura do botão */
+        font-size: 45px !important; /* tamanho do texto "Confirmar" */
+        border-radius: 18px !important;   /* cantos mais arredondados */
+        position: relative; 
+        top: 108px;        /* desce o botão */
+        left: -199px;     /* empurra p/ direita */
+       }
+      
+      /* Retângulo (campo de matrícula) */
+         #inputBox {
+         width: 606px !important; /* largura do input */
+         height: 120px !important; /* altura do input */
+         font-size: 45px !important; /* tamanho do texto digitado */
+         border-radius: 18px !important; /* cantos arredondados */
+         position: relative;  
+         top: 75px;   /* movimenta vertical sem empurrar o teclado */
+         left: -56px; /* movimenta horizontal sem empurrar o teclado */
+        }
+
+
+      /* Texto "Digite sua Matrícula" */
+      h2 {
+        font-size: 50px !important;
+        position: relative;
+        top: 68px;    /* desce só o h2 */
+        left: -60px;  /* mexe na horizontal */
+     }
+
+      #inputArea {
+        position: relative;
+     }
+
+      #message {
+        position: absolute;
+        font-size: 26px;       /* pode reduzir se ainda quebrar */
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        color: white;
+        text-align: left;
+        width: auto;           
+        min-height: auto;      
+        white-space: nowrap;   /* força tudo até <br> na mesma linha */
+        word-break: keep-all;  
+        top: 1320px;
+        left: -60px;
+      }
+
+      /*  Aumentando botões do teclado numérico */
+      .keyboard {
+        grid-template-columns: repeat(3, 120px) !important;      /* quadrados maiores */
+        column-gap: 95px;                                        /* espaçamento lateral (entre botões lado a lado) */
+        row-gap: 35px;                                           /* espaçamento vertical (entre fileiras de cima/baixo) */
+        justify-content: flex-start !important;
+        position: relative;
+        left: -87px;       /* você pode aumentar/diminuir esse valor para movimentar o teclado */
+        top: 90px;         /*  desce o teclado */
+      }
+      /* todos os botões numéricos */
+      .key {
+        width: 180px !important;      /* largura fixa */
+        height: 170px !important;     /* altura fixa */
+        font-size: 60px !important;   /* número maior */
+        border-radius: 18px !important;   /* cantos mais arredondados */
+      }
+      /*  só o "Limpar" e a setinha "←" */
+      #clear, #backspace {
+        font-size: 48px !important;     /* aumenta o texto/símbolo */
+        width: 180px !important;        /* mesma largura dos numéricos */
+        height: 170px !important;       /* mesma altura dos numéricos */
+      }
     }
   </style>
 </head>
@@ -385,3 +501,15 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

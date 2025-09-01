@@ -189,21 +189,6 @@
         width: 95vw; height: 55vh; margin-left: 0;
       }
       .content-frame { width: 100%; height: 100%; }
-    
-     /* Ajuste posição Colaborador(a) e botão SAIR em dispositivos mobile */
-      #usuario {
-        position: absolute;
-        top: 1600px;
-        left: 220px;
-        font-size: 29px;
-        z-index: 10;
-      }
-      #botao-sair {
-        position: absolute;
-        top: 1700px;
-        right: 450px;
-        z-index: 10;
-      }
     }   
     @media (max-width: 768px) {
       #video1, #video2, #video3 { display: none !important; }
@@ -229,6 +214,37 @@
         height: 55px !important;
         font-size: 28px;
       }
+
+      /* --- AQUI entram as novas regras --- */
+       #usuario {
+         position: absolute;
+         top: 1600px;
+         left: 220px;
+         font-size: 29px;
+         z-index: 10;
+       }
+
+       #sair-texto {
+         position: absolute;
+         top: 1650px;
+         left: 200px;
+         font-size: 30px;
+         z-index: 11;
+         cursor: pointer;
+       }
+
+       #sair-img {
+         position: absolute;
+         top: 1720px;
+         left: 250px;
+         z-index: 11;
+         cursor: pointer;
+        }
+
+       #sair-img img {
+         width: 100px;
+         height: 100px;
+        }      
     }    
     #imgMobile1, #imgMobile2 {
       display: none;
@@ -387,7 +403,8 @@
   </div>
   <div id="usuario">Colaborador(a): <span id="nomeUsuario">...</span></div>
   <div id="botao-sair">
-    <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2;">
+    <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2; cursor:pointer;" 
+        onclick="recarregar()">
       <span style="display:block; margin-bottom:-15px;">SAIR</span>
     </div>
     <div style="cursor:pointer" onclick="recarregar()">
@@ -482,6 +499,7 @@
 </script>
 </body>
 </html>
+
 
 
 

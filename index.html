@@ -230,11 +230,11 @@
         font-size: 28px;
       }
     
-      /* Mostrar botão R na primeira tela */
+      /* Mostrar botão R na primeira tela - AJUSTE */
       #primeiraTela #inputArea #linkR {
-        position: absolute;
-        top: 80px;
-        left: 60px;
+        position: fixed; /* agora fixo no canto */
+        top: 20px;
+        right: 20px;
         font-size: 36px;
         font-weight: bold;
         color: white;
@@ -242,13 +242,14 @@
         padding: 6px 10px;
         border-radius: 8px;
         text-indent: 0;
-        z-index: 999;
+        z-index: 10000;
         display: block !important;
       }
+      /* Esconder botão R na segunda tela */
       #segundaTela #linkR {
         display: none !important;
       }
-    }    
+    }
     #imgMobile1, #imgMobile2 {
       display: none;
       position: absolute;
@@ -501,6 +502,7 @@
 </script>
 </body>
 </html>
+
 
 
 

@@ -230,11 +230,12 @@
         font-size: 28px;
       }
     
-      /* Mostrar botão R na primeira tela - AJUSTE */
+      /* Mostrar botão R na primeira tela - AGORA CENTRALIZADO ACIMA DO CAMPO */
       #primeiraTela #inputArea #linkR {
-        position: fixed; /* agora fixo no canto */
-        top: 20px;
-        right: 20px;
+        position: absolute;
+        top: -60px; /* sobe o botão acima do campo */
+        left: 50%; /* centraliza horizontalmente */
+        transform: translateX(-50%);
         font-size: 36px;
         font-weight: bold;
         color: white;
@@ -244,7 +245,7 @@
         text-indent: 0;
         z-index: 10000;
         display: block !important;
-      }
+      }      
       /* Esconder botão R na segunda tela */
       #segundaTela #linkR {
         display: none !important;
@@ -502,6 +503,7 @@
 </script>
 </body>
 </html>
+
 
 
 

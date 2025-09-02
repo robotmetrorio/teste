@@ -134,6 +134,8 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    /* --- AJUSTE DO RETÂNGULO AZUL ONDE APARECE OS TÓPICOS, EM VERSÃO DESKTOP --- */
     .container {
       position: absolute;
       top: 10%;
@@ -151,6 +153,8 @@
       border: 3px solid cyan;
       border-radius: 15px;
     }
+
+    /* AJUSTE DO NOME DO "Colaborador(a)" EM VERSÃO DESKTOP */
     #usuario {
       position: absolute;
       top: 43px;
@@ -161,7 +165,7 @@
       text-shadow: 1px 1px 4px black;
     }
     
-    /* --- AJUSTE DO TEXTO "SAIR" E A "PORTINHA" NO DESKTOP --- */
+    /* --- AJUSTE DO TEXTO "SAIR" E A "PORTINHA" EM VERSÃO DESKTOP --- */
     #sairTexto {
       position: absolute;
       top: 41px;      /* você pode ajustar */
@@ -186,7 +190,7 @@
       height: 68px;
     }
 
-    /* --- AJUSTE DO BOTÃO "R" E NO DESKTOP --- */
+    /* --- AJUSTE DO BOTÃO "R" EM VERSÃO DESKTOP --- */
     #linkR {
       position: fixed;
       top: 8%;
@@ -203,13 +207,20 @@
       .keyboard { grid-template-columns: repeat(3, 100px); gap: 20px; }
       .key { padding: 25px; font-size: 28px; }
       #inputArea { margin-left: 10px; margin-top: 20px; }
+
+      /* --- AJUSTE DO RETÂNGULO AZUL ONDE APARECE OS TÓPICOS, EM VERSÃO MOBILE --- */
       .container {
-        top: 120px; left: 50%; transform: translateX(-49%);
-        width: 95vw; height: 55vh; margin-left: 0;
+        top: 120px;
+        left: 50%; transform: translateX(-49%);
+        width: 95vw;
+        height: 55vh;
+        margin-left: 0;
       }
-      .content-frame { width: 100%; height: 100%; }
+      .content-frame { 
+        width: 100%; 
+        height: 100%; }
     
-     /* AJUSTE DO NOME DO "Colaborador(a)" EM DISPOSITIVO MOBILE */
+     /* AJUSTE DO NOME DO "Colaborador(a)" EM VERSÃO MOBILE */
       #usuario {
         position: absolute;
         top: 230px;
@@ -291,7 +302,7 @@
         left: -199px;     /* empurra p/ direita */
        }
       
-      /* AJUSTE DO "Retângulo (campo de matrícula)" */
+      /* --- AJUSTE DO RETÂNGULO (CAMPO ONDE APARECE A MATRÍCULA), EM VERSÃO MOBILE --- */
          #inputBox {
          width: 606px !important; /* largura do input */
          height: 120px !important; /* altura do input */
@@ -303,7 +314,7 @@
         }
 
 
-      /* AJUSTE DO Texto "Digite sua Matrícula" */
+      /* --- AJUSTE DO TEXTO "Digite sua Matrícula" EM VERSÃO MOBILE --- */
       h2 {
         font-size: 50px !important;
         position: relative;
@@ -330,7 +341,7 @@
         left: -60px;
       }
 
-      /*  AJUSTE DO Aumentando botões do teclado numérico */
+      /* --- AJUSTE DO AUMENTO DOS BOTÕES DO TECLADO NMÉRICO, EM VERSÃO MOBILE --- */
       .keyboard {
         grid-template-columns: repeat(3, 120px) !important;      /* quadrados maiores */
         column-gap: 95px;                                        /* espaçamento lateral (entre botões lado a lado) */
@@ -340,14 +351,14 @@
         left: -87px;       /* você pode aumentar/diminuir esse valor para movimentar o teclado */
         top: 90px;         /*  desce o teclado */
       }
-      /* AJUSTE DOS TAMANHOS DE todos os botões numéricos */
+      /* --- AJUSTE DO AUMENTO DOS NÚMEROS, DE DENTRO DO TECLADO NUMÉRICO, EM VERSÃO MOBILE --- */
       .key {
         width: 180px !important;      /* largura fixa */
         height: 170px !important;     /* altura fixa */
         font-size: 60px !important;   /* número maior */
         border-radius: 18px !important;   /* cantos mais arredondados */
       }
-      /*  só o "Limpar" e a setinha "←" */
+      /* --- AJUSTE DO AUMENTO DO "Limpar" E A SETINHA(←), DE DENTRO DO TECLADO. EM VERSÃO MOBILE --- */
       #clear, #backspace {
         font-size: 48px !important;     /* aumenta o texto/símbolo */
         width: 180px !important;        /* mesma largura dos numéricos */
@@ -512,6 +523,7 @@
 </script>
 </body>
 </html>
+
 
 
 

@@ -160,14 +160,30 @@
       font-weight: bold;
       text-shadow: 1px 1px 4px black;
     }
-    #botao-sair {
+    
+    /* --- NOVO BLOCO PARA SAIR --- */
+    #sairTexto {
       position: absolute;
-      top: 42px;
-      right: 50px;
-      text-align: center;
+      top: 40px;   /* ajuste vertical */
+      right: 120px; /* ajuste horizontal */
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
       cursor: pointer;
-      z-index: 5;
+      z-index: 6;
     }
+    #sairIcone {
+      position: absolute;
+      top: 70px;   /* ajuste vertical independente */
+      right: 100px; /* ajuste horizontal independente */
+      cursor: pointer;
+      z-index: 6;
+    }
+    #sairIcone img {
+      width: 68px;   /* ajuste tamanho ícone */
+      height: 68px;
+    }
+   
     #linkR {
       position: fixed;
       top: 8%;
@@ -340,6 +356,24 @@
         width: 180px !important;        /* mesma largura dos numéricos */
         height: 170px !important;       /* mesma altura dos numéricos */
       }
+      /* --- AQUI entram os novos elementos de SAIR --- */
+      #sairTexto {
+        font-size: 42px;
+        top: 1600px;
+        left: 200px;
+        right: auto;
+      }
+
+      #sairIcone {
+        top: 1700px;
+        left: 220px;
+        right: auto;
+      }
+
+      #sairIcone img {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
@@ -386,15 +420,14 @@
     <iframe id="content-frame" name="content" class="content-frame" src="menu.principal.html"></iframe>
   </div>
   <div id="usuario">Colaborador(a): <span id="nomeUsuario">...</span></div>
-  <div id="botao-sair">
-    <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2;">
-      <span style="display:block; margin-bottom:-15px;">SAIR</span>
-    </div>
-    <div style="cursor:pointer" onclick="recarregar()">
-      <img src="icones/sair2.png" alt="Sair" style="width:68px; height:68px; margin-top:4px;">
-    </div>
+  
+  <!-- NOVA ESTRUTURA SAIR -->
+  <div id="sairTexto" onclick="recarregar()">SAIR</div>
+  <div id="sairIcone" onclick="recarregar()">
+    <img src="icones/sair2.png" alt="Sair">
   </div>
 </div>
+  
 <a href="relatorio-avaliacoes.html" id="linkR" title="Relatório">R</a>
 <script src="database.js"></script>
 <script>
@@ -482,6 +515,7 @@
 </script>
 </body>
 </html>
+
 
 
 

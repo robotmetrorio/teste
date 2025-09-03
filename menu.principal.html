@@ -13,17 +13,29 @@
       overflow: hidden; /* só o scroll container pode rolar */
     }
 
+    /* TÍTULO */
+    .titulo-container img,
+    .titulo-container span {
+      position: absolute;
+    }
+    .titulo-container span {
+      font-weight: bold;
+      color: white;
+    }
+
+    /* CONTAINER DE BOTÕES COM SCROLL */
     .botoes-scroll {
-      width: 100%;
-      max-height: calc(100vh - 150px);
-      overflow-y: auto;
       position: relative;
+      width: 100%;
+      max-height: calc(100vh - 150px); /* altura útil abaixo do título */
+      overflow-y: auto;
+      margin-top: 150px; /* deixa espaço para o título */
     }
 
     .grid-botoes {
       position: relative;
       width: 100%;
-      min-height: 2000px; /* garante espaço para rolagem */
+      min-height: 2000px; /* garante rolagem */
     }
 
     .botao img,
@@ -44,131 +56,89 @@
 
     /* ================= DESKTOP ================= */
     @media (min-width: 769px) {
-      .titulo-container img {
-        position: absolute;
-        width: 410px;
-        height: 130px;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .titulo-container span {
-        position: absolute;
-        font-size: 23px;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-      }
+      /* TÍTULO */
+      .titulo-container img { width: 410px; height: 130px; top: 20px; left: 50%; transform: translateX(-50%); }
+      .titulo-container span { font-size: 23px; top: 70px; left: 50%; transform: translateX(-50%); }
 
-      /* BOTÃO AUXÍLIOS */
-      .btn-auxilios img { width: 410px; height: 130px; top: 200px; left: 50%; transform: translateX(-50%); }
-      .btn-auxilios a   { width: 410px; height: 130px; top: 200px; left: 50%; transform: translateX(-50%); }
+      /* BOTÕES */
+      .btn-auxilios img { width: 410px; height: 130px; top: 0px; left: 50%; transform: translateX(-50%); }
+      .btn-auxilios a   { width: 410px; height: 130px; top: 0px; left: 50%; transform: translateX(-50%); }
       .btn-auxilios a span { font-size: 19px; }
 
-      /* BOTÃO BENEFÍCIOS */
-      .btn-beneficios img { width: 410px; height: 130px; top: 350px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a   { width: 410px; height: 130px; top: 350px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios img { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios a   { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
       .btn-beneficios a span { font-size: 18px; }
 
-      /* BOTÃO FOLHA */
-      .btn-folha img { width: 410px; height: 130px; top: 500px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a   { width: 410px; height: 130px; top: 500px; left: 50%; transform: translateX(-50%); }
+      .btn-folha img { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
+      .btn-folha a   { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
       .btn-folha a span { font-size: 19px; }
 
-      /* BOTÃO ASSISTÊNCIA */
-      .btn-assistencia img { width: 410px; height: 130px; top: 650px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a   { width: 410px; height: 130px; top: 650px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia img { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia a   { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
       .btn-assistencia a span { font-size: 18px; }
 
-      /* BOTÃO VALE */
-      .btn-vale img { width: 410px; height: 130px; top: 800px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a   { width: 410px; height: 130px; top: 800px; left: 50%; transform: translateX(-50%); }
+      .btn-vale img { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .btn-vale a   { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
       .btn-vale a span { font-size: 19px; }
 
-      /* BOTÃO VA/VR */
-      .btn-va-vr img { width: 410px; height: 130px; top: 950px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a   { width: 410px; height: 130px; top: 950px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr img { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr a   { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
       .btn-va-vr a span { font-size: 18px; }
 
-      /* BOTÃO PONTO */
-      .btn-ponto img { width: 410px; height: 130px; top: 1100px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a   { width: 410px; height: 130px; top: 1100px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto img { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto a   { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
       .btn-ponto a span { font-size: 18px; }
 
-      /* BOTÃO RAS */
-      .btn-ras img { width: 410px; height: 130px; top: 1250px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a   { width: 410px; height: 130px; top: 1250px; left: 50%; transform: translateX(-50%); }
+      .btn-ras img { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
+      .btn-ras a   { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
       .btn-ras a span { font-size: 18px; }
 
-      /* BOTÃO JAE */
-      .btn-jae img { width: 410px; height: 130px; top: 1400px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a   { width: 410px; height: 130px; top: 1400px; left: 50%; transform: translateX(-50%); }
+      .btn-jae img { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
+      .btn-jae a   { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
       .btn-jae a span { font-size: 18px; }
     }
 
     /* ================= MOBILE ================= */
     @media (max-width: 768px) {
-      .titulo-container img {
-        position: absolute;
-        width: 300px;
-        height: 100px;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .titulo-container span {
-        position: absolute;
-        font-size: 20px;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-      }
+      /* TÍTULO */
+      .titulo-container img { width: 300px; height: 100px; top: 20px; left: 50%; transform: translateX(-50%); }
+      .titulo-container span { font-size: 20px; top: 60px; left: 50%; transform: translateX(-50%); }
 
-      /* BOTÃO AUXÍLIOS */
-      .btn-auxilios img { width: 300px; height: 100px; top: 150px; left: 50%; transform: translateX(-50%); }
-      .btn-auxilios a   { width: 300px; height: 100px; top: 150px; left: 50%; transform: translateX(-50%); }
+      /* BOTÕES */
+      .btn-auxilios img { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
+      .btn-auxilios a   { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
       .btn-auxilios a span { font-size: 16px; }
 
-      /* BOTÃO BENEFÍCIOS */
-      .btn-beneficios img { width: 300px; height: 100px; top: 270px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a   { width: 300px; height: 100px; top: 270px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios img { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios a   { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
       .btn-beneficios a span { font-size: 16px; }
 
-      /* BOTÃO FOLHA */
-      .btn-folha img { width: 300px; height: 100px; top: 390px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a   { width: 300px; height: 100px; top: 390px; left: 50%; transform: translateX(-50%); }
+      .btn-folha img { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
+      .btn-folha a   { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
       .btn-folha a span { font-size: 16px; }
 
-      /* BOTÃO ASSISTÊNCIA */
-      .btn-assistencia img { width: 300px; height: 100px; top: 510px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a   { width: 300px; height: 100px; top: 510px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia img { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia a   { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
       .btn-assistencia a span { font-size: 16px; }
 
-      /* BOTÃO VALE */
-      .btn-vale img { width: 300px; height: 100px; top: 630px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a   { width: 300px; height: 100px; top: 630px; left: 50%; transform: translateX(-50%); }
+      .btn-vale img { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
+      .btn-vale a   { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
       .btn-vale a span { font-size: 16px; }
 
-      /* BOTÃO VA/VR */
-      .btn-va-vr img { width: 300px; height: 100px; top: 750px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a   { width: 300px; height: 100px; top: 750px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr img { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr a   { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
       .btn-va-vr a span { font-size: 16px; }
 
-      /* BOTÃO PONTO */
-      .btn-ponto img { width: 300px; height: 100px; top: 870px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a   { width: 300px; height: 100px; top: 870px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto img { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto a   { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
       .btn-ponto a span { font-size: 16px; }
 
-      /* BOTÃO RAS */
-      .btn-ras img { width: 300px; height: 100px; top: 990px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a   { width: 300px; height: 100px; top: 990px; left: 50%; transform: translateX(-50%); }
+      .btn-ras img { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
+      .btn-ras a   { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
       .btn-ras a span { font-size: 16px; }
 
-      /* BOTÃO JAE */
-      .btn-jae img { width: 300px; height: 100px; top: 1110px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a   { width: 300px; height: 100px; top: 1110px; left: 50%; transform: translateX(-50%); }
+      .btn-jae img { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
+      .btn-jae a   { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
       .btn-jae a span { font-size: 16px; }
     }
   </style>

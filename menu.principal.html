@@ -6,26 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* ===== ESTILO MOBILE ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* ===== TÍTULO ===== */
+    .titulo-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #000;
+      margin-top: -5px;
+      margin-right: 8px;
+    }
+
+    .titulo {
+      position: relative;
+      display: inline-block;
+    }
+
+    .titulo img {
+      width: 410px;
+      height: 120px;
+    }
+
+    .titulo span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 23px;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* ===== MENU ===== */
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      width: auto;
+      margin: 5px auto;
+    }
+
+    .botao {
+      position: relative;
+      display: inline-block;
+    }
+
+    .botao img {
+      width: 410px;
+      height: 130px;
+    }
+
+    .botao a {
+      position: absolute;
+      top: 51%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 348px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .botao a span {
+      font-size: 19px;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       body {
-        overflow: hidden;
+        overflow: auto; /* permite rolagem vertical */
       }
 
-      /* Cabeçalho fixo */
-      .titulo-wrapper {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: #000; /* opcional */
-      }
-
-      /* Título pode ser ajustado */
-      .titulo { transform: translate(0px, 0px) scale(1); }
-      .titulo img { width: 410px; height: 120px; }
-      .titulo span { font-size: 23px; transform: translate(-50%, -50%); }
-
-      /* Área de botões vira lista rolável */
+      /* Menu em coluna rolável no mobile */
       .menu {
         display: flex !important;
         flex-direction: column !important;
@@ -33,37 +97,41 @@
         overflow-y: auto;
         gap: 20px;
         margin-top: 15px !important;
+        padding: 0 10px;
       }
 
-      /* Cada botão centralizado */
-      .menu .botao { margin: 0 auto !important; }
+      /* Botões centralizados no mobile */
+      .menu .botao {
+        margin: 0 !important;       /* zera margens negativas do mobile */
+        transform: none !important; /* ignora transform temporário do mobile */
+        display: flex;
+        justify-content: center;
+      }
 
-      /* Ajuste individual de cada botão */
-      .auxilios    { transform: translate(0px, 0px) scale(1); }
-      .beneficios  { transform: translate(0px, 0px) scale(1); }
-      .folha       { transform: translate(0px, 0px) scale(1); }
-      .assistencia { transform: translate(0px, 0px) scale(1); }
-      .vale        { transform: translate(0px, 0px) scale(1); }
-      .vavr        { transform: translate(0px, 0px) scale(1); }
-      .ponto       { transform: translate(0px, 0px) scale(1); }
-      .ras         { transform: translate(0px, 0px) scale(1); }
-      .jae         { transform: translate(0px, 0px) scale(1); }
+      /* Links centralizados e cabendo na tela */
+      .menu .botao a {
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 80%;
+        max-width: 348px;
+        height: 70px;
+      }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
+<body>
 
   <!-- Título -->
-  <div class="titulo-wrapper" style="margin-top:-5px; margin-right:8px;">
-    <div class="titulo" style="position:relative; display:inline-block;">
-      <img src="icones/icone.titulo.png" alt="Título" style="width:410px; height:120px;">
-      <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
-                   font-size:23px; font-weight:bold; color:white;">MENU PRINCIPAL</span>
+  <div class="titulo-wrapper">
+    <div class="titulo">
+      <img src="icones/icone.titulo.png" alt="Título">
+      <span>MENU PRINCIPAL</span>
     </div>
   </div>
 
   <!-- Área dos botões -->
-  <div class="menu" style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
+  <div class="menu">
 
     <!-- AUXÍLIOS -->
     <div class="botao auxilios" style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
@@ -165,5 +233,6 @@
     </div>
 
   </div>
+
 </body>
 </html>

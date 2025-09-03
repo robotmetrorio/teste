@@ -9,169 +9,123 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: transparent;
-      overflow: hidden; /* só o scroll container pode rolar */
-    }
-
-    /* CONTAINER DE BOTÕES COM SCROLL */
-    .botoes-scroll {
-      position: relative;
-      width: 100%;
-      max-height: calc(100vh - 150px); /* altura útil abaixo do título */
-      overflow-y: auto; /* <--- barra de rolagem mantida */
-      margin-top: 150px; /* deixa espaço para o título */
-    }
-
-    .grid-botoes {
-      position: relative;
-      width: 100%;
-      min-height: 2000px; /* garante rolagem */
-    }
-
-    .botao img,
-    .botao a {
-      position: absolute;
-    }
-    .botao a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .botao a span {
-      font-weight: bold;
-      color: white;
+      overflow: hidden;
     }
 
     /* ================= DESKTOP ================= */
-    body.desktop { background-color: red; }
-    body.desktop .mobile { display: none; }
-
-    /* TÍTULO DESKTOP */
-    body.desktop .titulo-container.desktop img { width: 410px; height: 130px; top: 20px; left: 50%; transform: translateX(-50%); position: absolute; }
-    body.desktop .titulo-container.desktop span { font-size: 23px; top: 70px; left: 50%; transform: translateX(-50%); position: absolute; font-weight: bold; color: white; }
-
-    /* BOTÕES DESKTOP */
-    body.desktop .desktop.btn-auxilios img { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
-    body.desktop .desktop.btn-auxilios a   { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
-    body.desktop .desktop.btn-auxilios a span { font-size: 19px; }
-
-    body.desktop .desktop.btn-beneficios img { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-beneficios a   { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-beneficios a span { font-size: 18px; }
-
-    body.desktop .desktop.btn-folha img { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-folha a   { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-folha a span { font-size: 19px; }
-
-    body.desktop .desktop.btn-assistencia img { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-assistencia a   { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-assistencia a span { font-size: 18px; }
-
-    body.desktop .desktop.btn-vale img { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-vale a   { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-vale a span { font-size: 19px; }
-
-    body.desktop .desktop.btn-va-vr img { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-va-vr a   { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-va-vr a span { font-size: 18px; }
-
-    body.desktop .desktop.btn-ponto img { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-ponto a   { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-ponto a span { font-size: 18px; }
-
-    body.desktop .desktop.btn-ras img { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-ras a   { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-ras a span { font-size: 18px; }
-
-    body.desktop .desktop.btn-jae img { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-jae a   { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-    body.desktop .desktop.btn-jae a span { font-size: 18px; }
+    .desktop-container {
+      display: block;
+      background-color: red; /* cor de teste desktop */
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+    .desktop-container .titulo {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 23px;
+      font-weight: bold;
+      color: white;
+    }
+    .desktop-container .botao {
+      position: absolute;
+      width: 410px;
+      height: 130px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .desktop-container .btn-auxilios { top: 0px; left: 50px; }
+    .desktop-container .btn-beneficios { top: 150px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-folha { top: 300px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-assistencia { top: 450px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-vale { top: 600px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-va-vr { top: 750px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-ponto { top: 900px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-ras { top: 1050px; left: 50%; transform: translateX(-50%); }
+    .desktop-container .btn-jae { top: 1200px; left: 50%; transform: translateX(-50%); }
 
     /* ================= MOBILE ================= */
-    body.mobile { background-color: blue; }
-    body.mobile .desktop { display: none; }
+    .mobile-container {
+      display: none; /* só será ativado em mobile */
+      background-color: blue; /* cor de teste mobile */
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+    .mobile-container .titulo {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+    .mobile-container .botao {
+      position: absolute;
+      width: 300px;
+      height: 100px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .mobile-container .btn-auxilios { top: 0px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-beneficios { top: 120px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-folha { top: 240px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-assistencia { top: 360px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-vale { top: 480px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-va-vr { top: 600px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-ponto { top: 720px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-ras { top: 840px; left: 50%; transform: translateX(-50%); }
+    .mobile-container .btn-jae { top: 960px; left: 50%; transform: translateX(-50%); }
 
-    /* TÍTULO MOBILE */
-    body.mobile .titulo-container.mobile img { width: 300px; height: 100px; top: 20px; left: 50%; transform: translateX(-50%); position: absolute; }
-    body.mobile .titulo-container.mobile span { font-size: 20px; top: 60px; left: 50%; transform: translateX(-50%); position: absolute; font-weight: bold; color: white; }
-
-    /* BOTÕES MOBILE */
-    body.mobile .mobile.btn-auxilios img { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-auxilios a   { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-auxilios a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-beneficios img { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-beneficios a   { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-beneficios a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-folha img { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-folha a   { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-folha a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-assistencia img { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-assistencia a   { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-assistencia a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-vale img { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-vale a   { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-vale a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-va-vr img { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-va-vr a   { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-va-vr a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-ponto img { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-ponto a   { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-ponto a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-ras img { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-ras a   { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-ras a span { font-size: 16px; }
-
-    body.mobile .mobile.btn-jae img { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-jae a   { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
-    body.mobile .mobile.btn-jae a span { font-size: 16px; }
+    /* ===== RESPONSIVO PARA DETECTAR MOBILE ===== */
+    @media (max-width: 768px) {
+      .desktop-container { display: none; }
+      .mobile-container { display: block; }
+    }
   </style>
 </head>
 <body>
-
-  <!-- Título Desktop -->
-  <div class="titulo-container desktop">
-    <img src="icones/icone.titulo.png" alt="Título">
-    <span>MENU PRINCIPAL</span>
+  <!-- ================= DESKTOP ================= -->
+  <div class="desktop-container">
+    <div class="titulo">MENU PRINCIPAL</div>
+    <a class="botao btn-auxilios" href="menu.de.auxilios.html">AUXÍLIOS</a>
+    <a class="botao btn-beneficios" href="menu.de.demais.beneficios.html">DEMAIS BENEFÍCIOS</a>
+    <a class="botao btn-folha" href="menu.da.folha.pagamento.html">FOLHA DE PAGAMENTO</a>
+    <a class="botao btn-assistencia" href="menu.de.assistencia.medica.html">ASSISTÊNCIA MÉDICA</a>
+    <a class="botao btn-vale" href="vale.transporte/menu.do.vale.transporte.pg1.html">VALE-TRANSPORTE</a>
+    <a class="botao btn-va-vr" href="menu.do.va.vr.cesta.html">VA/ VR / CESTA BÁSICA</a>
+    <a class="botao btn-ponto" href="menu.ponto.bio.cracha.html">PONTO, BIOMETRIA E CRACHÁ</a>
+    <a class="botao btn-ras" href="ras.html">RAS</a>
+    <a class="botao btn-jae" href="menu.do.cartao.jae.html">CARTÃO JAÉ</a>
   </div>
 
-  <!-- Título Mobile -->
-  <div class="titulo-container mobile">
-    <img src="icones/icone.titulo.png" alt="Título">
-    <span>MENU PRINCIPAL</span>
+  <!-- ================= MOBILE ================= -->
+  <div class="mobile-container">
+    <div class="titulo">MENU PRINCIPAL</div>
+    <a class="botao btn-auxilios" href="menu.de.auxilios.html">AUXÍLIOS</a>
+    <a class="botao btn-beneficios" href="menu.de.demais.beneficios.html">DEMAIS BENEFÍCIOS</a>
+    <a class="botao btn-folha" href="menu.da.folha.pagamento.html">FOLHA DE PAGAMENTO</a>
+    <a class="botao btn-assistencia" href="menu.de.assistencia.medica.html">ASSISTÊNCIA MÉDICA</a>
+    <a class="botao btn-vale" href="vale.transporte/menu.do.vale.transporte.pg1.html">VALE-TRANSPORTE</a>
+    <a class="botao btn-va-vr" href="menu.do.va.vr.cesta.html">VA/ VR / CESTA BÁSICA</a>
+    <a class="botao btn-ponto" href="menu.ponto.bio.cracha.html">PONTO, BIOMETRIA E CRACHÁ</a>
+    <a class="botao btn-ras" href="ras.html">RAS</a>
+    <a class="botao btn-jae" href="menu.do.cartao.jae.html">CARTÃO JAÉ</a>
   </div>
-
-  <!-- Botões com scroll -->
-  <div class="botoes-scroll">
-    <div class="grid-botoes">
-      <!-- BOTÕES (mesmo código que você já tinha) -->
-      <!-- ... AUXÍLIOS, BENEFÍCIOS, FOLHA, ASSISTÊNCIA, VALE, VA/VR, PONTO, RAS, JAÉ ... -->
-    </div>
-  </div>
-
-  <script>
-    function ajustarLayout() {
-      // usa a largura do próprio iframe
-      let largura = window.innerWidth;
-      if (largura >= 769) {
-        document.body.classList.add("desktop");
-        document.body.classList.remove("mobile");
-      } else {
-        document.body.classList.add("mobile");
-        document.body.classList.remove("desktop");
-      }
-    }
-    ajustarLayout();
-    window.addEventListener("resize", ajustarLayout);
-  </script>
-
 </body>
 </html>

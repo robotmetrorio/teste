@@ -446,7 +446,7 @@
   const video2 = document.getElementById('video2');
   
   keys.forEach(key => {
-    key.addEventListener('click', () => {
+    key.addEventListener('pointerdown', () => {
       if (key.id === 'clear') inputBox.value = '';
       else if (key.id === 'backspace') inputBox.value = inputBox.value.slice(0, -1);
       else inputBox.value += key.textContent;
@@ -523,3 +523,4 @@
 </script>
 </body>
 </html>
+

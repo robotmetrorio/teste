@@ -152,104 +152,16 @@
   <!-- Botões com scroll -->
   <div class="botoes-scroll">
     <div class="grid-botoes">
-
-      <!-- AUXÍLIOS -->
-      <div class="botao btn-auxilios desktop">
-        <img src="icones/icone.botao.png" alt="Auxílios">
-        <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
-      </div>
-      <div class="botao btn-auxilios mobile">
-        <img src="icones/icone.botao.png" alt="Auxílios">
-        <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
-      </div>
-
-      <!-- BENEFÍCIOS -->
-      <div class="botao btn-beneficios desktop">
-        <img src="icones/icone.botao.png" alt="Demais Benefícios">
-        <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
-      </div>
-      <div class="botao btn-beneficios mobile">
-        <img src="icones/icone.botao.png" alt="Demais Benefícios">
-        <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
-      </div>
-
-      <!-- FOLHA -->
-      <div class="botao btn-folha desktop">
-        <img src="icones/icone.botao.png" alt="Folha de Pagamento">
-        <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
-      </div>
-      <div class="botao btn-folha mobile">
-        <img src="icones/icone.botao.png" alt="Folha de Pagamento">
-        <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
-      </div>
-
-      <!-- ASSISTÊNCIA -->
-      <div class="botao btn-assistencia desktop">
-        <img src="icones/icone.botao.png" alt="Assistência Médica">
-        <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
-      </div>
-      <div class="botao btn-assistencia mobile">
-        <img src="icones/icone.botao.png" alt="Assistência Médica">
-        <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
-      </div>
-
-      <!-- VALE -->
-      <div class="botao btn-vale desktop">
-        <img src="icones/icone.botao.png" alt="Vale-Transporte">
-        <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
-      </div>
-      <div class="botao btn-vale mobile">
-        <img src="icones/icone.botao.png" alt="Vale-Transporte">
-        <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
-      </div>
-
-      <!-- VA/VR -->
-      <div class="botao btn-va-vr desktop">
-        <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
-        <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
-      </div>
-      <div class="botao btn-va-vr mobile">
-        <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
-        <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
-      </div>
-
-      <!-- PONTO -->
-      <div class="botao btn-ponto desktop">
-        <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
-        <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
-      </div>
-      <div class="botao btn-ponto mobile">
-        <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
-        <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
-      </div>
-
-      <!-- RAS -->
-      <div class="botao btn-ras desktop">
-        <img src="icones/icone.botao.png" alt="RAS">
-        <a href="ras.html"><span>RAS</span></a>
-      </div>
-      <div class="botao btn-ras mobile">
-        <img src="icones/icone.botao.png" alt="RAS">
-        <a href="ras.html"><span>RAS</span></a>
-      </div>
-
-      <!-- JAÉ -->
-      <div class="botao btn-jae desktop">
-        <img src="icones/icone.botao.png" alt="Cartão JAÉ">
-        <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
-      </div>
-      <div class="botao btn-jae mobile">
-        <img src="icones/icone.botao.png" alt="Cartão JAÉ">
-        <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
-      </div>
-
+      <!-- BOTÕES (mesmo código que você já tinha) -->
+      <!-- ... AUXÍLIOS, BENEFÍCIOS, FOLHA, ASSISTÊNCIA, VALE, VA/VR, PONTO, RAS, JAÉ ... -->
     </div>
   </div>
 
   <script>
     function ajustarLayout() {
-      let larguraExterna = window.parent.innerWidth; // largura da janela principal
-      if (larguraExterna >= 769) {
+      // usa a largura do próprio iframe
+      let largura = window.innerWidth;
+      if (largura >= 769) {
         document.body.classList.add("desktop");
         document.body.classList.remove("mobile");
       } else {

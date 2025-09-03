@@ -11,7 +11,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden; /* só a área de botões terá scroll */
+      overflow: hidden; /* só o container de botões terá scroll */
       background-color: transparent; /* sem cor de fundo */
     }
 
@@ -26,7 +26,7 @@
     }
 
     .titulo-container img {
-      width: 410px;  /* desktop */
+      width: 410px;
       height: auto;
     }
 
@@ -40,7 +40,7 @@
       color: white;
     }
 
-    /* ====== CONTAINER DE BOTOES COM SCROLL ====== */
+    /* ====== CONTAINER SCROLL PARA BOTÕES ====== */
     .botoes-scroll {
       width: 100%;
       max-height: calc(100vh - 150px); /* altura disponível abaixo do título */
@@ -57,21 +57,21 @@
       margin: 0 auto;
     }
 
-    /* ====== BOTÃO PADRÃO ====== */
+    /* ====== BOTÃO INDIVIDUAL ====== */
     .botao {
       position: relative;
       display: inline-block;
-      width: 100%;
-      cursor: default; /* cursor só muda no link */
+      cursor: default; /* cursor só muda dentro do link */
     }
 
     .botao img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
       border-radius: 10px;
     }
 
+    /* ====== LINK SOBRE A IMAGEM ====== */
     .botao a {
       position: absolute;
       top: 50%;
@@ -81,8 +81,6 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      width: 100%;
-      height: 100%;
       cursor: pointer;
     }
 
@@ -93,30 +91,39 @@
 
     /* ====== AJUSTES INDIVIDUAIS DESKTOP ====== */
     .btn-auxilios img { width: 410px; height: 130px; }
+    .btn-auxilios a { width: 348px; height: 70px; }
     .btn-auxilios a span { font-size: 19px; }
 
-    .btn-beneficios img { width: 420px; height: 135px; }
+    .btn-beneficios img { width: 410px; height: 130px; }
+    .btn-beneficios a { width: 348px; height: 70px; }
     .btn-beneficios a span { font-size: 18px; }
 
-    .btn-folha img { width: 400px; height: 125px; }
+    .btn-folha img { width: 410px; height: 130px; }
+    .btn-folha a { width: 348px; height: 70px; }
     .btn-folha a span { font-size: 19px; }
 
     .btn-assistencia img { width: 410px; height: 130px; }
+    .btn-assistencia a { width: 348px; height: 70px; }
     .btn-assistencia a span { font-size: 18px; }
 
-    .btn-vale img { width: 415px; height: 130px; }
+    .btn-vale img { width: 410px; height: 130px; }
+    .btn-vale a { width: 348px; height: 70px; }
     .btn-vale a span { font-size: 19px; }
 
     .btn-va-vr img { width: 410px; height: 130px; }
+    .btn-va-vr a { width: 348px; height: 70px; }
     .btn-va-vr a span { font-size: 18px; }
 
-    .btn-ponto img { width: 420px; height: 135px; }
+    .btn-ponto img { width: 410px; height: 130px; }
+    .btn-ponto a { width: 348px; height: 70px; }
     .btn-ponto a span { font-size: 18px; }
 
-    .btn-ras img { width: 400px; height: 125px; }
+    .btn-ras img { width: 410px; height: 130px; }
+    .btn-ras a { width: 348px; height: 70px; }
     .btn-ras a span { font-size: 18px; }
 
-    .btn-jae img { width: 415px; height: 130px; }
+    .btn-jae img { width: 410px; height: 130px; }
+    .btn-jae a { width: 348px; height: 70px; }
     .btn-jae a span { font-size: 18px; }
 
     /* ====== AJUSTES MOBILE ====== */
@@ -125,30 +132,39 @@
       .titulo-container span { font-size: 20px; }
 
       .btn-auxilios img { width: 300px; height: 100px; }
+      .btn-auxilios a { width: 260px; height: 60px; }
       .btn-auxilios a span { font-size: 16px; }
 
-      .btn-beneficios img { width: 305px; height: 105px; }
+      .btn-beneficios img { width: 300px; height: 100px; }
+      .btn-beneficios a { width: 260px; height: 60px; }
       .btn-beneficios a span { font-size: 16px; }
 
       .btn-folha img { width: 300px; height: 100px; }
+      .btn-folha a { width: 260px; height: 60px; }
       .btn-folha a span { font-size: 16px; }
 
       .btn-assistencia img { width: 300px; height: 100px; }
+      .btn-assistencia a { width: 260px; height: 60px; }
       .btn-assistencia a span { font-size: 16px; }
 
-      .btn-vale img { width: 305px; height: 100px; }
+      .btn-vale img { width: 300px; height: 100px; }
+      .btn-vale a { width: 260px; height: 60px; }
       .btn-vale a span { font-size: 16px; }
 
       .btn-va-vr img { width: 300px; height: 100px; }
+      .btn-va-vr a { width: 260px; height: 60px; }
       .btn-va-vr a span { font-size: 16px; }
 
-      .btn-ponto img { width: 305px; height: 105px; }
+      .btn-ponto img { width: 300px; height: 100px; }
+      .btn-ponto a { width: 260px; height: 60px; }
       .btn-ponto a span { font-size: 16px; }
 
       .btn-ras img { width: 300px; height: 100px; }
+      .btn-ras a { width: 260px; height: 60px; }
       .btn-ras a span { font-size: 16px; }
 
-      .btn-jae img { width: 305px; height: 100px; }
+      .btn-jae img { width: 300px; height: 100px; }
+      .btn-jae a { width: 260px; height: 60px; }
       .btn-jae a span { font-size: 16px; }
     }
   </style>

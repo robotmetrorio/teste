@@ -1,211 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Menu Principal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  overflow: hidden; /* Desktop sem rolagem */
-}
-
-/* ===== TÍTULO ===== */
-.titulo-wrapper {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  margin-top: -5px;
-  margin-right: 8px;
-}
-
-.titulo {
-  position: relative;
-  display: inline-block;
-}
-
-.titulo img {
-  width: 410px;
-  height: 120px;
-}
-
-.titulo span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 23px;
-  font-weight: bold;
-  color: white;
-}
-
-/* ===== MENU DESKTOP ===== */
-.menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  width: auto;
-  margin: 5px auto;
-}
-
-.botao {
-  position: relative;
-  display: inline-block;
-}
-
-.botao img {
-  width: 410px;
-  height: 130px;
-}
-
-.botao a {
-  position: absolute;
-  top: 51%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 348px;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.botao a span {
-  font-size: 19px;
-  font-weight: bold;
-  color: white;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-  body {
-    overflow: auto; /* rolagem apenas no mobile */
-  }
-
-  .menu {
-    display: flex !important;
-    flex-direction: column !important;
-    max-height: 70vh;
-    overflow-y: auto;
-    gap: 20px;
-    margin-top: 15px !important;
-    padding: 0 10px;
-  }
-
-  .menu .botao {
-    margin: 0 !important;       /* Remove margens negativas do desktop */
-    transform: none !important; /* Ignora transform do desktop */
-    display: flex;
-    justify-content: center;
-  }
-
-  .menu .botao a {
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 80%;
-    max-width: 348px;
-    height: 70px;
-  }
-
-  .titulo-wrapper {
-    background: inherit; /* Mantém fundo do desktop */
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Menu Principal</title>
 </head>
-<body>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
 
-<!-- Título -->
-<div class="titulo-wrapper">
-  <div class="titulo">
-    <img src="icones/icone.titulo.png" alt="Título">
-    <span>MENU PRINCIPAL</span>
-  </div>
-</div>
+    <!-- Imagem do Menu com texto sobreposto -->
+    <div style="margin-top:-5px; margin-right:8px;">
+        <div style="position:relative; display:inline-block;">
+            <img src="icones/icone.titulo.png" alt="Título" style="width:410px; height:120px;">
+            <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); 
+                         font-size:23px; font-weight:bold; color:white;">MENU PRINCIPAL</span>
+        </div>
+    </div>
 
-<!-- Área dos botões -->
-<div class="menu">
+    <!-- Itens com imagens e textos sobrepostos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
 
-  <!-- AUXÍLIOS -->
-  <div class="botao auxilios" style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
-    <img src="icones/icone.botao.png" alt="auxílios" style="width:410px; height:130px;">
-    <a href="menu.de.auxilios.html">
-      <span>AUXÍLIOS</span>
-    </a>
-  </div>
+        <!-- Modelo padrão para cada botão -->
+        <!-- AUXÍLIOS -->
+        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="auxílios" style="width:410px; height:130px;">
+            <a href="menu.de.auxilios.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">AUXÍLIOS</span>
+            </a>
+        </div>
 
-  <!-- DEMAIS BENEFÍCIOS -->
-  <div class="botao beneficios" style="position:relative; display:inline-block; margin-top:-45px; margin-left:-44px;">
-    <img src="icones/icone.botao.png" alt="benefícios" style="width:410px; height:130px;">
-    <a href="menu.de.demais.beneficios.html">
-      <span>DEMAIS BENEFÍCIOS</span>
-    </a>
-  </div>
+        <!-- DEMAIS BENEFÍCIOS -->
+        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="benefícios" style="width:410px; height:130px;">
+            <a href="menu.de.demais.beneficios.html"
+               style="position:absolute; top:51%; left:52%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">DEMAIS BENEFÍCIOS</span>
+            </a>
+        </div>
 
-  <!-- FOLHA DE PAGAMENTO -->
-  <div class="botao folha" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
-    <img src="icones/icone.botao.png" alt="folha de pagamento" style="width:410px; height:130px;">
-    <a href="menu.da.folha.pagamento.html">
-      <span>FOLHA DE PAGAMENTO</span>
-    </a>
-  </div>
+        <!-- FOLHA DE PAGAMENTO -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="folha de pagamento" style="width:410px; height:130px;">
+            <a href="menu.da.folha.pagamento.html"
+               style="position:absolute; top:51%; right:-36%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">FOLHA DE PAGAMENTO</span>
+            </a>
+        </div>
 
-  <!-- ASSISTÊNCIA MÉDICA -->
-  <div class="botao assistencia" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
-    <img src="icones/icone.botao.png" alt="assistência médica" style="width:410px; height:130px;">
-    <a href="menu.de.assistencia.medica.html">
-      <span>ASSISTÊNCIA MÉDICA</span>
-    </a>
-  </div>
+        <!-- ASSISTÊNCIA MÉDICA -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="assistência médica" style="width:410px; height:130px;">
+            <a href="menu.de.assistencia.medica.html"
+               style="position:absolute; top:51%; right:-35%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">ASSISTÊNCIA MÉDICA</span>
+            </a>
+        </div>
 
-  <!-- VALE-TRANSPORTE -->
-  <div class="botao vale" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
-    <img src="icones/icone.botao.png" alt="vale-transporte" style="width:410px; height:130px;">
-    <a href="vale.transporte/menu.do.vale.transporte.pg1.html">
-      <span>VALE-TRANSPORTE</span>
-    </a>
-  </div>
+        <!-- VALE-TRANSPORTE -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="vale-transporte" style="width:410px; height:130px;">
+            <a href="vale.transporte/menu.do.vale.transporte.pg1.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">VALE-TRANSPORTE</span>
+            </a>
+        </div>
 
-  <!-- VA/ VR / CESTA BÁSICA -->
-  <div class="botao vavr" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
-    <img src="icones/icone.botao.png" alt="va, vr, cesta básica" style="width:410px; height:130px;">
-    <a href="menu.do.va.vr.cesta.html">
-      <span>VA/ VR / CESTA BÁSICA</span>
-    </a>
-  </div>
+        <!-- VA/ VR / CESTA BÁSICA -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="va, vr, cesta básica" style="width:410px; height:130px;">
+            <a href="menu.do.va.vr.cesta.html"
+               style="position:absolute; top:51%; right:-35%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">VA/ VR / CESTA BÁSICA</span>
+            </a>
+        </div>
 
-  <!-- PONTO, BIOMETRIA E CRACHÁ -->
-  <div class="botao ponto" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
-    <img src="icones/icone.botao.png" alt="ponto, biometria e crachá" style="width:410px; height:130px;">
-    <a href="menu.ponto.bio.cracha.html">
-      <span>PONTO, BIOMETRIA E CRACHÁ</span>
-    </a>
-  </div>
+        <!-- PONTO, BIOMETRIA E CRACHÁ -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
+            <img src="icones/icone.botao.png" alt="ponto, biometria e crachá" style="width:410px; height:130px;">
+            <a href="menu.ponto.bio.cracha.html"
+               style="position:absolute; top:51%; right:-36%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">PONTO, BIOMETRIA E CRACHÁ</span>
+            </a>
+        </div>
 
-  <!-- RAS -->
-  <div class="botao ras" style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
-    <img src="icones/icone.botao.png" alt="ras" style="width:410px; height:130px;">
-    <a href="ras.html">
-      <span>RAS</span>
-    </a>
-  </div>
+        <!-- RAS -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
+            <img src="icones/icone.botao.png" alt="ras" style="width:410px; height:130px;">
+            <a href="ras.html"
+               style="position:absolute; top:51%; left:51%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">RAS</span>
+            </a>
+        </div>
 
-  <!-- CARTÃO JAÉ -->
-  <div class="botao jae" style="position:relative; display:inline-block; margin-top:-54px; margin-right:-355px;">
-    <img src="icones/icone.botao.png" alt="cartão jaé" style="width:410px; height:130px;">
-    <a href="menu.do.cartao.jae.html">
-      <span>CARTÃO JAÉ</span>
-    </a>
-  </div>
+        <!-- CARTÃO JAÉ -->
+        <div style="position:relative; display:inline-block; margin-top:-54px; margin-right:-355px;">
+            <img src="icones/icone.botao.png" alt="cartão jaé" style="width:410px; height:130px;">
+            <a href="menu.do.cartao.jae.html"
+               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
+                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
+                      text-decoration:none; cursor:pointer;">
+                <span style="font-size:19px; font-weight:bold; color:white;">CARTÃO JAÉ</span>
+            </a>
+        </div>
 
-</div>
+    </div>
+
+    <!-- Script de atividade -->
+    <script>
+      const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
+      eventos.forEach(evento => {
+        document.addEventListener(evento, () => {
+          parent.postMessage("atividade", "*");
+        });
+      });
+
+      const divComScroll = document.querySelector('div[style*="overflow:auto"]');
+      if (divComScroll) {
+        divComScroll.addEventListener('scroll', () => {
+          parent.postMessage("atividade", "*");
+        });
+      }
+    </script>
 
 </body>
 </html>

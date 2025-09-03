@@ -5,33 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Principal</title>
   <style>
-    /* ====== ESTILO GERAL ====== */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      text-align: center;
-      overflow: hidden; /* só o container de botões terá scroll */
-      background-color: transparent; /* sem cor de fundo */
+      background-color: transparent;
+      overflow: hidden; /* só o scroll container pode rolar */
     }
 
     .botoes-scroll {
       width: 100%;
       max-height: calc(100vh - 150px);
       overflow-y: auto;
-      padding: 10px 0;
+      position: relative;
     }
 
     .grid-botoes {
-      position: relative; /* necessário pros absolutes */
+      position: relative;
       width: 100%;
-      height: auto;
+      min-height: 2000px; /* garante espaço para rolagem */
     }
 
-    /* Cada botão como base */
-    .botao {
-      position: relative;
-    }
     .botao img,
     .botao a {
       position: absolute;
@@ -48,140 +42,140 @@
       color: white;
     }
 
-    /* =====================================================
-       ================ DESKTOP ============================
-       ===================================================== */
+    /* ================= DESKTOP ================= */
     @media (min-width: 769px) {
-      /* TÍTULO */
       .titulo-container img {
         position: absolute;
         width: 410px;
         height: 130px;
         top: 20px;
-        left: 200px;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .titulo-container span {
         position: absolute;
         font-size: 23px;
         top: 70px;
-        left: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
       }
 
       /* BOTÃO AUXÍLIOS */
-      .btn-auxilios img { width: 410px; height: 130px; top: 200px; left: 200px; }
-      .btn-auxilios a   { width: 410px; height: 130px; top: 200px; left: 200px; }
+      .btn-auxilios img { width: 410px; height: 130px; top: 200px; left: 50%; transform: translateX(-50%); }
+      .btn-auxilios a   { width: 410px; height: 130px; top: 200px; left: 50%; transform: translateX(-50%); }
       .btn-auxilios a span { font-size: 19px; }
 
       /* BOTÃO BENEFÍCIOS */
-      .btn-beneficios img { width: 410px; height: 130px; top: 350px; left: 200px; }
-      .btn-beneficios a   { width: 410px; height: 130px; top: 350px; left: 200px; }
+      .btn-beneficios img { width: 410px; height: 130px; top: 350px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios a   { width: 410px; height: 130px; top: 350px; left: 50%; transform: translateX(-50%); }
       .btn-beneficios a span { font-size: 18px; }
 
       /* BOTÃO FOLHA */
-      .btn-folha img { width: 410px; height: 130px; top: 500px; left: 200px; }
-      .btn-folha a   { width: 410px; height: 130px; top: 500px; left: 200px; }
+      .btn-folha img { width: 410px; height: 130px; top: 500px; left: 50%; transform: translateX(-50%); }
+      .btn-folha a   { width: 410px; height: 130px; top: 500px; left: 50%; transform: translateX(-50%); }
       .btn-folha a span { font-size: 19px; }
 
       /* BOTÃO ASSISTÊNCIA */
-      .btn-assistencia img { width: 410px; height: 130px; top: 650px; left: 200px; }
-      .btn-assistencia a   { width: 410px; height: 130px; top: 650px; left: 200px; }
+      .btn-assistencia img { width: 410px; height: 130px; top: 650px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia a   { width: 410px; height: 130px; top: 650px; left: 50%; transform: translateX(-50%); }
       .btn-assistencia a span { font-size: 18px; }
 
       /* BOTÃO VALE */
-      .btn-vale img { width: 410px; height: 130px; top: 800px; left: 200px; }
-      .btn-vale a   { width: 410px; height: 130px; top: 800px; left: 200px; }
+      .btn-vale img { width: 410px; height: 130px; top: 800px; left: 50%; transform: translateX(-50%); }
+      .btn-vale a   { width: 410px; height: 130px; top: 800px; left: 50%; transform: translateX(-50%); }
       .btn-vale a span { font-size: 19px; }
 
       /* BOTÃO VA/VR */
-      .btn-va-vr img { width: 410px; height: 130px; top: 950px; left: 200px; }
-      .btn-va-vr a   { width: 410px; height: 130px; top: 950px; left: 200px; }
+      .btn-va-vr img { width: 410px; height: 130px; top: 950px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr a   { width: 410px; height: 130px; top: 950px; left: 50%; transform: translateX(-50%); }
       .btn-va-vr a span { font-size: 18px; }
 
       /* BOTÃO PONTO */
-      .btn-ponto img { width: 410px; height: 130px; top: 1100px; left: 200px; }
-      .btn-ponto a   { width: 410px; height: 130px; top: 1100px; left: 200px; }
+      .btn-ponto img { width: 410px; height: 130px; top: 1100px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto a   { width: 410px; height: 130px; top: 1100px; left: 50%; transform: translateX(-50%); }
       .btn-ponto a span { font-size: 18px; }
 
       /* BOTÃO RAS */
-      .btn-ras img { width: 410px; height: 130px; top: 1250px; left: 200px; }
-      .btn-ras a   { width: 410px; height: 130px; top: 1250px; left: 200px; }
+      .btn-ras img { width: 410px; height: 130px; top: 1250px; left: 50%; transform: translateX(-50%); }
+      .btn-ras a   { width: 410px; height: 130px; top: 1250px; left: 50%; transform: translateX(-50%); }
       .btn-ras a span { font-size: 18px; }
 
       /* BOTÃO JAE */
-      .btn-jae img { width: 410px; height: 130px; top: 1400px; left: 200px; }
-      .btn-jae a   { width: 410px; height: 130px; top: 1400px; left: 200px; }
+      .btn-jae img { width: 410px; height: 130px; top: 1400px; left: 50%; transform: translateX(-50%); }
+      .btn-jae a   { width: 410px; height: 130px; top: 1400px; left: 50%; transform: translateX(-50%); }
       .btn-jae a span { font-size: 18px; }
     }
 
-    /* =====================================================
-       ================ MOBILE =============================
-       ===================================================== */
+    /* ================= MOBILE ================= */
     @media (max-width: 768px) {
-      /* TÍTULO */
       .titulo-container img {
         position: absolute;
         width: 300px;
         height: 100px;
         top: 20px;
-        left: 10px;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .titulo-container span {
         position: absolute;
         font-size: 20px;
         top: 60px;
-        left: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
       }
 
       /* BOTÃO AUXÍLIOS */
-      .btn-auxilios img { width: 300px; height: 100px; top: 150px; left: 10px; }
-      .btn-auxilios a   { width: 300px; height: 100px; top: 150px; left: 10px; }
+      .btn-auxilios img { width: 300px; height: 100px; top: 150px; left: 50%; transform: translateX(-50%); }
+      .btn-auxilios a   { width: 300px; height: 100px; top: 150px; left: 50%; transform: translateX(-50%); }
       .btn-auxilios a span { font-size: 16px; }
 
       /* BOTÃO BENEFÍCIOS */
-      .btn-beneficios img { width: 300px; height: 100px; top: 270px; left: 10px; }
-      .btn-beneficios a   { width: 300px; height: 100px; top: 270px; left: 10px; }
+      .btn-beneficios img { width: 300px; height: 100px; top: 270px; left: 50%; transform: translateX(-50%); }
+      .btn-beneficios a   { width: 300px; height: 100px; top: 270px; left: 50%; transform: translateX(-50%); }
       .btn-beneficios a span { font-size: 16px; }
 
       /* BOTÃO FOLHA */
-      .btn-folha img { width: 300px; height: 100px; top: 390px; left: 10px; }
-      .btn-folha a   { width: 300px; height: 100px; top: 390px; left: 10px; }
+      .btn-folha img { width: 300px; height: 100px; top: 390px; left: 50%; transform: translateX(-50%); }
+      .btn-folha a   { width: 300px; height: 100px; top: 390px; left: 50%; transform: translateX(-50%); }
       .btn-folha a span { font-size: 16px; }
 
       /* BOTÃO ASSISTÊNCIA */
-      .btn-assistencia img { width: 300px; height: 100px; top: 510px; left: 10px; }
-      .btn-assistencia a   { width: 300px; height: 100px; top: 510px; left: 10px; }
+      .btn-assistencia img { width: 300px; height: 100px; top: 510px; left: 50%; transform: translateX(-50%); }
+      .btn-assistencia a   { width: 300px; height: 100px; top: 510px; left: 50%; transform: translateX(-50%); }
       .btn-assistencia a span { font-size: 16px; }
 
       /* BOTÃO VALE */
-      .btn-vale img { width: 300px; height: 100px; top: 630px; left: 10px; }
-      .btn-vale a   { width: 300px; height: 100px; top: 630px; left: 10px; }
+      .btn-vale img { width: 300px; height: 100px; top: 630px; left: 50%; transform: translateX(-50%); }
+      .btn-vale a   { width: 300px; height: 100px; top: 630px; left: 50%; transform: translateX(-50%); }
       .btn-vale a span { font-size: 16px; }
 
       /* BOTÃO VA/VR */
-      .btn-va-vr img { width: 300px; height: 100px; top: 750px; left: 10px; }
-      .btn-va-vr a   { width: 300px; height: 100px; top: 750px; left: 10px; }
+      .btn-va-vr img { width: 300px; height: 100px; top: 750px; left: 50%; transform: translateX(-50%); }
+      .btn-va-vr a   { width: 300px; height: 100px; top: 750px; left: 50%; transform: translateX(-50%); }
       .btn-va-vr a span { font-size: 16px; }
 
       /* BOTÃO PONTO */
-      .btn-ponto img { width: 300px; height: 100px; top: 870px; left: 10px; }
-      .btn-ponto a   { width: 300px; height: 100px; top: 870px; left: 10px; }
+      .btn-ponto img { width: 300px; height: 100px; top: 870px; left: 50%; transform: translateX(-50%); }
+      .btn-ponto a   { width: 300px; height: 100px; top: 870px; left: 50%; transform: translateX(-50%); }
       .btn-ponto a span { font-size: 16px; }
 
       /* BOTÃO RAS */
-      .btn-ras img { width: 300px; height: 100px; top: 990px; left: 10px; }
-      .btn-ras a   { width: 300px; height: 100px; top: 990px; left: 10px; }
+      .btn-ras img { width: 300px; height: 100px; top: 990px; left: 50%; transform: translateX(-50%); }
+      .btn-ras a   { width: 300px; height: 100px; top: 990px; left: 50%; transform: translateX(-50%); }
       .btn-ras a span { font-size: 16px; }
 
       /* BOTÃO JAE */
-      .btn-jae img { width: 300px; height: 100px; top: 1110px; left: 10px; }
-      .btn-jae a   { width: 300px; height: 100px; top: 1110px; left: 10px; }
+      .btn-jae img { width: 300px; height: 100px; top: 1110px; left: 50%; transform: translateX(-50%); }
+      .btn-jae a   { width: 300px; height: 100px; top: 1110px; left: 50%; transform: translateX(-50%); }
       .btn-jae a span { font-size: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Título fixo -->
+  <!-- Título -->
   <div class="titulo-container">
     <img src="icones/icone.titulo.png" alt="Título">
     <span>MENU PRINCIPAL</span>
@@ -236,23 +230,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Script de atividade -->
-  <script>
-    const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
-    eventos.forEach(evento => {
-      document.addEventListener(evento, () => {
-        parent.postMessage("atividade", "*");
-      });
-    });
-
-    const divComScroll = document.querySelector('.botoes-scroll');
-    if (divComScroll) {
-      divComScroll.addEventListener('scroll', () => {
-        parent.postMessage("atividade", "*");
-      });
-    }
-  </script>
 
 </body>
 </html>

@@ -5,64 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Principal</title>
   <style>
-    /* ====== ESTILO GERAL ====== */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden; /* só a área de botões terá scroll */
-      background-color: transparent; /* sem cor de fundo */
+      overflow-x: hidden;
+      background-color: #f0f0f0;
     }
 
-    /* ====== TÍTULO ====== */
-    .titulo-container {
+    /* ====== TÍTULO PRINCIPAL ====== */
+    .titulo {
       position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
+      display: inline-block;
+      margin: 20px auto;
     }
 
-    .titulo-container img {
-      width: 410px;  /* desktop */
+    .titulo img {
+      width: 410px;   /* desktop padrão */
       height: auto;
     }
 
-    .titulo-container span {
+    .titulo span {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 23px;
+      font-size: 23px;  /* desktop */
       font-weight: bold;
       color: white;
-    }
-
-    /* ====== CONTAINER DE BOTOES COM SCROLL ====== */
-    .botoes-scroll {
-      width: 100%;
-      max-height: calc(100vh - 150px); /* altura disponível abaixo do título */
-      overflow-y: auto;
-      padding: 10px 0;
     }
 
     /* ====== GRID DE BOTÕES ====== */
     .grid-botoes {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 10px;
       width: 90%;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
     }
 
-    /* ====== BOTÃO PADRÃO ====== */
     .botao {
       position: relative;
       display: inline-block;
       width: 100%;
-      cursor: default; /* cursor só muda no link */
+      cursor: pointer;
     }
 
     .botao img {
@@ -77,13 +64,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 90%;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
     }
 
     .botao a span {
@@ -121,8 +107,8 @@
 
     /* ====== AJUSTES MOBILE ====== */
     @media (max-width: 768px) {
-      .titulo-container img { width: 300px; }
-      .titulo-container span { font-size: 20px; }
+      .titulo img { width: 300px; }
+      .titulo span { font-size: 20px; }
 
       .btn-auxilios img { width: 300px; height: 100px; }
       .btn-auxilios a span { font-size: 16px; }
@@ -155,59 +141,59 @@
 </head>
 <body>
 
-  <!-- Título fixo -->
-  <div class="titulo-container">
-    <img src="icones/icone.titulo.png" alt="Título">
-    <span>MENU PRINCIPAL</span>
+  <!-- Título -->
+  <div class="titulo">
+    <div style="position: relative; display: inline-block;">
+      <img src="icones/icone.titulo.png" alt="Título">
+      <span>MENU PRINCIPAL</span>
+    </div>
   </div>
 
-  <!-- Botões com scroll -->
-  <div class="botoes-scroll">
-    <div class="grid-botoes">
-      <div class="botao btn-auxilios">
-        <img src="icones/icone.botao.png" alt="Auxílios">
-        <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
-      </div>
+  <!-- Grid de botões -->
+  <div class="grid-botoes">
+    <div class="botao btn-auxilios">
+      <img src="icones/icone.botao.png" alt="Auxílios">
+      <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
+    </div>
 
-      <div class="botao btn-beneficios">
-        <img src="icones/icone.botao.png" alt="Demais Benefícios">
-        <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
-      </div>
+    <div class="botao btn-beneficios">
+      <img src="icones/icone.botao.png" alt="Demais Benefícios">
+      <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
+    </div>
 
-      <div class="botao btn-folha">
-        <img src="icones/icone.botao.png" alt="Folha de Pagamento">
-        <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
-      </div>
+    <div class="botao btn-folha">
+      <img src="icones/icone.botao.png" alt="Folha de Pagamento">
+      <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
+    </div>
 
-      <div class="botao btn-assistencia">
-        <img src="icones/icone.botao.png" alt="Assistência Médica">
-        <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
-      </div>
+    <div class="botao btn-assistencia">
+      <img src="icones/icone.botao.png" alt="Assistência Médica">
+      <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
+    </div>
 
-      <div class="botao btn-vale">
-        <img src="icones/icone.botao.png" alt="Vale-Transporte">
-        <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
-      </div>
+    <div class="botao btn-vale">
+      <img src="icones/icone.botao.png" alt="Vale-Transporte">
+      <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
+    </div>
 
-      <div class="botao btn-va-vr">
-        <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
-        <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
-      </div>
+    <div class="botao btn-va-vr">
+      <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
+      <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
+    </div>
 
-      <div class="botao btn-ponto">
-        <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
-        <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
-      </div>
+    <div class="botao btn-ponto">
+      <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
+      <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
+    </div>
 
-      <div class="botao btn-ras">
-        <img src="icones/icone.botao.png" alt="RAS">
-        <a href="ras.html"><span>RAS</span></a>
-      </div>
+    <div class="botao btn-ras">
+      <img src="icones/icone.botao.png" alt="RAS">
+      <a href="ras.html"><span>RAS</span></a>
+    </div>
 
-      <div class="botao btn-jae">
-        <img src="icones/icone.botao.png" alt="Cartão JAÉ">
-        <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
-      </div>
+    <div class="botao btn-jae">
+      <img src="icones/icone.botao.png" alt="Cartão JAÉ">
+      <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
     </div>
   </div>
 
@@ -220,7 +206,7 @@
       });
     });
 
-    const divComScroll = document.querySelector('.botoes-scroll');
+    const divComScroll = document.querySelector('div[style*="overflow:auto"]');
     if (divComScroll) {
       divComScroll.addEventListener('scroll', () => {
         parent.postMessage("atividade", "*");

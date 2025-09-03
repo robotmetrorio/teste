@@ -3,61 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>Menu Principal</title>
-  <style>
-    /* --- ESTILO APENAS PARA MOBILE --- */
-    @media (max-width: 768px) {
-      body {
-        overflow: hidden; /* trava o fundo */
-      }
+  <!-- Corrige detecção no celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      /* Cabeçalho fixo */
+  <style>
+    /* ======== MOBILE DE VERDADE (evita iframe estreito no desktop) ========
+       Aplica somente quando a largura for <= 768 E o dispositivo for touch
+       (sem hover) OU pointer "coarse". Assim, desktop em iframe não vira mobile. */
+    @media (max-width: 768px) and (hover: none), (max-width: 768px) and (pointer: coarse) {
+      body { overflow: hidden; }
+
+      /* Cabeçalho fixo no topo */
       .titulo-wrapper {
         position: sticky;
         top: 0;
         z-index: 10;
-        background: #000; /* opcional: fundo para contraste */
+        background: #000; /* opcional p/ contraste com a imagem do título */
       }
 
-      /* Área dos botões com rolagem */
+      /* ===== Movimentação / tamanho do TÍTULO (ajuste à vontade) ===== */
+      .titulo { transform: translate(0px, 0px) scale(1); }
+      .titulo img { width: 410px; height: 120px; } /* pode trocar p/ 450px, auto etc */
+      .titulo span { font-size: 23px; transform: translate(-50%, -50%); }
+
+      /* Área de botões vira lista rolável */
       .menu {
         display: flex !important;
         flex-direction: column !important;
-        max-height: 70vh;   /* altura visível */
-        overflow-y: auto;   /* ativa scroll */
+        max-height: 70vh;       /* altura visível */
+        overflow-y: auto;       /* barra de rolagem */
         gap: 20px;
         margin-top: 15px !important;
       }
 
-      /* Cada botão centralizado */
-      .menu .botao {
-        margin: 0 auto !important;
-      }
+      /* Centraliza cada cartão de botão */
+      .menu .botao { margin: 0 auto !important; }
 
-      /* Ajuste individual de cada botão */
-      .auxilios    { transform: translate(0px, 0px); }
-      .beneficios  { transform: translate(0px, 0px); }
-      .folha       { transform: translate(0px, 0px); }
-      .assistencia { transform: translate(0px, 0px); }
-      .vale        { transform: translate(0px, 0px); }
-      .vavr        { transform: translate(0px, 0px); }
-      .ponto       { transform: translate(0px, 0px); }
-      .ras         { transform: translate(0px, 0px); }
-      .jae         { transform: translate(0px, 0px); }
+      /* Permite mover/aplicar transform no texto interno também */
+      .menu .botao a span { display: inline-block; }
+
+      /* ===== Movimentação / escala INDIVIDUAL dos botões =====
+         Ajuste os valores abaixo conforme sua necessidade (só mobile). */
+      .auxilios    { transform: translate(0px, 0px) scale(1); }
+      .beneficios  { transform: translate(0px, 0px) scale(1); }
+      .folha       { transform: translate(0px, 0px) scale(1); }
+      .assistencia { transform: translate(0px, 0px) scale(1); }
+      .vale        { transform: translate(0px, 0px) scale(1); }
+      .vavr        { transform: translate(0px, 0px) scale(1); }
+      .ponto       { transform: translate(0px, 0px) scale(1); }
+      .ras         { transform: translate(0px, 0px) scale(1); }
+      .jae         { transform: translate(0px, 0px) scale(1); }
+
+      /* Exemplos de mover SÓ o texto de um botão (opcional):
+         .auxilios a span { transform: translate(5px, -3px); font-size: 21px; } */
     }
   </style>
 </head>
+
 <body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
 
-  <!-- Título -->
+  <!-- Título (sem link) -->
   <div class="titulo-wrapper" style="margin-top:-5px; margin-right:8px;">
-    <div style="position:relative; display:inline-block;">
+    <div class="titulo" style="position:relative; display:inline-block;">
       <img src="icones/icone.titulo.png" alt="Título" style="width:410px; height:120px;">
-      <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); 
+      <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
                    font-size:23px; font-weight:bold; color:white;">MENU PRINCIPAL</span>
     </div>
   </div>
 
-  <!-- Área dos botões -->
+  <!-- BOTÕES: Desktop (grid 2 colunas, sem rolagem) permanece como no seu original -->
   <div class="menu" style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
 
     <!-- AUXÍLIOS -->
@@ -160,5 +174,22 @@
     </div>
 
   </div>
+
+  <!-- Script de atividade (mantido) -->
+  <script>
+    const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
+    eventos.forEach(evento => {
+      document.addEventListener(evento, () => {
+        parent.postMessage("atividade", "*");
+      });
+    });
+
+    const divComScroll = document.querySelector('div[style*="overflow:auto"]');
+    if (divComScroll) {
+      divComScroll.addEventListener('scroll', () => {
+        parent.postMessage("atividade", "*");
+      });
+    }
+  </script>
 </body>
 </html>

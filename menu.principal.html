@@ -3,6 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu Principal</title>
+    <style>
+      /* Ajustes apenas para MOBILE */
+      @media (max-width: 768px) {
+        body {
+          overflow: hidden; /* trava a tela inteira */
+        }
+
+        /* Cabeçalho fixo */
+        body > div:first-child {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          transform: scale(1.1); /* aumentar/diminuir título */
+          margin-bottom: 10px;
+        }
+
+        /* Área de botões vira lista rolável */
+        body > div:nth-child(2) {
+          display: flex !important;
+          flex-direction: column !important;
+          max-height: 70vh;       /* altura da área */
+          overflow-y: auto;       /* ativa scroll */
+          gap: 20px;              /* espaço entre botões */
+          margin-top: 15px !important;
+        }
+
+        /* Cada botão centralizado */
+        body > div:nth-child(2) > div {
+          margin: 0 auto !important;
+          transform: none !important; /* tira deslocamentos */
+        }
+      }
+    </style>
 </head>
 <body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
 
@@ -18,7 +51,6 @@
     <!-- Itens com imagens e textos sobrepostos -->
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
 
-        <!-- Modelo padrão para cada botão -->
         <!-- AUXÍLIOS -->
         <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
             <img src="icones/icone.botao.png" alt="auxílios" style="width:410px; height:130px;">
@@ -119,23 +151,5 @@
         </div>
 
     </div>
-
-    <!-- Script de atividade -->
-    <script>
-      const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
-      eventos.forEach(evento => {
-        document.addEventListener(evento, () => {
-          parent.postMessage("atividade", "*");
-        });
-      });
-
-      const divComScroll = document.querySelector('div[style*="overflow:auto"]');
-      if (divComScroll) {
-        divComScroll.addEventListener('scroll', () => {
-          parent.postMessage("atividade", "*");
-        });
-      }
-    </script>
-
 </body>
 </html>

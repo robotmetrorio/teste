@@ -3,6 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu Principal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* ===== MOBILE PARA CARTÃO JAÉ ===== */
+      @media (max-width: 768px) {
+        #cartao-jae {
+          margin: 20px auto !important; /* centraliza horizontalmente */
+          display: flex !important;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #cartao-jae .cartao-img {
+          width: 90% !important;      /* aumenta largura da imagem */
+          max-width: 410px;
+          height: auto !important;    /* mantém proporção */
+          transform: translate(0, 0) !important; /* permite mover depois */
+        }
+
+        #cartao-jae .cartao-link {
+          width: 80% !important;      /* aumenta área clicável */
+          max-width: 348px;
+          height: 70px !important;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%) !important; /* permite ajustar depois */
+        }
+
+        #cartao-jae .cartao-texto {
+          font-size: 25px !important;  /* aumenta tamanho do texto */
+          transform: translate(0, 0) !important; /* permite mover horizontal/vertical */
+        }
+      }
+    </style>
 </head>
 <body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
 
@@ -108,13 +141,15 @@
         </div>
 
         <!-- CARTÃO JAÉ -->
-        <div style="position:relative; display:inline-block; margin-top:-54px; margin-right:-355px;">
-            <img src="icones/icone.botao.png" alt="cartão jaé" style="width:410px; height:130px;">
-            <a href="menu.do.cartao.jae.html"
+        <div class="botao jae" id="cartao-jae"  
+            style="position:relative; display:inline-block; margin-top:-54px; margin-right:-355px;">
+            <img src="icones/icone.botao.png" alt="cartão jaé" class="cartao-img"
+                style="width:410px; height:130px;">
+            <a href="menu.do.cartao.jae.html" class="cartao-link"
                style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
                       width:348px; height:70px; display:flex; align-items:center; justify-content:center;
                       text-decoration:none; cursor:pointer;">
-                <span style="font-size:19px; font-weight:bold; color:white;">CARTÃO JAÉ</span>
+                <span class="cartao-texto" style="font-size:19px; font-weight:bold; color:white;">CARTÃO JAÉ</span>
             </a>
         </div>
 
@@ -139,3 +174,4 @@
 
 </body>
 </html>
+

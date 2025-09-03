@@ -444,8 +444,6 @@
   const messageDiv = document.getElementById('message');
   const video1 = document.getElementById('video1');
   const video2 = document.getElementById('video2');
-
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   
   keys.forEach(key => {
     key.addEventListener('click', () => {
@@ -470,9 +468,7 @@
         document.getElementById('primeiraTela').style.display = 'none';
         document.getElementById('segundaTela').style.display = 'block';
         document.getElementById('content-frame').src = "menu.principal.html";
-        if (!isMobile) {
         iniciarContagem();
-        ]
       }, 2000);
     } else {
       messageDiv.textContent = 'Matrícula não encontrada - Tente novamente';
@@ -495,7 +491,7 @@
   resetVideos();
   let intervalo;
   let tempoRestante;
-  const TEMPO_INATIVIDADE = 60 * 1000;
+  const TEMPO_INATIVIDADE = 3600 * 1000;
   function iniciarContagem() {
     clearInterval(intervalo);
     tempoRestante = TEMPO_INATIVIDADE;
@@ -514,12 +510,9 @@
     messageDiv.textContent = '';
     resetVideos();
   }
-  
-    if (!isMobile) {
-    ['mousemove','mousedown','keydown','scroll','touchstart'].forEach(evt => {
-      document.addEventListener(evt, () => tempoRestante = TEMPO_INATIVIDADE);
-   });
-  ]
+  ['mousemove','mousedown','keydown','scroll','touchstart'].forEach(evt => {
+    document.addEventListener(evt, () => tempoRestante = TEMPO_INATIVIDADE);
+  });
   setTimeout(() => {
     const primeiraTelaVisivel = document.getElementById('primeiraTela').style.display !== 'none';
     if (primeiraTelaVisivel) {
@@ -530,76 +523,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

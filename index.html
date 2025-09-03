@@ -472,7 +472,7 @@
         document.getElementById('content-frame').src = "menu.principal.html";
         if (!isMobile) {
         iniciarContagem();
-        ]
+        }
       }, 2000);
     } else {
       messageDiv.textContent = 'Matrícula não encontrada - Tente novamente';
@@ -519,7 +519,7 @@
     ['mousemove','mousedown','keydown','scroll','touchstart'].forEach(evt => {
       document.addEventListener(evt, () => tempoRestante = TEMPO_INATIVIDADE);
    });
-  ]
+  }
   setTimeout(() => {
     const primeiraTelaVisivel = document.getElementById('primeiraTela').style.display !== 'none';
     if (primeiraTelaVisivel) {
@@ -530,3 +530,4 @@
 </script>
 </body>
 </html>
+

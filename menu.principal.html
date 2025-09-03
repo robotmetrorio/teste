@@ -11,7 +11,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden;
+      overflow: hidden; /* mantém desktop sem rolagem */
     }
 
     /* ===== TÍTULO ===== */
@@ -19,9 +19,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #000;
       margin-top: -5px;
       margin-right: 8px;
+      /* sem background preto, mantém o original */
     }
 
     .titulo {
@@ -86,10 +86,9 @@
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       body {
-        overflow: auto; /* permite rolagem vertical */
+        overflow: auto; /* permite rolagem apenas no mobile */
       }
 
-      /* Menu em coluna rolável no mobile */
       .menu {
         display: flex !important;
         flex-direction: column !important;
@@ -100,15 +99,13 @@
         padding: 0 10px;
       }
 
-      /* Botões centralizados no mobile */
       .menu .botao {
-        margin: 0 !important;       /* zera margens negativas do mobile */
-        transform: none !important; /* ignora transform temporário do mobile */
+        margin: 0 !important;       /* remove margens negativas do desktop */
+        transform: none !important; /* ignora transform do desktop */
         display: flex;
         justify-content: center;
       }
 
-      /* Links centralizados e cabendo na tela */
       .menu .botao a {
         left: 50% !important;
         top: 50% !important;
@@ -116,6 +113,10 @@
         width: 80%;
         max-width: 348px;
         height: 70px;
+      }
+
+      .titulo-wrapper {
+        background: inherit; /* mantém o fundo do desktop, sem preto */
       }
     }
   </style>

@@ -13,16 +13,6 @@
       overflow: hidden; /* só o scroll container pode rolar */
     }
 
-    /* TÍTULO */
-    .titulo-container img,
-    .titulo-container span {
-      position: absolute;
-    }
-    .titulo-container span {
-      font-weight: bold;
-      color: white;
-    }
-
     /* CONTAINER DE BOTÕES COM SCROLL */
     .botoes-scroll {
       position: relative;
@@ -57,100 +47,108 @@
     /* ================= DESKTOP ================= */
     @media (min-width: 769px) {
       body { background-color: red; }
-      
-      /* TÍTULO */
-      .titulo-container img { width: 410px; height: 130px; top: 20px; left: 50%; transform: translateX(-50%); }
-      .titulo-container span { font-size: 23px; top: 70px; left: 50%; transform: translateX(-50%); }
+      .mobile { display: none; }
 
-      /* BOTÕES */
-      .btn-auxilios img { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
-      .btn-auxilios a   { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
-      .btn-auxilios a span { font-size: 19px; }
+      /* TÍTULO DESKTOP */
+      .titulo-container.desktop img { width: 410px; height: 130px; top: 20px; left: 50%; transform: translateX(-50%); position: absolute; }
+      .titulo-container.desktop span { font-size: 23px; top: 70px; left: 50%; transform: translateX(-50%); position: absolute; font-weight: bold; color: white; }
 
-      .btn-beneficios img { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a   { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a span { font-size: 18px; }
+      /* BOTÕES DESKTOP */
+      .desktop.btn-auxilios img { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
+      .desktop.btn-auxilios a   { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
+      .desktop.btn-auxilios a span { font-size: 19px; }
 
-      .btn-folha img { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a   { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a span { font-size: 19px; }
+      .desktop.btn-beneficios img { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-beneficios a   { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-beneficios a span { font-size: 18px; }
 
-      .btn-assistencia img { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a   { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a span { font-size: 18px; }
+      .desktop.btn-folha img { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-folha a   { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-folha a span { font-size: 19px; }
 
-      .btn-vale img { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a   { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a span { font-size: 19px; }
+      .desktop.btn-assistencia img { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-assistencia a   { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-assistencia a span { font-size: 18px; }
 
-      .btn-va-vr img { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a   { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a span { font-size: 18px; }
+      .desktop.btn-vale img { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-vale a   { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-vale a span { font-size: 19px; }
 
-      .btn-ponto img { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a   { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a span { font-size: 18px; }
+      .desktop.btn-va-vr img { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-va-vr a   { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-va-vr a span { font-size: 18px; }
 
-      .btn-ras img { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a   { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a span { font-size: 18px; }
+      .desktop.btn-ponto img { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-ponto a   { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-ponto a span { font-size: 18px; }
 
-      .btn-jae img { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a   { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a span { font-size: 18px; }
+      .desktop.btn-ras img { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-ras a   { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-ras a span { font-size: 18px; }
+
+      .desktop.btn-jae img { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-jae a   { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
+      .desktop.btn-jae a span { font-size: 18px; }
     }
 
     /* ================= MOBILE ================= */
     @media (max-width: 768px) {
       body { background-color: blue; }
-      
-      /* TÍTULO */
-      .titulo-container img { width: 300px; height: 100px; top: 20px; left: 50%; transform: translateX(-50%); }
-      .titulo-container span { font-size: 20px; top: 60px; left: 50%; transform: translateX(-50%); }
+      .desktop { display: none; }
 
-      /* BOTÕES */
-      .btn-auxilios img { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
-      .btn-auxilios a   { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
-      .btn-auxilios a span { font-size: 16px; }
+      /* TÍTULO MOBILE */
+      .titulo-container.mobile img { width: 300px; height: 100px; top: 20px; left: 50%; transform: translateX(-50%); position: absolute; }
+      .titulo-container.mobile span { font-size: 20px; top: 60px; left: 50%; transform: translateX(-50%); position: absolute; font-weight: bold; color: white; }
 
-      .btn-beneficios img { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a   { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a span { font-size: 16px; }
+      /* BOTÕES MOBILE */
+      .mobile.btn-auxilios img { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-auxilios a   { width: 300px; height: 100px; top: 0px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-auxilios a span { font-size: 16px; }
 
-      .btn-folha img { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a   { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a span { font-size: 16px; }
+      .mobile.btn-beneficios img { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-beneficios a   { width: 300px; height: 100px; top: 120px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-beneficios a span { font-size: 16px; }
 
-      .btn-assistencia img { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a   { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a span { font-size: 16px; }
+      .mobile.btn-folha img { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-folha a   { width: 300px; height: 100px; top: 240px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-folha a span { font-size: 16px; }
 
-      .btn-vale img { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a   { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a span { font-size: 16px; }
+      .mobile.btn-assistencia img { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-assistencia a   { width: 300px; height: 100px; top: 360px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-assistencia a span { font-size: 16px; }
 
-      .btn-va-vr img { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a   { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a span { font-size: 16px; }
+      .mobile.btn-vale img { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-vale a   { width: 300px; height: 100px; top: 480px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-vale a span { font-size: 16px; }
 
-      .btn-ponto img { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a   { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a span { font-size: 16px; }
+      .mobile.btn-va-vr img { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-va-vr a   { width: 300px; height: 100px; top: 600px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-va-vr a span { font-size: 16px; }
 
-      .btn-ras img { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a   { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a span { font-size: 16px; }
+      .mobile.btn-ponto img { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-ponto a   { width: 300px; height: 100px; top: 720px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-ponto a span { font-size: 16px; }
 
-      .btn-jae img { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a   { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a span { font-size: 16px; }
+      .mobile.btn-ras img { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-ras a   { width: 300px; height: 100px; top: 840px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-ras a span { font-size: 16px; }
+
+      .mobile.btn-jae img { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-jae a   { width: 300px; height: 100px; top: 960px; left: 50%; transform: translateX(-50%); }
+      .mobile.btn-jae a span { font-size: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Título -->
-  <div class="titulo-container">
+  <!-- Título Desktop -->
+  <div class="titulo-container desktop">
+    <img src="icones/icone.titulo.png" alt="Título">
+    <span>MENU PRINCIPAL</span>
+  </div>
+
+  <!-- Título Mobile -->
+  <div class="titulo-container mobile">
     <img src="icones/icone.titulo.png" alt="Título">
     <span>MENU PRINCIPAL</span>
   </div>
@@ -158,55 +156,99 @@
   <!-- Botões com scroll -->
   <div class="botoes-scroll">
     <div class="grid-botoes">
-      <div class="botao btn-auxilios">
+
+      <!-- AUXÍLIOS -->
+      <div class="botao btn-auxilios desktop">
+        <img src="icones/icone.botao.png" alt="Auxílios">
+        <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
+      </div>
+      <div class="botao btn-auxilios mobile">
         <img src="icones/icone.botao.png" alt="Auxílios">
         <a href="menu.de.auxilios.html"><span>AUXÍLIOS</span></a>
       </div>
 
-      <div class="botao btn-beneficios">
+      <!-- BENEFÍCIOS -->
+      <div class="botao btn-beneficios desktop">
+        <img src="icones/icone.botao.png" alt="Demais Benefícios">
+        <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
+      </div>
+      <div class="botao btn-beneficios mobile">
         <img src="icones/icone.botao.png" alt="Demais Benefícios">
         <a href="menu.de.demais.beneficios.html"><span>DEMAIS BENEFÍCIOS</span></a>
       </div>
 
-      <div class="botao btn-folha">
+      <!-- FOLHA -->
+      <div class="botao btn-folha desktop">
+        <img src="icones/icone.botao.png" alt="Folha de Pagamento">
+        <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
+      </div>
+      <div class="botao btn-folha mobile">
         <img src="icones/icone.botao.png" alt="Folha de Pagamento">
         <a href="menu.da.folha.pagamento.html"><span>FOLHA DE PAGAMENTO</span></a>
       </div>
 
-      <div class="botao btn-assistencia">
+      <!-- ASSISTÊNCIA -->
+      <div class="botao btn-assistencia desktop">
+        <img src="icones/icone.botao.png" alt="Assistência Médica">
+        <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
+      </div>
+      <div class="botao btn-assistencia mobile">
         <img src="icones/icone.botao.png" alt="Assistência Médica">
         <a href="menu.de.assistencia.medica.html"><span>ASSISTÊNCIA MÉDICA</span></a>
       </div>
 
-      <div class="botao btn-vale">
+      <!-- VALE -->
+      <div class="botao btn-vale desktop">
+        <img src="icones/icone.botao.png" alt="Vale-Transporte">
+        <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
+      </div>
+      <div class="botao btn-vale mobile">
         <img src="icones/icone.botao.png" alt="Vale-Transporte">
         <a href="vale.transporte/menu.do.vale.transporte.pg1.html"><span>VALE-TRANSPORTE</span></a>
       </div>
 
-      <div class="botao btn-va-vr">
+      <!-- VA/VR -->
+      <div class="botao btn-va-vr desktop">
+        <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
+        <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
+      </div>
+      <div class="botao btn-va-vr mobile">
         <img src="icones/icone.botao.png" alt="VA/VR/Cesta Básica">
         <a href="menu.do.va.vr.cesta.html"><span>VA/ VR / CESTA BÁSICA</span></a>
       </div>
 
-      <div class="botao btn-ponto">
+      <!-- PONTO -->
+      <div class="botao btn-ponto desktop">
+        <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
+        <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
+      </div>
+      <div class="botao btn-ponto mobile">
         <img src="icones/icone.botao.png" alt="Ponto, Biometria e Crachá">
         <a href="menu.ponto.bio.cracha.html"><span>PONTO, BIOMETRIA E CRACHÁ</span></a>
       </div>
 
-      <div class="botao btn-ras">
+      <!-- RAS -->
+      <div class="botao btn-ras desktop">
+        <img src="icones/icone.botao.png" alt="RAS">
+        <a href="ras.html"><span>RAS</span></a>
+      </div>
+      <div class="botao btn-ras mobile">
         <img src="icones/icone.botao.png" alt="RAS">
         <a href="ras.html"><span>RAS</span></a>
       </div>
 
-      <div class="botao btn-jae">
+      <!-- JAÉ -->
+      <div class="botao btn-jae desktop">
         <img src="icones/icone.botao.png" alt="Cartão JAÉ">
         <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
       </div>
+      <div class="botao btn-jae mobile">
+        <img src="icones/icone.botao.png" alt="Cartão JAÉ">
+        <a href="menu.do.cartao.jae.html"><span>CARTÃO JAÉ</span></a>
+      </div>
+
     </div>
   </div>
 
 </body>
 </html>
-
-
-

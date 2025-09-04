@@ -233,5 +233,21 @@
     </div>
   </div>
 
+  <!-- Script de atividade -->
+    <script>
+      const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
+      eventos.forEach(evento => {
+        document.addEventListener(evento, () => {
+          parent.postMessage("atividade", "*");
+        });
+      });
+
+      const divComScroll = document.querySelector('div[style*="overflow:auto"]');
+      if (divComScroll) {
+        divComScroll.addEventListener('scroll', () => {
+          parent.postMessage("atividade", "*");
+        });
+      }
+    </script>
 </body>
 </html>

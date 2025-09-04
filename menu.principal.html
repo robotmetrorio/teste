@@ -27,15 +27,30 @@
     .botoes-scroll {
       position: relative;
       width: 100%;
-      max-height: calc(100vh - 150px); /* altura útil abaixo do título */
-      overflow-y: auto;
-      margin-top: 150px; /* deixa espaço para o título */
+      overflow-y: scroll;   /* sempre reserva espaço vertical */
+      overflow-x: hidden;   /* remove scroll horizontal */
+      margin-top: 110px;
+
+      scrollbar-width: thin; 
+      scrollbar-color: rgba(255,255,255,0.5) transparent;
+    }
+
+    /* Estilo da barra em Chrome, Edge e Safari */
+    .botoes-scroll::-webkit-scrollbar {
+      width: 6px; /* 🔹 diminuímos de 8px para 6px */
+    }
+    .botoes-scroll::-webkit-scrollbar-track {
+      background: transparent; /* trilha invisível */
+    }
+    .botoes-scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 10px;
     }
 
     .grid-botoes {
       position: relative;
       width: 100%;
-      min-height: 2000px; /* garante rolagem */
+      min-height: 500px; /* garante rolagem */
     }
 
     .botao img,
@@ -56,48 +71,56 @@
 
     /* ================= DESKTOP ================= */
     @media (min-width: 700px) and (hover: hover) and (pointer: fine) {
-      body { background-color: red; }
+  
       
-      /* TÍTULO */
-      .titulo-container img { width: 410px; height: 130px; top: 20px; left: 50%; transform: translateX(-50%); }
-      .titulo-container span { font-size: 23px; top: 70px; left: 50%; transform: translateX(-50%); }
+      /* MENU PRINCIPAL */
+      .titulo-container img { width: 410px; height: 120px; top: -5px; left: 373px; transform: translateX(-50%); }
+      .titulo-container span { font-size: 23px; top: 43px; left: 373px; transform: translateX(-50%); }
 
-      /* BOTÕES */
-      .btn-auxilios img { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
-      .btn-auxilios a   { width: 410px; height: 130px; top: 0px; left: 50px; transform: none; }
+      /* AUXÍLIOS */
+      .btn-auxilios img { width: 410px; height: 130px; top: -32px; left: -14px; transform: none; }
+      .btn-auxilios a   { width: 410px; height: 130px; top: -28px; left: -14px; transform: none; }
       .btn-auxilios a span { font-size: 19px; }
 
-      .btn-beneficios img { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a   { width: 410px; height: 130px; top: 150px; left: 50%; transform: translateX(-50%); }
-      .btn-beneficios a span { font-size: 18px; }
-
-      .btn-folha img { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
-      .btn-folha a   { width: 410px; height: 130px; top: 300px; left: 50%; transform: translateX(-50%); }
+      /* DEMAIS BENEFÍCIOS */
+      .btn-beneficios img { width: 410px; height: 130px; top: -32px; right: -20px; transform: none; }
+      .btn-beneficios a   { width: 410px; height: 130px; top: -28px; right: -28px; transform: none; }
+      .btn-beneficios a span { font-size: 19px; }
+      
+      /* FOLHA DE PAGAMENTO */
+      .btn-folha img { width: 410px; height: 130px; top: 53px; left: -14px; transform: none; }
+      .btn-folha a   { width: 410px; height: 130px; top: 57px; left: -10px; transform: none; }
       .btn-folha a span { font-size: 19px; }
-
-      .btn-assistencia img { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a   { width: 410px; height: 130px; top: 450px; left: 50%; transform: translateX(-50%); }
-      .btn-assistencia a span { font-size: 18px; }
-
-      .btn-vale img { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
-      .btn-vale a   { width: 410px; height: 130px; top: 600px; left: 50%; transform: translateX(-50%); }
+      
+      /* ASSISTÊNCIA MÉDICA */
+      .btn-assistencia img { width: 410px; height: 130px; top: 53px; right: -20px; transform: none; }
+      .btn-assistencia a   { width: 410px; height: 130px; top: 57px; right: -20px; transform: none; }
+      .btn-assistencia a span { font-size: 19px; }
+      
+      /* VALE-TRANSPORTE */
+      .btn-vale img { width: 410px; height: 130px; top: 137px; left: -14px; transform: none; }
+      .btn-vale a   { width: 410px; height: 130px; top: 141px; left: -14px; transform: none; }
       .btn-vale a span { font-size: 19px; }
 
-      .btn-va-vr img { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a   { width: 410px; height: 130px; top: 750px; left: 50%; transform: translateX(-50%); }
-      .btn-va-vr a span { font-size: 18px; }
+      /* VA/ VR/ CESTA BÁSICA */
+      .btn-va-vr img { width: 410px; height: 130px; top: 137px; right: -20px; transform: none; }
+      .btn-va-vr a   { width: 410px; height: 130px; top: 141px; right: -20px; transform: none; }
+      .btn-va-vr a span { font-size: 19px; }
 
-      .btn-ponto img { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a   { width: 410px; height: 130px; top: 900px; left: 50%; transform: translateX(-50%); }
-      .btn-ponto a span { font-size: 18px; }
+      /* PONTO, BIOMETRIA E CRACHÁ */
+      .btn-ponto img { width: 410px; height: 130px; top: 222px; left: -14px; transform: none; }
+      .btn-ponto a   { width: 410px; height: 130px; top: 226px; left: -10px; transform: none; }
+      .btn-ponto a span { font-size: 19px; }
 
-      .btn-ras img { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a   { width: 410px; height: 130px; top: 1050px; left: 50%; transform: translateX(-50%); }
-      .btn-ras a span { font-size: 18px; }
+      /* RAS */
+      .btn-ras img { width: 410px; height: 130px; top: 222px; right: -20px; transform: none; }
+      .btn-ras a   { width: 410px; height: 130px; top: 226px; right: -24px; transform: none; }
+      .btn-ras a span { font-size: 19px; }
 
-      .btn-jae img { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a   { width: 410px; height: 130px; top: 1200px; left: 50%; transform: translateX(-50%); }
-      .btn-jae a span { font-size: 18px; }
+      /* CARTÃO JAÉ */
+      .btn-jae img { width: 410px; height: 130px; top: 306px; right: 167px; transform: none; }
+      .btn-jae a   { width: 410px; height: 130px; top: 310px; right: 167px; transform: none; }
+      .btn-jae a span { font-size: 19px; }
     }
 
     /* ================= MOBILE ================= */
@@ -207,12 +230,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

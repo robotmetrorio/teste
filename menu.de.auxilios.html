@@ -1,98 +1,218 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Auxílios</title>
-</head>
-<body style="margin:0; padding:0; font-family:Arial, sans-serif; text-align:center; overflow:hidden;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Auxílios</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: transparent;
+      overflow: hidden;
+    }
 
-    <!-- Imagem do Menu com texto sobreposto -->
-    <div style="margin-top:-5px; margin-right:17px;">
-        <div style="position:relative; display:inline-block;">
-            <img src="icones/icone.titulo.png" alt="Título" style="width:180px; height:120px;">
-            <span style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); 
-                         font-size:23px; font-weight:bold; color:white;">AUXÍLIOS</span>
-        </div>
-    </div>
+    /* TÍTULO */
+    .titulo-container img,
+    .titulo-container span {
+      position: absolute;
+    }
+    .titulo-container span {
+      font-weight: bold;
+      color: white;
+    }
 
-    <!-- Itens com imagens e áreas clicáveis reduzidas -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px; width:auto; margin:5px auto;">
+    /* CONTAINER DE BOTÕES COM SCROLL */
+    .botoes-scroll {
+      position: relative;
+      width: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin-top: 110px;
 
-        <!-- FUNERAL -->
-        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-14px;">
-            <img src="icones/icone.botao.png" alt="funeral" style="width:410px; height:130px;">
-            <a href="auxilios/menu.do.auxilio.funeral.html"
-               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
-                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
-                      text-decoration:none; cursor:pointer;">
-                <span style="font-size:19px; font-weight:bold; color:white;">FUNERAL</span>
-            </a>
-        </div>
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.5) transparent;
+    }
+    .botoes-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .botoes-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .botoes-scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 10px;
+    }
 
-        <!-- FILHO COM DEFICIÊNCIA -->
-        <div style="position:relative; display:inline-block; margin-top:-45px; margin-left:-44px;">
-            <img src="icones/icone.botao.png" alt="filho com deficiência" style="width:410px; height:130px;">
-            <a href="auxilios/menu.do.auxilio.para.filho.com.deficiencia.html"
-               style="position:absolute; top:51%; right:-36%; transform:translate(-50%, -50%);
-                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
-                      text-decoration:none; cursor:pointer;">
-                <span style="font-size:19px; font-weight:bold; color:white;">FILHO COM DEFICIÊNCIA</span>
-            </a>
-        </div>
+    .grid-botoes {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+    }
 
-        <!-- CRECHE -->
-        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-14px;">
-            <img src="icones/icone.botao.png" alt="creche" style="width:410px; height:130px;">
-            <a href="auxilios/menu.do.auxilio.creche.html"
-               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
-                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
-                      text-decoration:none; cursor:pointer;">
-                <span style="font-size:19px; font-weight:bold; color:white;">CRECHE</span>
-            </a>
-        </div>
+    .botao img,
+    .botao a {
+      position: absolute;
+    }
+    .botao a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .botao a span {
+      font-weight: bold;
+      color: white;
+    }
 
-        <!-- MATERIAL ESCOLAR -->
-        <div style="position:relative; display:inline-block; margin-top:-54px; margin-left:-44px;">
-            <img src="icones/icone.botao.png" alt="material escolar" style="width:410px; height:130px;">
-            <a href="auxilios/menu.do.auxilio.material.escolar.html"
-               style="position:absolute; top:51%; left:50%; transform:translate(-50%, -50%);
-                      width:348px; height:70px; display:flex; align-items:center; justify-content:center;
-                      text-decoration:none; cursor:pointer;">
-                <span style="font-size:19px; font-weight:bold; color:white;">MATERIAL ESCOLAR</span>
-            </a>
-        </div>
+    /* ================= DESKTOP ================= */
+    @media (min-width: 700px) and (hover: hover) and (pointer: fine) {
+      /* TÍTULO */
+      .titulo-container img { width: 410px; height: 120px; top: -5px; left: 373px; transform: translateX(-50%); }
+      .titulo-container span { font-size: 23px; top: 43px; left: 373px; transform: translateX(-50%); }
 
-    </div>
+      /* FUNERAL */
+      .btn-funeral img { width: 410px; height: 130px; top: -32px; left: -14px; }
+      .btn-funeral a   { width: 410px; height: 130px; top: -28px; left: -14px; }
+      .btn-funeral a span { font-size: 19px; }
 
-    <!-- Ícones de navegação -->
-    <div style="position:fixed; bottom:2px; width:100%; padding:0 20px;">
-        <div style="margin-right:690px; text-align:left;">
-          <div style="font-size:14px; font-weight:bold; color:white; line-height:1.2; margin-top:-8px; margin-bottom:-6px;">
-            <span style="display:block; margin-left:12px;">MENU</span>
-            <span style="display:block; margin-left:-3px;">PRINCIPAL</span>
-          </div>
-          <a href="menu.principal.html">
-              <img src="icones/casinha.png" alt="Home" style="width:68px; height:68px; margin-top:4px; margin-left:-1px;">
-          </a>
-        </div>
-    </div>
+      /* FILHO COM DEFICIÊNCIA */
+      .btn-filho img { width: 410px; height: 130px; top: -32px; right: -20px; }
+      .btn-filho a   { width: 410px; height: 130px; top: -28px; right: -28px; }
+      .btn-filho a span { font-size: 19px; }
 
-    <!-- Script de atividade -->
-    <script>
-      const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
-      eventos.forEach(evento => {
-        document.addEventListener(evento, () => {
-          parent.postMessage("atividade", "*");
-        });
-      });
+      /* CRECHE */
+      .btn-creche img { width: 410px; height: 130px; top: 53px; left: -14px; }
+      .btn-creche a   { width: 410px; height: 130px; top: 57px; left: -10px; }
+      .btn-creche a span { font-size: 19px; }
 
-      const divComScroll = document.querySelector('div[style*="overflow:auto"]');
-      if (divComScroll) {
-        divComScroll.addEventListener('scroll', () => {
-          parent.postMessage("atividade", "*");
-        });
+      /* MATERIAL ESCOLAR */
+      .btn-material img { width: 410px; height: 130px; top: 53px; right: -20px; }
+      .btn-material a   { width: 410px; height: 130px; top: 57px; right: -20px; }
+      .btn-material a span { font-size: 19px; }
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+      .botoes-scroll {
+        height: 69vh;
+        margin-top: 135px;
       }
-    </script>
 
+      /* TÍTULO */
+      .titulo-container img { width: 740px; height: 180px; top: -15px; left: 472px; transform: translateX(-50%); }
+      .titulo-container span { font-size: 48px; top: 48px; left: 477px; transform: translateX(-50%); }
+
+      /* FUNERAL */
+      .btn-funeral img { width: 680px; height: 180px; top: -20px; left: 473px; transform: translateX(-50%); }
+      .btn-funeral a   { width: 580px; height: 90px; top: 31px; left: 482px; transform: translateX(-50%); }
+      .btn-funeral a span { font-size: 33px; }
+
+      /* FILHO COM DEFICIÊNCIA */
+      .btn-filho img { width: 680px; height: 180px; top: 120px; left: 473px; transform: translateX(-50%); }
+      .btn-filho a   { width: 580px; height: 90px; top: 172px; left: 482px; transform: translateX(-50%); }
+      .btn-filho a span { font-size: 33px; }
+
+      /* CRECHE */
+      .btn-creche img { width: 680px; height: 180px; top: 259px; left: 473px; transform: translateX(-50%); }
+      .btn-creche a   { width: 580px; height: 90px; top: 308px; left: 482px; transform: translateX(-50%); }
+      .btn-creche a span { font-size: 33px; }
+
+      /* MATERIAL ESCOLAR */
+      .btn-material img { width: 680px; height: 180px; top: 397px; left: 473px; transform: translateX(-50%); }
+      .btn-material a   { width: 580px; height: 90px; top: 448px; left: 482px; transform: translateX(-50%); }
+      .btn-material a span { font-size: 33px; }
+    }
+
+    /* ================= RODAPÉ ================= */
+    .rodape {
+      position: fixed;
+      bottom: 2px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    .rodape-conteudo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: bold;
+    }
+    .rodape-conteudo span {
+      display: block;
+      line-height: 1.2;
+    }
+    .rodape img {
+      width: 68px;
+      height: 68px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Título -->
+  <div class="titulo-container">
+    <img src="icones/icone.titulo.png" alt="Título">
+    <span>AUXÍLIOS</span>
+  </div>
+
+  <!-- Botões com scroll -->
+  <div class="botoes-scroll">
+    <div class="grid-botoes">
+
+      <div class="botao btn-funeral">
+        <img src="icones/icone.botao.png" alt="Funeral">
+        <a href="auxilios/menu.do.auxilio.funeral.html"><span>FUNERAL</span></a>
+      </div>
+
+      <div class="botao btn-filho">
+        <img src="icones/icone.botao.png" alt="Filho com deficiência">
+        <a href="auxilios/menu.do.auxilio.para.filho.com.deficiencia.html"><span>FILHO COM DEFICIÊNCIA</span></a>
+      </div>
+
+      <div class="botao btn-creche">
+        <img src="icones/icone.botao.png" alt="Creche">
+        <a href="auxilios/menu.do.auxilio.creche.html"><span>CRECHE</span></a>
+      </div>
+
+      <div class="botao btn-material">
+        <img src="icones/icone.botao.png" alt="Material Escolar">
+        <a href="auxilios/menu.do.auxilio.material.escolar.html"><span>MATERIAL ESCOLAR</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="rodape">
+    <div class="rodape-conteudo">
+      <div>
+        <span>MENU</span>
+        <span>PRINCIPAL</span>
+      </div>
+      <a href="menu.principal.html">
+        <img src="icones/casinha.png" alt="Home">
+      </a>
+    </div>
+  </div>
+
+  <!-- Script de atividade -->
+  <script>
+    const eventos = ['mousemove', 'mousedown', 'keydown', 'touchstart'];
+    eventos.forEach(evento => {
+      document.addEventListener(evento, () => {
+        parent.postMessage("atividade", "*");
+      });
+    });
+
+    const divComScroll = document.querySelector('.botoes-scroll');
+    if (divComScroll) {
+      divComScroll.addEventListener('scroll', () => {
+        parent.postMessage("atividade", "*");
+      });
+    }
+  </script>
 </body>
 </html>

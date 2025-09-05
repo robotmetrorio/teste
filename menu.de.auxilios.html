@@ -66,36 +66,36 @@
       color: white;
     }
 
-    /* ================= DESKTOP ================= */
+    /* ================= ÁREA PARA AJUSTAR EM DISPOSITIVOS DESKTOP ================= */
     @media (min-width: 700px) and (hover: hover) and (pointer: fine) {
-      /* TÍTULO */
-      .titulo-container img { width: 410px; height: 120px; top: -5px; left: 373px; transform: translateX(-50%); }
+      /* TÍTULO - AUXÍLIOS */
+      .titulo-container img { width: 180px; height: 120px; top: -5px; left: 373px; transform: translateX(-50%); }
       .titulo-container span { font-size: 23px; top: 43px; left: 373px; transform: translateX(-50%); }
 
       /* FUNERAL */
       .btn-funeral img { width: 410px; height: 130px; top: -32px; left: -14px; }
-      .btn-funeral a   { width: 410px; height: 130px; top: -28px; left: -14px; }
+      .btn-funeral a   { width: 348px; height: 70px; top: 36px; left: 191px; transform: translate(-50%, -50%); }
       .btn-funeral a span { font-size: 19px; }
 
       /* FILHO COM DEFICIÊNCIA */
       .btn-filho img { width: 410px; height: 130px; top: -32px; right: -20px; }
-      .btn-filho a   { width: 410px; height: 130px; top: -28px; right: -28px; }
+      .btn-filho a   { width: 348px; height: 70px; top: 36px; right: 181px; transform: translate(50%, -50%); }
       .btn-filho a span { font-size: 19px; }
 
       /* CRECHE */
       .btn-creche img { width: 410px; height: 130px; top: 53px; left: -14px; }
-      .btn-creche a   { width: 410px; height: 130px; top: 57px; left: -10px; }
+      .btn-creche a   { width: 348px; height: 70px; top: 121px; left: 191px; transform: translate(-50%, -50%); }
       .btn-creche a span { font-size: 19px; }
 
       /* MATERIAL ESCOLAR */
       .btn-material img { width: 410px; height: 130px; top: 53px; right: -20px; }
-      .btn-material a   { width: 410px; height: 130px; top: 57px; right: -20px; }
+      .btn-material a   { width: 348px; height: 70px; top: 121px; right: 185px; transform: translate(50%, -50%); }
       .btn-material a span { font-size: 19px; }
 
-      /* RODAPÉ - DESKTOP */
-      .txt-menu       { font-size: 18px; margin-left: 20px; margin-top: 0; color: white; font-weight: bold; display:block; }
-      .txt-principal  { font-size: 22px; margin-left: 20px; margin-top: 5px; color: white; font-weight: bold; display:block; }
-      .icone-casinha  { width: 70px; height: 70px; margin-left: 30px; margin-top: 5px; display:block; }
+      /* MENU PRINCIPAL */
+      .txt-menu       { font-size: 14px; margin-left: 12px; top: -52px; color: white; font-weight: bold; position: relative; display:block; }
+      .txt-principal  { font-size: 14px; margin-left: -3px; top: -52px; color: white; font-weight: bold; position: relative; display:block; }
+      .icone-casinha  { width: 68px; height: 68px; margin-left: -84px; top: -4px; position: relative; display:block; }
     }
 
     /* ================= MOBILE ================= */
@@ -129,10 +129,10 @@
       .btn-material a   { width: 580px; height: 90px; top: 448px; left: 482px; transform: translateX(-50%); }
       .btn-material a span { font-size: 33px; }
 
-      /* RODAPÉ - MOBILE */
-      .txt-menu       { font-size: 28px; margin-left: 40px; margin-top: -10px; color: white; font-weight: bold; display:block; }
-      .txt-principal  { font-size: 32px; margin-left: 40px; margin-top: 0; color: white; font-weight: bold; display:block; }
-      .icone-casinha  { width: 90px; height: 90px; margin-left: 50px; margin-top: 10px; display:block; }
+      /* MENU PRINCIPAL */
+      .txt-menu       { font-size: 28px; margin-left: 40px; color: white; font-weight: bold; display:block; position: relative; top: -8px; }
+      .txt-principal  { font-size: 32px; margin-left: 40px; color: white; font-weight: bold; display:block; position: relative; top: 0; }
+      .icone-casinha  { width: 90px; height: 90px; margin-left: 50px; display:block; position: relative; top: -5px; }
     }
 
     /* ================= RODAPÉ BASE ================= */
@@ -144,7 +144,7 @@
     }
     .rodape-conteudo {
       display: flex;
-      align-items: flex-start; /* evita empurrar os outros */
+      align-items: center; /* alinhamento geral */
       gap: 12px;
     }
   </style>

@@ -30,7 +30,6 @@
       overflow-y: scroll;
       overflow-x: hidden;
       margin-top: 110px;
-
       scrollbar-width: thin;
       scrollbar-color: rgba(255,255,255,0.5) transparent;
     }
@@ -92,6 +91,11 @@
       .btn-material img { width: 410px; height: 130px; top: 53px; right: -20px; }
       .btn-material a   { width: 410px; height: 130px; top: 57px; right: -20px; }
       .btn-material a span { font-size: 19px; }
+
+      /* RODAPÉ - DESKTOP */
+      .txt-menu       { font-size: 18px; margin-left: 20px; margin-top: 0; }
+      .txt-principal  { font-size: 22px; margin-left: 20px; margin-top: 5px; }
+      .icone-casinha  { width: 70px; height: 70px; margin-left: 30px; margin-top: 5px; }
     }
 
     /* ================= MOBILE ================= */
@@ -124,9 +128,14 @@
       .btn-material img { width: 680px; height: 180px; top: 397px; left: 473px; transform: translateX(-50%); }
       .btn-material a   { width: 580px; height: 90px; top: 448px; left: 482px; transform: translateX(-50%); }
       .btn-material a span { font-size: 33px; }
+
+      /* RODAPÉ - MOBILE */
+      .txt-menu       { font-size: 28px; margin-left: 40px; margin-top: -10px; }
+      .txt-principal  { font-size: 32px; margin-left: 40px; margin-top: 0; }
+      .icone-casinha  { width: 90px; height: 90px; margin-left: 50px; margin-top: 10px; }
     }
 
-    /* ================= RODAPÉ ================= */
+    /* ================= RODAPÉ BASE ================= */
     .rodape {
       position: fixed;
       bottom: 2px;
@@ -140,13 +149,9 @@
       color: white;
       font-weight: bold;
     }
-    .rodape-conteudo span {
+    .rodape-textos span {
       display: block;
       line-height: 1.2;
-    }
-    .rodape img {
-      width: 68px;
-      height: 68px;
     }
   </style>
 </head>
@@ -158,10 +163,9 @@
     <span>AUXÍLIOS</span>
   </div>
 
-  <!-- Botões com scroll -->
+  <!-- Botões -->
   <div class="botoes-scroll">
     <div class="grid-botoes">
-
       <div class="botao btn-funeral">
         <img src="icones/icone.botao.png" alt="Funeral">
         <a href="auxilios/menu.do.auxilio.funeral.html"><span>FUNERAL</span></a>
@@ -181,19 +185,18 @@
         <img src="icones/icone.botao.png" alt="Material Escolar">
         <a href="auxilios/menu.do.auxilio.material.escolar.html"><span>MATERIAL ESCOLAR</span></a>
       </div>
-
     </div>
   </div>
 
   <!-- Rodapé -->
   <div class="rodape">
     <div class="rodape-conteudo">
-      <div>
-        <span>MENU</span>
-        <span>PRINCIPAL</span>
+      <div class="rodape-textos">
+        <span class="txt-menu">MENU</span>
+        <span class="txt-principal">PRINCIPAL</span>
       </div>
       <a href="menu.principal.html">
-        <img src="icones/casinha.png" alt="Home">
+        <img class="icone-casinha" src="icones/casinha.png" alt="Home">
       </a>
     </div>
   </div>

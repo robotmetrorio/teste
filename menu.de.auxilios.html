@@ -93,32 +93,9 @@
       .btn-material a span { font-size: 19px; }
 
       /* RODAPÉ - DESKTOP */
-      .rodape { position: fixed; bottom: 2px; width: 100%; height: 100px; }
-      .rodape-conteudo { position: relative; width: 100%; height: 100%; }
-
-      .txt-menu {
-        position: absolute;
-        top: 5px;    /* controla vertical */
-        left: 20px;  /* controla horizontal */
-        font-size: 18px;
-        color: white;
-        font-weight: bold;
-      }
-      .txt-principal {
-        position: absolute;
-        top: 30px;   /* controla vertical */
-        left: 20px;  /* controla horizontal */
-        font-size: 22px;
-        color: white;
-        font-weight: bold;
-      }
-      .icone-casinha {
-        position: absolute;
-        top: 5px;    /* controla vertical */
-        left: 150px; /* controla horizontal */
-        width: 70px;
-        height: 70px;
-      }
+      .txt-menu       { font-size: 18px; margin-left: 20px; margin-top: 0; color: white; font-weight: bold; display:block; }
+      .txt-principal  { font-size: 22px; margin-left: 20px; margin-top: 5px; color: white; font-weight: bold; display:block; }
+      .icone-casinha  { width: 70px; height: 70px; margin-left: 30px; margin-top: 5px; display:block; }
     }
 
     /* ================= MOBILE ================= */
@@ -153,32 +130,22 @@
       .btn-material a span { font-size: 33px; }
 
       /* RODAPÉ - MOBILE */
-      .rodape { position: fixed; bottom: 2px; width: 100%; height: 120px; }
-      .rodape-conteudo { position: relative; width: 100%; height: 100%; }
+      .txt-menu       { font-size: 28px; margin-left: 40px; margin-top: -10px; color: white; font-weight: bold; display:block; }
+      .txt-principal  { font-size: 32px; margin-left: 40px; margin-top: 0; color: white; font-weight: bold; display:block; }
+      .icone-casinha  { width: 90px; height: 90px; margin-left: 50px; margin-top: 10px; display:block; }
+    }
 
-      .txt-menu {
-        position: absolute;
-        top: 10px;    /* vertical */
-        left: 40px;   /* horizontal */
-        font-size: 28px;
-        color: white;
-        font-weight: bold;
-      }
-      .txt-principal {
-        position: absolute;
-        top: 50px;    /* vertical */
-        left: 40px;   /* horizontal */
-        font-size: 32px;
-        color: white;
-        font-weight: bold;
-      }
-      .icone-casinha {
-        position: absolute;
-        top: 10px;    /* vertical */
-        left: 220px;  /* horizontal */
-        width: 90px;
-        height: 90px;
-      }
+    /* ================= RODAPÉ BASE ================= */
+    .rodape {
+      position: fixed;
+      bottom: 2px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    .rodape-conteudo {
+      display: flex;
+      align-items: flex-start; /* evita empurrar os outros */
+      gap: 12px;
     }
   </style>
 </head>
@@ -218,8 +185,10 @@
   <!-- Rodapé -->
   <div class="rodape">
     <div class="rodape-conteudo">
-      <span class="txt-menu">MENU</span>
-      <span class="txt-principal">PRINCIPAL</span>
+      <div>
+        <span class="txt-menu">MENU</span>
+        <span class="txt-principal">PRINCIPAL</span>
+      </div>
       <a href="menu.principal.html">
         <img class="icone-casinha" src="icones/casinha.png" alt="Home">
       </a>

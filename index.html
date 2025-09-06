@@ -383,6 +383,27 @@
         height: 120px;
       }
     }
+
+    /* --- NOVOS VÍDEOS MOBILE --- */
+    #videoMobile1, #videoMobile2 {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      #videoMobile1, #videoMobile2 { display: block !important; }
+      #imgMobile1, #imgMobile2     { display: none  !important; }
+    }
+    @media (hover: none) and (pointer: coarse) {
+      #videoMobile1, #videoMobile2 { display: block !important; }
+      #imgMobile1, #imgMobile2     { display: none  !important; }
+    }
   </style>
 </head>
 <body>
@@ -393,6 +414,12 @@
   <video id="video2" autoplay muted loop playsinline>
     <source src="midias/segundovideo.mp4" type="video/mp4">
   </video>
+  
+  <!-- Vídeo mobile primeira tela -->
+  <video id="videoMobile1" autoplay muted loop playsinline>
+    <source src="midias/quartovideo.mp4" type="video/mp4">
+  </video>
+  
   <img id="imgMobile1" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile">
   <div id="inputArea">
     <h2>Digite sua Matrícula</h2>
@@ -422,6 +449,12 @@
     <video id="video3" autoplay muted loop playsinline style="position:relative; z-index:2;">
       <source src="midias/terceirovideo.mp4" type="video/mp4">
     </video>
+
+    <!-- Vídeo mobile segunda tela -->
+    <video id="videoMobile2" autoplay muted loop playsinline>
+      <source src="midias/quartovideo.mp4" type="video/mp4">
+    </video>
+    
     <img id="imgMobile2" src="imagens/fundo-mobile.jpg" alt="Fundo Mobile" style="z-index:0;">
   </div>
   <div class="container">
@@ -530,6 +563,7 @@
 </script>
 </body>
 </html>
+
 
 
 
